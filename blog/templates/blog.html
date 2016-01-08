@@ -1,0 +1,95 @@
+ {% extends "base.html" %}
+{% block title %}Tour Blog{%endblock%}
+{% block content %}
+{% load pagination_tags %}
+
+
+<!--container-->
+<div class="rds-container">
+    <div class="rds-main">
+    {% autopaginate posts 4 %}
+        {% for post in posts %}
+        <div class="news-list">
+            <h2><a href="/blog/{{ post.id }}">{{ post.title }}</a></h2>
+            <img src="/site_media/{{ post.image }}" alt="" class="scenery-img"/>
+            <div class="news-info">
+                <div class="fleft">
+                    <span class="address"><i class="icon iconfont">&#xe69f;</i><a href="">南京市</a></span>
+                    <span class="author">by <a href=""><img src="images/person-img.jpg" alt=""/>{{ post.author }}</a></span>
+                    <span class="views"><i class="icon iconfont">&#xe694;</i>222</span>
+                </div>
+                <div class="fright comments">
+                    <i class="icon iconfont">&#xe612;</i>444
+                </div>
+            </div>
+            <div class="brief">
+                {{ post.body|slice:":100" }}...
+            </div>
+            <div class="news-more">
+                <a href="/blog/{{ post.id }}">更多详情>></a>
+            </div>
+        </div>
+         {% endfor %}
+        <div class="col-md-12">
+               	 {% paginate %}
+            	</div>
+    </div>
+    <div class="siderbar">
+        <div class="sider-search">
+            <div class="search-input">
+                <form action="">
+                    <input type="text" name="" id="" class="m-search" placeholder="搜索关键字"/>
+                    <a href=""><i class="icon iconfont">&#xe6a7;</i></a>
+                </form>
+            </div>
+        </div>
+        <div class="lately-news">
+            <div class="sider-title">
+                最新新闻
+            </div>
+            <ul>
+            {% for post in posts|slice:":3" %}
+                <li>
+                    <a href="">
+                        <img src="/site_media/{{ post.image }}" alt=""/>
+                        <p>{{ post.title|slice:":52" }}...</p>
+                    </a>
+                </li>
+               {% endfor %}
+            </ul>
+        </div>
+        <div class="comment-list">
+            <div class="sider-title">
+                最新评论
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/person-img.jpg" alt=""/>
+                        <div class="comments-text">
+                            <h2>思迈尔</h2>
+                            <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="hot-tags">
+            <div class="sider-title">
+                热门标签
+            </div>
+            <div class="tags-list">
+                <a href="">互联网</a>
+                <a href="">移动端</a>
+                <a href="">大数据</a>
+                <a href="">云计算</a>
+                <a href="">阿里云</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+  
+{%endblock%}

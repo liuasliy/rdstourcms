@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - rdstourcms@localhost" uuid="bc231730-dfd6-4e36-8452-e7dc3cb7f788">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>rdstourcms.*</schema-pattern>
+      <default-schemas>rdstourcms.*</default-schemas>
+    </data-source>
+  </component>
+</project>

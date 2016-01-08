@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel = "Shortcut Icon" href="/static/images/logo_net_32.png">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<!--header-->
+<div class="navbar fixed">
+    <div class="nav">
+        <div class="logo"><a href=""><img src="/static/images/logo.png" alt=""/></a></div>
+        <div class="top-right">
+            <ul class="main-nav">
+                <li><a href="">首页</a></li>
+                <li><a href="">服务列表</a></li>
+                <li><a href="">知识库</a></li>
+            </ul>
+            <div class="login-reg">
+                <a href="" class="login">登录</a>
+                <a href="" class="register">注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+<!--footer-->
+<div class="footer">
+    <div class="copyright">
+        Copyright &copy; 2015-2016 Powered by  <a href="">Rdstours</a> &nbsp;&nbsp; 苏ICP备1212244号-7
+    </div>
+</div>
+</body>
+
+</html>

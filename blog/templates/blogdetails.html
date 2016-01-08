@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ posts.title }}{%endblock%}
+{% block content %}
+
+
+
+<!--container-->
+<div class="news-index">
+    <div class="set-bg"></div>
+    <div class="row">
+        <div class="h1-title">{{ posts.title }}</div>
+        <div class="per-img"><img src="images/person-img.jpg" alt=""/></div>
+    </div>
+</div>
+<div class="share-box">
+    <div class="row">
+       <div class="per-info">
+           <a href="">{{posts.author}}</a>
+           <span>{{posts.timestamp|date:"Y-m-d"}}</span>
+           <i class="icon iconfont">&#xe694;</i>333
+       </div>
+        <div class="share">
+            <div class="fleft">收藏</div>
+            <div class="fright">分享</div>
+        </div>
+    </div>
+</div>
+<div class="rds-container">
+    <div class="rds-main">
+        <div class="news-list">
+        <img src="/site_media/{{ posts.image }}" alt="" class="scenery-img"/>
+            <div class="news-content">
+                {{ posts.body|safe }}
+            </div>
+        </div>
+
+    </div>
+    <div class="siderbar">
+        
+        <div class="lately-news">
+            <div class="sider-title">
+                最新新闻
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/jpg-2.jpg" alt=""/>
+                        <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变森纳</p>
+                    </a>
+                </li>
+               
+            </ul>
+        </div>
+        <div class="comment-list">
+            <div class="sider-title">
+                最新评论
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/person-img.jpg" alt=""/>
+                        <div class="comments-text">
+                            <h2>思迈尔</h2>
+                            <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/person-img.jpg" alt=""/>
+                        <div class="comments-text">
+                            <h2>思迈尔</h2>
+                            <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/person-img.jpg" alt=""/>
+                        <div class="comments-text">
+                            <h2>思迈尔</h2>
+                            <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+
+</div>
+
+
+{% endblock %}
