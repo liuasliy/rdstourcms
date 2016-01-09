@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}BigKola{%endblock%}
+{% block content %}
+
+<!--=======content================================-->
+<style>
+.main{
+	height:1500px;
+	margin-top:60px;
+}
+.logout_title{
+	margin:10px auto 5px auto;
+	border-bottom:thin solid #dddddd;
+}
+ 
+.well{	
+	background-color:#fff;
+	border:thin solid #dddddd;
+	border-radius:5px;
+}
+</style>
+<!--=======留言板================================-->
+
+
+
+<div class="container main">
+  <div class="row">
+	<div class="span7 well">
+		<ul class="nav nav-list">
+			<li class="nav-heade logout_title">
+				<h3><a href="#" class="title">
+							  BigKola Empire  
+				</a></h3></li>
+					
+			<li>
+					<h2>您已成功退出帝国</h2>
+			<li>	
+		</ul>
+	</div>
+	
+	
+	<div class="span4">
+	<!--=======SNS================================-->	
+			   
+		<div class="well">
+
+			 <ul class="nav nav-list">
+			   <li class="nav-header">将帝国分享到SNS：</li>
+			 <li>
+				<div class="go">	   
+				<!-- 将此标记放置在你希望显示+1 按钮的位置。 -->
+				  <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+				<!-- 将此标记放置在最后一个 +1 按钮 标记之后。 -->
+				  <script type="text/javascript">
+					  window.___gcfg = {lang: 'zh-CN'};
+
+					  (function() {
+						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						po.src = 'https://apis.google.com/js/platform.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					  })();
+				  </script>
+				</div><!-- end google +1。 -->
+			 </li>
+
+			<li>	
+				<div class="sina">
+				  <html xmlns:wb=“http://open.weibo.com/wb”>
+				  <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8">
+				  </script>
+				  <wb:share-button appkey="3n3Yax" addition="number" type="button" 
+				  ralateUid="3874142518" default_text="欢迎光临帝国！"></wb:share-button>
+				</div><!-- end sina 。 -->
+			</li>	
+
+			<li class="thewhite"></li>
+
+			<li class="nav-header">添加BigKola的微信：</li>	
+			<li id="myweixin">
+				<img src="{{STATIC_URL}}images/weixin.png" alt="我的微信" />
+			</li>
+				
+			</ul>	
+		</div>
+	</div>
+  </div>
+</div>
+
+{% endblock%}

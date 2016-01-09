@@ -15,7 +15,12 @@
             <div class="news-info">
                 <div class="fleft">
                     <span class="address"><i class="icon iconfont">&#xe69f;</i><a href="">南京市</a></span>
-                    <span class="author">by <a href=""><img src="images/person-img.jpg" alt=""/>{{ post.author }}</a></span>
+
+                    <span class="author">by <a href="">
+                    {% for user in users %}
+                    <img src="/site_media/{{ user.headImage }}" alt=""/>
+                    {% endfor %}
+                    {{ post.author }}</a></span>
                     <span class="views"><i class="icon iconfont">&#xe694;</i>222</span>
                 </div>
                 <div class="fright comments">

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}申请成为帝国国民{%endblock%}
+{% block content %}
+<style>
+.span7{ height:580px;}
+</style>
+<div class="container main_body" style="margin-top:100px;">
+  <div class="row">
+	<div class="span7">
+
+	  <form id="register" action=/register/ method="post">
+			  <h1>注 册</h1>
+		<fieldset>
+	  {%csrf_token%}
+<input type='hidden' name='csrfmiddlewaretoken' value='HjIHiBvb05gghn45gOSJMvLYnmPmZZiK' />
+						{% if errors%}
+						{% for error in errors %}
+						<div class="alert alert-error">
+						  <a class="close" data-dismiss="alert">×</a>
+						  <strong>错误!</strong> {{error}}
+						</div>
+						{%endfor%}
+						
+						{%endif%}	
+<fieldset id="inputs">
+        <input id="username" type="text" name="username" placeholder="用户名" maxlength="30" autofocus required>   
+        <input id="password" type="password" name="password1" placeholder="密码" required>
+        <input id="passwordcf" type="password" name="password2" placeholder="密码确认" required>
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="注 册">
+    </fieldset>
+          
+          
+		</fieldset>
+	  </form>
+ 
+    </div>
+	
+	
+  </div>
+</div>
+{%endblock%} 
+  

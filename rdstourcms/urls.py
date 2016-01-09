@@ -3,6 +3,7 @@ from django.contrib import admin
 import  settings
 from django.conf.urls.defaults import *
 
+
 urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'rdstourcms.views.home', name='home'),
@@ -17,7 +18,10 @@ urlpatterns = patterns('',
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'media'}),
                        url(r'^uploadimg/', 'blog.views.uploadimage'),
 
-                       url(r'^media/(?P<path>(\S)*)','django.views.static.serve',{'document_root':'media'}),
+                       url(r'^media/(?P<path>(\S)*)', 'django.views.static.serve', {'document_root':'media'}),
+                       url(r'^login/$', 'blog.views.login', name='login'),
+                       url(r'^register/$', 'blog.views.register'),
+
 
 )
 

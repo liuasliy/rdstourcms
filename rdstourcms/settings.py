@@ -82,6 +82,7 @@ ROOT_URLCONF = 'rdstourcms.urls'
 WSGI_APPLICATION = 'rdstourcms.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
