@@ -10,14 +10,26 @@ import time
 from django.core.files.base import ContentFile
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
+from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def archive(request):
     posts = BlogPost.objects.all()
     users = RdsUser.objects.all()
-    t = loader.get_template('blog.html')
-    c = Context({'posts': posts})
-    #return HttpResponse(t.render(c))
+
+    blog_list = BlogPost.objects.order_by('-pub_date')
+
+    # 总数据列表
+    paginator = Paginator(blog_list, 25)
+
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
     return render_to_response('blog.html', {"posts": posts, "users": users}, context_instance = RequestContext(request))
 
 

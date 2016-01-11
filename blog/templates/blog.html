@@ -9,19 +9,20 @@
     <div class="rds-main">
     {% autopaginate posts 4 %}
         {% for post in posts %}
+        
         <div class="news-list">
             <h2><a href="/blog/{{ post.id }}">{{ post.title }}</a></h2>
             <img src="/site_media/{{ post.image }}" alt="" class="scenery-img"/>
             <div class="news-info">
                 <div class="fleft">
                     <span class="address"><i class="icon iconfont">&#xe69f;</i><a href="">南京市</a></span>
-
+						{% for user in users %}
                     <span class="author">by <a href="">
-                    {% for user in users %}
                     <img src="/site_media/{{ user.headImage }}" alt=""/>
-                    {% endfor %}
+                 	{% endfor %}
                     {{ post.author }}</a></span>
-                    <span class="views"><i class="icon iconfont">&#xe694;</i>222</span>
+                    <span class="views"><i class="icon iconfont">&#xe694;</i>
+                    {{ post.count_hit }}</span>
                 </div>
                 <div class="fright comments">
                     <i class="icon iconfont">&#xe612;</i>444
@@ -34,6 +35,7 @@
                 <a href="/blog/{{ post.id }}">更多详情>></a>
             </div>
         </div>
+           
          {% endfor %}
         <div class="col-md-12">
                	 {% paginate %}
