@@ -22,7 +22,7 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 admin.site.register(BlogPost, BlogPostAdmin)
 
-
+# 计数器
 class Count(models.Model):
     num = models.IntegerField(default=0, verbose_name=u'+1数')
     blog = models.ForeignKey(BlogPost)
