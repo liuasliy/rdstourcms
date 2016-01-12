@@ -36,6 +36,8 @@ def archive(request):
 def detail(request, blog_id):
     try:
         posts = BlogPost.objects.get(id=blog_id)
+        posts.count_hit += 1
+        posts.save()
     except BlogPost.DoesNotExist:
         raise Http404
     return render_to_response('blogdetails.html', {"posts": posts})
