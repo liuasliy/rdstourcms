@@ -34,25 +34,16 @@
                 {{ posts.body|safe }}
             </div>
         </div>
-	{% load comments %}
-        <div>
+        	{% load comments %}
+			{% get_comment_list for posts as comment_list %}
+			{% for comment in comment_list %}
+    		<p>{{comment.user_name}} {{comment.comment}}</p>
+			{%endfor%}
 
-       
-        {% get_comment_form for posts as form %}
-<table>
-  <form action="{% comment_form_target %}" method="post">
- 
-    {{ form }}
-    <tr>
-      <td colspan="2">
-        <input type="submit" name="submit" value="Post">
-        <input type="submit" name="preview" value="Preview">
-      </td>
-    </tr>
-  </form>
-</table>
-
-        </div>
+	<div id='commentform'>
+		<h2>发表你的评论</h2>
+		{%render_comment_form for posts%}
+	</div>
     </div>
     <div class="siderbar">
         
