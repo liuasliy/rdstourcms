@@ -31,7 +31,7 @@ def archive(request):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render_to_response('blog.html', {"posts": posts, "users": users}, context_instance = RequestContext(request))
+    return render_to_response('blog.html', {"posts": posts, "users": users}, context_instance=RequestContext(request))
 
 
 def detail(request, blog_id):
@@ -41,7 +41,7 @@ def detail(request, blog_id):
         posts.save()
     except BlogPost.DoesNotExist:
         raise Http404
-    return render_to_response('blogdetails.html', {"posts": posts})
+    return render_to_response('blogdetails.html', {"posts": posts},context_instance=RequestContext(request))
 
 
 
