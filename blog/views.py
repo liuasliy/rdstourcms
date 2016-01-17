@@ -17,7 +17,6 @@ from django.core.mail import send_mail
 def archive(request):
     posts = BlogPost.objects.all()
     users = RdsUser.objects.all()
-
     blog_list = BlogPost.objects.order_by('-pub_date')
 
     # 总数据列表
@@ -41,7 +40,7 @@ def detail(request, blog_id):
         posts.save()
     except BlogPost.DoesNotExist:
         raise Http404
-    return render_to_response('blogdetails.html', {"posts": posts},context_instance=RequestContext(request))
+    return render_to_response('blogdetails.html', {"posts": posts}, context_instance=RequestContext(request))
 
 
 

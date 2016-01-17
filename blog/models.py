@@ -12,9 +12,9 @@ class BlogPost(models.Model):
     content = RichTextField()
     image = models.ImageField(upload_to='upload', default='')
     pub_date = models.DateTimeField()
-    count_hit = models.IntegerField()
+    count_hit = models.IntegerField(default=0,editable=False)
     tags = models.CharField(max_length=100)
-    author = models.CharField(max_length=50)
+    author = models.OneToOneField(User)
 
 
 class BlogPostAdmin(admin.ModelAdmin):

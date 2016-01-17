@@ -16,20 +16,27 @@
             <div class="news-info">
                 <div class="fleft">
                     <span class="address"><i class="icon iconfont">&#xe69f;</i><a href="">南京市</a></span>
-						{% for user in users %}
+					{% for users in users %}
+                    {% if users.id = post.author_id %}
                     <span class="author">by <a href="">
-                    <img src="/site_media/{{ user.headImage }}" alt=""/>
-                 	{% endfor %}
+                    <img src="/site_media/{{ users.headImage }}" alt=""/>
+                    {% endif %}
+
+                    {% endfor %}
                     {{ post.author }}</a></span>
                     <span class="views"><i class="icon iconfont">&#xe694;</i>
                     {{ post.count_hit }}</span>
                 </div>
                 <div class="fright comments">
-                    <i class="icon iconfont">&#xe612;</i>444
+                    <i class="icon iconfont">&#xe612;</i>
+                    {% load comments %}
+                    {% get_comment_count for post as comment_count %}
+                    {{ comment_count }}
+                
                 </div>
             </div>
             <div class="brief">
-                {{ post.body|slice:":100" }}...
+                {{ post.content|safe|slice:":100" }}...
             </div>
             <div class="news-more">
                 <a href="/blog/{{ post.id }}">更多详情>></a>

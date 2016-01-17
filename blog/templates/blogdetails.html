@@ -41,8 +41,49 @@
 			{%endfor%}
 
 	<div id='commentform'>
-		<h2>发表你的评论</h2>
-		{%render_comment_form for posts%}
+        {% if user.is_authenticated %}
+        <h2>发表你的评论</h2>
+
+
+        {% get_comment_form for posts as form %}
+        <form action="{%comment_form_target%}" method="post">
+            {%csrf_token%}
+            {{form.object_pk}}
+            {{form.content_type}}
+            {{form.timestamp}}
+            {{form.security_hash}}
+            <p>
+                <label for="id_name">姓名：</label>
+                <!--<input type="text" name="name" id="id_name" >-->
+                {{user.username}}
+            </p>
+            <p>
+                <label for="id_email">邮箱：</label>
+                <input type="text" name="email" id="id_email">
+            </p>
+            <!--<p>
+                <label for="id_url">网址：</label>
+                <input type="text" name="url" id="id_url">
+            </p>-->
+            <p>
+                <label for="id_comment">评论：</label>
+            </p>
+            <p>
+                <textarea name="comment" id="id_comment" cols="30" rows="10"></textarea>
+            </p>
+            <p style="display:none"> 
+                <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
+                <input type="text" name="honeypot" id="id_honeypot">
+            </p>
+            <p><input type="submit" name="post" value="发表"></p>
+            <input type="hidden" name="next" value="/blog/{{ posts.id }}">
+        </form>
+
+
+
+        {% else %}
+        请<a href="/login">登录</a>,或<a href="/register">注册</a>后再评论
+        {% endif %}
 	</div>
     </div>
     <div class="siderbar">
