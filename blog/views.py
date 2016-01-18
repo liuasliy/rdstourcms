@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
 from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
+from django.utils import timezone
+import datetime
 
 # Create your views here.
 def archive(request):
@@ -130,33 +132,13 @@ def register(request):
 
 
 
-# 评论
-'''
-@csrf_exempt
-def comment(request):
-    errors = []
-    if request.method == 'POST':
-        if not request.POST.get('user_name', ''):
-            errors.append('Enter a name.')
-        if not request.POST.get('comment', ''):
-            errors.append('Enter a comment.')
-        if request.POST.get('user_email') and '@' not in request.POST['user_email']:
-            errors.append('Enter a valid e‐mail address.')
-        if not errors:
-            send_mail(
-                request.POST['user_name'],
-                request.POST['comment'],
-                request.POST.get('user_email', 'noreply@example.com'),
-                ['siteowner@example.com'],
-            )
-        return HttpResponseRedirect('/contact/thanks/')
-    return render_to_response('form.html', {
-                          'errors': errors,
-                          'user_name': request.POST.get('user_name', ''),
-                          'comment': request.POST.get('comment', ''),
-                          'user_email': request.POST.get('user_email', ''),
-                          },context_instance=RequestContext(request))
-  '''
+# 收藏游记
+def add_favorite(request):
+    user = request.user
+    blog = request.POST['blog_id']
+    blog = BlogPost.objests.get(id=blog)
+    created_on = datetime.datetime.now()
+    FavoriteBlog.objects.update_or_create(user=user, blog=blog, created_on=created_on)
 
 
 

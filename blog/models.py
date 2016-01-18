@@ -31,5 +31,14 @@ class RdsUser(models.Model):
     user = models.OneToOneField(User)
 
 
+# 收藏
+class FavoriteBlog(models.Model):
+    user = models.ForeignKey(User)
+    blog = models.ForeignKey(BlogPost)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return "%s likes blog %s" % (self.user, self.blog)
+
 
 
