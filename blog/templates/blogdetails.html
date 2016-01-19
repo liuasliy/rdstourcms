@@ -7,10 +7,22 @@
 
 <!--container-->
 <div class="news-index">
-    <div class="set-bg"></div>
+    <div class="set-bg">
+        <img src="/site_media/{{ posts.image }}" alt="" class="scenery-img"/>
+    </div>
     <div class="row">
         <div class="h1-title">{{ posts.title }}</div>
-        <div class="per-img"><img src="images/person-img.jpg" alt=""/></div>
+        <div class="per-img">
+        {{ users.headImage }}
+         {% for users in User %}
+                    {% if users.id = post.author_id %}
+                    {{users.id}}
+                    <img src="/site_media/{{ user.headImage }}" alt=""/>
+                 {% endif %}
+
+                    {% endfor %}  
+    
+        </div>
     </div>
 </div>
 <div class="share-box">
@@ -29,9 +41,9 @@
 <div class="rds-container">
     <div class="rds-main">
         <div class="news-list">
-        <img src="/site_media/{{ posts.image }}" alt="" class="scenery-img"/>
+        
             <div class="news-content">
-                {{ posts.body|safe }}
+                {{ posts.content|safe }}
             </div>
         </div>
         	{% load comments %}

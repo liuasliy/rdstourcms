@@ -47,11 +47,11 @@ img {
   vertical-align: middle;
 }
 a {
-  color: #333;
-  text-decoration: none;
+  color: #000000;
 }
 a:hover {
-  color: #ff9d00;
+  text-decoration: underline;
+  color: #ff0000;
 }
 input[type="submit"],
 input[type="button"],

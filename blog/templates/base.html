@@ -7,6 +7,9 @@
     <link rel = "Shortcut Icon" href="/static/images/logo_net_32.png">
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+
+    <script src="/static/js/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -21,8 +24,8 @@
                 <li><a href="">知识库</a></li>
             </ul>
             <div class="login-reg">
-                <a href="/login" class="login">登录</a>
-                <a href="/register" class="register">注册</a>
+                <a  class="top-login">登录</a>
+                <a  class="top-register">注册</a>
             </div>
         </div>
     </div>
@@ -36,6 +39,89 @@
         Copyright &copy; 2015-2016 Powered by  <a href="">Rdstours</a> &nbsp;&nbsp; 苏ICP备1212244号-7
     </div>
 </div>
+<div id="sign" >
+    <div class="part login">
+        <form action=/login/ method="post" id="login">
+         {%csrf_token%}
+            <div id="register-active" class="switch">
+                <i class="fa fa-toggle-on"></i>
+                切换注册
+            </div>
+            <h3>登录</h3>
+            <p>
+                <label for="username"></label>
+                <input type="text" name="username" id="username" class="input-control" placeholder="输入用户名"/>
+            </p>
+            <p>
+                <label for="userpassword"></label>
+                <input type="text" name="password" id="password" class="input-control" placeholder="请输入密码"/>
+            </p>
+            <p>
+                <input type="submit" id="submit" name="login" class="submit" value="登录"/>
+            </p>
+            <a class="close">
+                <i class="fa fa-times"></i>
+            </a>
+        </form>
+    </div>
+    <div class="part register">
+        <form action="">
+            <div id="login-active" class="switch">
+                <i class="fa fa-toggle-on"></i>
+                切换登录
+            </div>
+            <h3>注册</h3>
+            <p>
+                <label for=""></label>
+                <input type="text" name="" id="" class="input-control"  placeholder="输入用户名"/>
+            </p>
+            <p>
+                <label for=""></label>
+                <input type="text" name="" id="" class="input-control"  placeholder="输入常用邮箱"/>
+            </p>
+            <p>
+                <label for=""></label>
+                <input type="text" name="" id="" class="input-control"  placeholder="密码最小长度为6"/>
+            </p>
+            <p>
+                <label for=""></label>
+                <input type="text" name="" id="" class="input-control"  placeholder="再次输入密码"/>
+            </p>
+            <p>
+                <input type="submit" class="submit" value="注册"/>
+            </p>
+            <a class="close">
+                <i class="fa fa-times"></i>
+            </a>
+        </form>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.top-login').click(function () {
+            $(document.body).addClass('fadeIn');
+            $(document.body).append('<div class="overlay"></div>');
+            $('#sign').removeClass('wrap-register').addClass('wrap-login');
+        })
+        $('.top-register').click(function () {
+            $(document.body).addClass('fadeIn');
+            $(document.body).append('<div class="overlay"></div>');
+            $('#sign').removeClass('wrap-login').addClass('wrap-register');
+        })
+        $('.close').click(function () {
+            $(document.body).removeClass('fadeIn');
+            $('.overlay').remove();
+            $('#sign').removeClass('wrap-register').removeClass('wrap-login');
+        })
+
+        $('#register-active').on("click", function () {
+            $('#sign').removeClass('wrap-login').addClass('wrap-register');
+        })
+        $('#login-active').on("click", function () {
+            $('#sign').removeClass('wrap-register').addClass('wrap-login');
+        })
+    })
+</script>
 </body>
 
 </html>
