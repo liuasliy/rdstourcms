@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import RdsUser
+from blog.models import *
 
 # Register your models here.
 

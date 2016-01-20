@@ -155,7 +155,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, "微软雅黑", Arial, Verdana, sans-serif;
 }
 .news-list img {
-  max-width: 780px;
+  max-width: 690px;
   width: 100%;
 }
 .scenery-img {
@@ -730,6 +730,7 @@ input[type="submit"] {
   width: 36px;
   height: 36px;
   padding-left: 0;
+  float: left;
   margin: 0 12px 0 0;
 }
 .bdsharebuttonbox a.bds_tsina {

@@ -7,8 +7,7 @@
     <div class="row">
         <div class="h1-title">{{ posts.title }}</div>
         <div class="per-img">
-            {{ users.headImage }} {% for users in User %} {% if users.id = post.author_id %} {{users.id}}
-            <img src="/site_media/{{ user.headImage }}" alt="" /> {% endif %} {% endfor %}
+            <img src="/site_media/{{ users.headImage }}" alt="" /> 
         </div>
     </div>
 </div>
@@ -48,7 +47,9 @@
             {% load comments %} {% get_comment_list for posts as comment_list %} {% for comment in comment_list %}
             <div class="com-list">
                 <div class="author-info">
-                    <div class="author-pic"><img src="images/person-img2.jpg" alt="" /></div>
+                    <div class="author-pic">     
+                <img src="/site_media/{{ users.headImage }}" alt="{{ comment.user_name }}" />
+                    </div>
                     <span class="author-name"><a href="">{{comment.user_name}}</a></span>
                     <span class="date">{{comment.submit_date}}</span>
                 </div>
@@ -69,12 +70,11 @@
                  {{form.timestamp}} 
                  {{form.security_hash}}
                 <div class="avatar">
-                    <a href="" title="王尼玛"><img src="images/person-img2.jpg" alt="王尼玛" /></a>
+                    <a href="" title="王尼玛"><img src="/site_media/{{ users.headImage }}" alt="王尼玛" /></a>
                 </div>
                 <div class="com-text">
                     <h2>回复内容</h2>
                     <div class="com-box">
-                    <input type="text" name="email" id="">
                         <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
                     </div>
                 </div>

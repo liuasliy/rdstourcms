@@ -36,9 +36,10 @@ def archive(request):
 
 
 def detail(request, blog_id):
-    users = RdsUser.objects.all()
+    users = request.user.rdsuser
     try:
         posts = BlogPost.objects.get(id=blog_id)
+
 
         posts.count_hit += 1
         posts.save()
