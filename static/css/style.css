@@ -744,3 +744,112 @@ input[type="submit"] {
   background: #73a64f url("../images/share.png") no-repeat;
   background-position: -67px 5px;
 }
+/*评论模块*/
+.comments {
+  background-color: #fff;
+  padding: 40px;
+}
+.com-list:before,
+.com-list:after {
+  content: "";
+  display: table;
+}
+.com-list:after {
+  clear: both;
+}
+.com-list + .com-list {
+  border-top: solid 1px #f0f0f0;
+  padding-top: 22px;
+  margin-top: 20px;
+}
+.author-info {
+  margin: 0 0 10px;
+  display: inline-block;
+}
+.author-info:before,
+.author-info:after {
+  content: "";
+  display: table;
+}
+.author-info:after {
+  clear: both;
+}
+.author-info .author-pic {
+  width: 50px;
+  height: 50px;
+  float: left;
+  overflow: hidden;
+}
+.author-info .author-pic img {
+  border-radius: 50%;
+  width: 100%;
+  background-size: cover;
+}
+.author-info .author-name,
+.author-info .date {
+  position: relative;
+  top: 17px;
+  margin-left: 20px;
+}
+.author-info .date {
+  color: #bbb;
+}
+.com-content {
+  word-break: break-all;
+  word-wrap: break-word;
+  line-height: 24px;
+}
+.com-textar {
+  margin-top: 30px;
+  padding-left: 60px;
+  position: relative;
+}
+.com-textar .avatar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+.com-textar .avatar img {
+  border-radius: 50%;
+  width: 100%;
+  background-size: cover;
+}
+.com-textar .com-text h2 {
+  color: #ff8a00;
+  border-left: solid 2px #ff8a00;
+  height: 16px;
+  line-height: 16px;
+  font-size: 16px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.com-textar .com-text .com-box {
+  border: solid 1px #e2e2e2;
+  width: 60%;
+  padding: 8px;
+}
+.com-textar .com-text .com-box textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  line-height: 22px;
+}
+.com-textar .com-submit {
+  background-color: #ffa800;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 30px;
+  cursor: pointer;
+  border: none;
+}
+.com-textar .com-submit:hover {
+  background-color: #ff8a00;
+}

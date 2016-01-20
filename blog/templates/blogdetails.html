@@ -1,40 +1,27 @@
-{% extends "base.html" %}
-{% block title %}{{ posts.title }}{%endblock%}
-{% block content %}
-
-
-
-
+{% extends "base.html" %} {% block title %}{{ posts.title }}{%endblock%} {% block content %}
 <!--container-->
 <div class="news-index">
     <div class="set-bg">
-        <img src="/site_media/{{ posts.image }}" alt="" class="scenery-img"/>
+        <img src="/site_media/{{ posts.image }}" alt="" class="scenery-img" />
     </div>
     <div class="row">
         <div class="h1-title">{{ posts.title }}</div>
         <div class="per-img">
-        {{ users.headImage }}
-         {% for users in User %}
-                    {% if users.id = post.author_id %}
-                    {{users.id}}
-                    <img src="/site_media/{{ user.headImage }}" alt=""/>
-                 {% endif %}
-
-                    {% endfor %}  
-    
+            {{ users.headImage }} {% for users in User %} {% if users.id = post.author_id %} {{users.id}}
+            <img src="/site_media/{{ user.headImage }}" alt="" /> {% endif %} {% endfor %}
         </div>
     </div>
 </div>
 <div class="share-box">
     <div class="row">
-       <div class="per-info">
-           <a href="">{{posts.author}}</a>
-           <span>{{posts.timestamp|date:"Y-m-d"}}</span>
-           <i class="icon iconfont">&#xe694;</i>333
-       </div>
+        <div class="per-info">
+            <a href="">{{posts.author}}</a>
+            <span>{{posts.timestamp|date:"Y-m-d"}}</span>
+            <i class="icon iconfont">&#xe694;</i>333
+        </div>
         <div class="share">
             <div class="fleft">
-                <a >
+                <a>
                     <i></i>
                     <span>2324</span>
                     <strong>收藏</strong>
@@ -53,65 +40,58 @@
 <div class="rds-container">
     <div class="rds-main">
         <div class="news-list">
-        
             <div class="news-content">
                 {{ posts.content|safe }}
             </div>
         </div>
-        	{% load comments %}
-			{% get_comment_list for posts as comment_list %}
-			{% for comment in comment_list %}
-    		<p>{{comment.user_name}} {{comment.comment}}</p>
-			{%endfor%}
-
-	<div id='commentform'>
-        {% if user.is_authenticated %}
-        <h2>发表你的评论</h2>
-
-
-        {% get_comment_form for posts as form %}
-        <form action="{%comment_form_target%}" method="post">
-            {%csrf_token%}
-            {{form.object_pk}}
-            {{form.content_type}}
-            {{form.timestamp}}
-            {{form.security_hash}}
-            <p>
-                <label for="id_name">姓名：</label>
-                <!--<input type="text" name="name" id="id_name" >-->
-                {{user.username}}
-            </p>
-            <p>
-                <label for="id_email">邮箱：</label>
-                <input type="text" name="email" id="id_email">
-            </p>
-            <!--<p>
-                <label for="id_url">网址：</label>
-                <input type="text" name="url" id="id_url">
-            </p>-->
-            <p>
-                <label for="id_comment">评论：</label>
-            </p>
-            <p>
-                <textarea name="comment" id="id_comment" cols="30" rows="10"></textarea>
-            </p>
-            <p style="display:none"> 
-                <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
-                <input type="text" name="honeypot" id="id_honeypot">
-            </p>
-            <p><input type="submit" name="post" value="发表"></p>
-            <input type="hidden" name="next" value="/blog/{{ posts.id }}">
-        </form>
+        <div class="comments">
+            {% load comments %} {% get_comment_list for posts as comment_list %} {% for comment in comment_list %}
+            <div class="com-list">
+                <div class="author-info">
+                    <div class="author-pic"><img src="images/person-img2.jpg" alt="" /></div>
+                    <span class="author-name"><a href="">{{comment.user_name}}</a></span>
+                    <span class="date">{{comment.submit_date}}</span>
+                </div>
+                <div class="com-content">
+                    {{comment.comment}}
+                </div>
+            </div>
+            {%endfor%}
 
 
-
-        {% else %}
-        请<a href="/login">登录</a>,或<a href="/register">注册</a>后再评论
-        {% endif %}
-	</div>
+            <div class="com-textar">
+            {% if user.is_authenticated %}
+            {% get_comment_form for posts as form %}
+            <form action="{%comment_form_target%}" method="post">
+                {%csrf_token%} 
+                {{form.object_pk}}
+                 {{form.content_type}} 
+                 {{form.timestamp}} 
+                 {{form.security_hash}}
+                <div class="avatar">
+                    <a href="" title="王尼玛"><img src="images/person-img2.jpg" alt="王尼玛" /></a>
+                </div>
+                <div class="com-text">
+                    <h2>回复内容</h2>
+                    <div class="com-box">
+                    <input type="text" name="email" id="">
+                        <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
+                    </div>
+                </div>
+                <p style="display:none">
+                    <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
+                    <input type="text" name="honeypot" id="id_honeypot">
+                </p>
+                <input type="submit" name="post" value="发表回复" class="com-submit">
+                <input type="hidden" name="next" value="/blog/{{ posts.id }}">
+            </form>
+            {% else %} 请
+            <a href="/login">登录</a>,或<a href="/register">注册</a>后再评论 {% endif %}
+            </div>
+        </div>
+    
     </div>
     <div class="siderbar">
-        
         <div class="lately-news">
             <div class="sider-title">
                 最新新闻
@@ -119,11 +99,10 @@
             <ul>
                 <li>
                     <a href="">
-                        <img src="images/jpg-2.jpg" alt=""/>
+                        <img src="images/jpg-2.jpg" alt="" />
                         <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变森纳</p>
                     </a>
                 </li>
-               
             </ul>
         </div>
         <div class="comment-list">
@@ -133,7 +112,7 @@
             <ul>
                 <li>
                     <a href="">
-                        <img src="images/person-img.jpg" alt=""/>
+                        <img src="images/person-img.jpg" alt="" />
                         <div class="comments-text">
                             <h2>思迈尔</h2>
                             <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
@@ -142,7 +121,7 @@
                 </li>
                 <li>
                     <a href="">
-                        <img src="images/person-img.jpg" alt=""/>
+                        <img src="images/person-img.jpg" alt="" />
                         <div class="comments-text">
                             <h2>思迈尔</h2>
                             <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
@@ -151,7 +130,7 @@
                 </li>
                 <li>
                     <a href="">
-                        <img src="images/person-img.jpg" alt=""/>
+                        <img src="images/person-img.jpg" alt="" />
                         <div class="comments-text">
                             <h2>思迈尔</h2>
                             <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
@@ -160,17 +139,32 @@
                 </li>
             </ul>
         </div>
-        
     </div>
-
 </div>
 <!--baidu share js-->
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2",
-    "bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},
-    "share":{},"image":{"viewList":["tsina","qzone","weixin"],"viewText":"分享到：",
-        "viewSize":"16"},"selectShare":{"bdContainerClass":null,
-        "bdSelectMiniList":["tsina","qzone","weixin"]}};
-with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "24"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["tsina", "qzone", "weixin"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["tsina", "qzone", "weixin"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
 <!--end share-->
-
 {% endblock %}

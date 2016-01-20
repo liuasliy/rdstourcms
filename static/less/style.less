@@ -172,7 +172,7 @@ body {
     line-height: 26px;
     font-family: "Helvetica Neue", Helvetica, "微软雅黑", Arial, Verdana, sans-serif;
   }
-  img{
+  img {
     max-width: 780px;
     width: 100%;
   }
@@ -431,11 +431,11 @@ body {
     position: relative;
     height: 480px;
   }
-  .set-bg{
+  .set-bg {
     height: 480px;
     position: absolute;
     top: 0;
-    img{
+    img {
       width: 100%;
       height: 480px;
     }
@@ -465,44 +465,44 @@ body {
   background-color: #fff;
   height: 80px;
   border-bottom: 1px solid #d7d7d7;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
   .per-info {
     float: left;
     padding-left: 150px;
     padding-top: 10px;
     color: #666;
-    span.date{
+    span.date {
       margin-right: 100px;
     }
   }
-  .share{
+  .share {
     float: right;
-    .fleft{
+    .fleft {
       border-right: solid 1px #e4e4e4;
       padding-right: 20px;
       margin-right: 20px;
       height: 80px;
       color: #666;
       padding-top: 15px;
-      a{
+      a {
         cursor: pointer;
         color: #666;
       }
-      i{
+      i {
         display: block;
         width: 25px;
         height: 24px;
-        margin:  0 auto 7px;
+        margin: 0 auto 7px;
         background: url("../images/collect.png") no-repeat;
         background-position: 0 0;
       }
       span,
-      strong{
+      strong {
         display: inline-block;
         font-weight: normal;
       }
     }
-    .fright{
+    .fright {
       margin-top: 20px;
     }
   }
@@ -634,7 +634,7 @@ body {
 }
 
 /*登录注册*/
-#sign{
+#sign {
   position: fixed;
   z-index: 9999;
   top: 80px;
@@ -650,7 +650,7 @@ body {
   -webkit-perspective: 800px;
   -ms-perspective: 800px;
   perspective: 800px;
-  .part{
+  .part {
     position: absolute;
     width: 100%;
     left: 0;
@@ -668,56 +668,56 @@ body {
     backface-visibility: hidden;
     display: none;
   }
-  &.wrap-login .part.login{
+  &.wrap-login .part.login {
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
     z-index: 1;
     display: block;
   }
-  &.wrap-login .part.register{
+  &.wrap-login .part.register {
     -webkit-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
     z-index: 0;
     display: block;
   }
-  &.wrap-register .part.register{
+  &.wrap-register .part.register {
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
     z-index: 1;
     display: block;
   }
-  &.wrap-register .part.login{
+  &.wrap-register .part.login {
     -webkit-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
     z-index: 0;
     display: block;
   }
-  input.input-control{
+  input.input-control {
     padding-right: 35px;
   }
-  form{
-    p{
+  form {
+    p {
       margin: 10px auto;
       position: relative;
     }
-    input{
+    input {
       border: 1px solid #ddd;
       padding: 10px;
       width: 100%;
       box-sizing: border-box;
     }
-    .submit{
+    .submit {
       cursor: pointer;
       background-color: #00c3b6;
       color: #FFF;
       border: 0 none;
       font-size: 14px;
     }
-    .close{
+    .close {
       position: absolute;
       right: 25px;
       top: 0;
@@ -729,17 +729,17 @@ body {
       background-color: #444;
       font-size: 16px;
       color: #FFF;
-      i{
+      i {
         -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
       }
     }
-    .close:hover i{
-      -webkit-transform:rotate(180deg);
-      -ms-transform:rotate(180deg);
-      transform:rotate(180deg)
+    .close:hover i {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg)
     }
-    a{
+    a {
       color: #00c3b6;
       outline: none;
       cursor: pointer;
@@ -748,12 +748,12 @@ body {
       text-decoration: none;
     }
   }
-  .switch{
+  .switch {
     color: #999;
     cursor: pointer;
     margin: 15px auto;
     display: inline-block;
-    i{
+    i {
       margin-right: 5px;
       color: #ea4c89;
     }
@@ -768,12 +768,14 @@ input[type="submit"] {
   -webkit-tap-highlight-color: transparent;
   border-radius: 0;
 }
-.fadeIn #sign{
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+
+.fadeIn #sign {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-.overlay{
+
+.overlay {
   background: #000;
   opacity: 0.8;
   position: fixed;
@@ -785,7 +787,7 @@ input[type="submit"] {
 }
 
 /*分享*/
-.share .bdsharebuttonbox a{
+.share .bdsharebuttonbox a {
   display: block;
   border-radius: 4px;
   width: 36px;
@@ -793,15 +795,139 @@ input[type="submit"] {
   padding-left: 0;
   margin: 0 12px 0 0;
 }
-.bdsharebuttonbox a.bds_tsina{
-  background:#d84c4c  url("../images/share.png") no-repeat;
+
+.bdsharebuttonbox a.bds_tsina {
+  background: #d84c4c url("../images/share.png") no-repeat;
   background-position: 5px 7px;
 }
-.bdsharebuttonbox a.bds_qzone{
-  background:#3f8bc0 url("../images/share.png") no-repeat;
+
+.bdsharebuttonbox a.bds_qzone {
+  background: #3f8bc0 url("../images/share.png") no-repeat;
   background-position: -30px 7px;
 }
-.bdsharebuttonbox a.bds_weixin{
-  background:#73a64f url("../images/share.png") no-repeat;
+
+.bdsharebuttonbox a.bds_weixin {
+  background: #73a64f url("../images/share.png") no-repeat;
   background-position: -67px 5px;
+}
+
+/*评论模块*/
+.comments {
+  background-color: #fff;
+  padding: 40px;
+}
+
+.com-list {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.com-list + .com-list {
+  border-top: solid 1px #f0f0f0;
+  padding-top: 22px;
+  margin-top: 20px;
+}
+
+.author-info {
+  margin: 0 0 10px;
+  display: inline-block;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  .author-pic {
+    width: 50px;
+    height: 50px;
+    float: left;
+    overflow: hidden;
+    img {
+      border-radius: 50%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+  .author-name,
+  .date {
+    position: relative;
+    top: 17px;
+    margin-left: 20px;
+  }
+  .date {
+    color: #bbb;
+  }
+}
+
+.com-content {
+  word-break: break-all;
+  word-wrap: break-word;
+  line-height: 24px;
+}
+
+.com-textar {
+  margin-top: 30px;
+  padding-left: 60px;
+  position: relative;
+  .avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    img {
+      border-radius: 50%;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+  .com-text {
+    h2{
+      color: #ff8a00;
+      border-left: solid 2px #ff8a00;
+      height: 16px;
+      line-height: 16px;
+      font-size: 16px;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .com-box{
+      border: solid 1px #e2e2e2;
+      width: 60%;
+      padding: 8px;
+      textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        line-height: 22px;
+      }
+    }
+
+  }
+  .com-submit {
+    background-color: #ffa800;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    border: none;
+    &:hover {
+      background-color: #ff8a00;
+    }
+  }
 }
