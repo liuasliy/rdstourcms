@@ -172,6 +172,10 @@ body {
     line-height: 26px;
     font-family: "Helvetica Neue", Helvetica, "微软雅黑", Arial, Verdana, sans-serif;
   }
+  img{
+    max-width: 780px;
+    width: 100%;
+  }
 }
 
 .scenery-img {
@@ -422,9 +426,19 @@ body {
   position: relative;
   background: url("../images/page_bg.jpg") center 0 no-repeat;
   background-size: cover;
+  position: relative;
   .row {
     position: relative;
     height: 480px;
+  }
+  .set-bg{
+    height: 480px;
+    position: absolute;
+    top: 0;
+    img{
+      width: 100%;
+      height: 480px;
+    }
   }
   .per-img {
     float: left;
@@ -448,10 +462,49 @@ body {
 }
 
 .share-box {
+  background-color: #fff;
+  height: 80px;
+  border-bottom: 1px solid #d7d7d7;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
   .per-info {
     float: left;
     padding-left: 150px;
     padding-top: 10px;
+    color: #666;
+    span.date{
+      margin-right: 100px;
+    }
+  }
+  .share{
+    float: right;
+    .fleft{
+      border-right: solid 1px #e4e4e4;
+      padding-right: 20px;
+      margin-right: 20px;
+      height: 80px;
+      color: #666;
+      padding-top: 15px;
+      a{
+        cursor: pointer;
+        color: #666;
+      }
+      i{
+        display: block;
+        width: 25px;
+        height: 24px;
+        margin:  0 auto 7px;
+        background: url("../images/collect.png") no-repeat;
+        background-position: 0 0;
+      }
+      span,
+      strong{
+        display: inline-block;
+        font-weight: normal;
+      }
+    }
+    .fright{
+      margin-top: 20px;
+    }
   }
 }
 
@@ -729,4 +782,26 @@ input[type="submit"] {
   left: 0;
   top: 0;
   z-index: 9998;
+}
+
+/*分享*/
+.share .bdsharebuttonbox a{
+  display: block;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  padding-left: 0;
+  margin: 0 12px 0 0;
+}
+.bdsharebuttonbox a.bds_tsina{
+  background:#d84c4c  url("../images/share.png") no-repeat;
+  background-position: 5px 7px;
+}
+.bdsharebuttonbox a.bds_qzone{
+  background:#3f8bc0 url("../images/share.png") no-repeat;
+  background-position: -30px 7px;
+}
+.bdsharebuttonbox a.bds_weixin{
+  background:#73a64f url("../images/share.png") no-repeat;
+  background-position: -67px 5px;
 }

@@ -154,6 +154,10 @@ body {
   line-height: 26px;
   font-family: "Helvetica Neue", Helvetica, "微软雅黑", Arial, Verdana, sans-serif;
 }
+.news-list img {
+  max-width: 780px;
+  width: 100%;
+}
 .scenery-img {
   width: 100%;
   margin-bottom: 18px;
@@ -380,12 +384,21 @@ body {
 .news-index {
   width: 100%;
   height: 480px;
-  position: relative;
   background: url("../images/page_bg.jpg") center 0 no-repeat;
   background-size: cover;
+  position: relative;
 }
 .news-index .row {
   position: relative;
+  height: 480px;
+}
+.news-index .set-bg {
+  height: 480px;
+  position: absolute;
+  top: 0;
+}
+.news-index .set-bg img {
+  width: 100%;
   height: 480px;
 }
 .news-index .per-img {
@@ -407,10 +420,51 @@ body {
   color: #fff;
   left: 150px;
 }
+.share-box {
+  background-color: #fff;
+  height: 80px;
+  border-bottom: 1px solid #d7d7d7;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+}
 .share-box .per-info {
   float: left;
   padding-left: 150px;
   padding-top: 10px;
+  color: #666;
+}
+.share-box .per-info span.date {
+  margin-right: 100px;
+}
+.share-box .share {
+  float: right;
+}
+.share-box .share .fleft {
+  border-right: solid 1px #e4e4e4;
+  padding-right: 20px;
+  margin-right: 20px;
+  height: 80px;
+  color: #666;
+  padding-top: 15px;
+}
+.share-box .share .fleft a {
+  cursor: pointer;
+  color: #666;
+}
+.share-box .share .fleft i {
+  display: block;
+  width: 25px;
+  height: 24px;
+  margin: 0 auto 7px;
+  background: url("../images/collect.png") no-repeat;
+  background-position: 0 0;
+}
+.share-box .share .fleft span,
+.share-box .share .fleft strong {
+  display: inline-block;
+  font-weight: normal;
+}
+.share-box .share .fright {
+  margin-top: 20px;
 }
 /*底部*/
 .footer {
@@ -668,4 +722,25 @@ input[type="submit"] {
   left: 0;
   top: 0;
   z-index: 9998;
+}
+/*分享*/
+.share .bdsharebuttonbox a {
+  display: block;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  padding-left: 0;
+  margin: 0 12px 0 0;
+}
+.bdsharebuttonbox a.bds_tsina {
+  background: #d84c4c url("../images/share.png") no-repeat;
+  background-position: 5px 7px;
+}
+.bdsharebuttonbox a.bds_qzone {
+  background: #3f8bc0 url("../images/share.png") no-repeat;
+  background-position: -30px 7px;
+}
+.bdsharebuttonbox a.bds_weixin {
+  background: #73a64f url("../images/share.png") no-repeat;
+  background-position: -67px 5px;
 }
