@@ -44,7 +44,9 @@
             </div>
         </div>
         <div class="comments">
-            {% load comments %} {% get_comment_list for posts as comment_list %} {% for comment in comment_list %}
+            {% load comments %} 
+            {% get_comment_list for posts as comment_list %} 
+            {% for comment in comment_list %}
             <div class="com-list">
                 <div class="author-info">
                     <div class="author-pic">     

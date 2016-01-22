@@ -206,6 +206,7 @@ body {
 .news-info .comments {
   height: 22px;
   line-height: 22px;
+  padding: 0;
 }
 .news-info .comments i {
   display: block;
