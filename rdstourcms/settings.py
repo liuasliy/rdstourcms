@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'pagination',
     'ckeditor',
     'ckeditor_uploader',
+    'favourite',
 )
 
 SITE_ID = 1
@@ -161,6 +162,7 @@ SUIT_CONFIG = {
         'sites',
         {'app': 'auth', 'label': u'认证管理'},
         {'app': 'blog', 'label': u'博客'},
+        {'app': 'favourite', 'label': u'收藏夹'},
 
     ),
 }
