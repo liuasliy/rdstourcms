@@ -15,6 +15,9 @@ class BlogPost(models.Model):
     count_hit = models.IntegerField(default=0,editable=False)
     tags = models.CharField(max_length=100)
     author = models.OneToOneField(User)
+    class Meta:
+        verbose_name = '游记管理'
+        verbose_name_plural = '游记管理'
 
 
 class BlogPostAdmin(admin.ModelAdmin):
@@ -41,6 +44,7 @@ class FavoriteBlog(models.Model):
 
     def __unicode__(self):
         return "%s likes blog %s" % (self.user, self.blog)
+
 
 
 

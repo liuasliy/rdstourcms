@@ -36,6 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -46,9 +49,24 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor_uploader',
     'favourite',
+    'accounts',
+    
 )
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+ANONYMOUS_USER_ID = -1
+
+AUTH_PROFILE_MODULE = 'accounts.MyProfile'  
+  
+USERENA_SIGNIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
 
 SITE_ID = 1
+
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
@@ -78,6 +96,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pagination.middleware.PaginationMiddleware',
+    'userena.middleware.UserenaLocaleMiddleware',
 )
 
 
@@ -162,6 +181,8 @@ SUIT_CONFIG = {
         'sites',
         {'app': 'auth', 'label': u'认证管理'},
         {'app': 'blog', 'label': u'博客'},
+        {'app': 'accounts', 'label': u'用户管理'},
+        {'app': 'django_comments', 'label': u'评论'},
         {'app': 'favourite', 'label': u'收藏夹'},
 
     ),
