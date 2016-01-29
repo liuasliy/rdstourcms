@@ -164,7 +164,7 @@ STATICFILES_DIRS = (
     ("exampic", os.path.join(STATIC_ROOT, 'exampic')),
     ("img", os.path.join(STATIC_ROOT, 'img')),
     ("slider", os.path.join(STATIC_ROOT, 'slider')),
-    ("fonts", os.path.join(STATIC_ROOT, 'fonts')),
+    ("font", os.path.join(STATIC_ROOT, 'font')),
 )
 # old settings // TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 

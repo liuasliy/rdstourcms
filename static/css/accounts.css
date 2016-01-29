@@ -1,42 +1,100 @@
-/* @override http://localhost:8000/media/css/master.css */
-
 /*	WdeB
 breadandpepper.com
 ................................... */
-
 @import "reset.css";
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans:regular,bold);
-
 
 /*	Main elements
 ................................... */
 
+/*layout*/
+.account-left {
+    width: 880px;
+    float: left;
+}
 
+.account-right {
+    width: 280px;
+    float: right;
+    margin-left: 40px;
+}
 
+#details {
+    width: 80%;
+    margin: 0 0;
+    background-color: #fffeff;
+    padding: 5% 10%;
+    text-align: left;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -moz-box-shadow: 0 0 3px #999;
+    -webkit-box-shadow: 0 0 3px #999;
+    box-shadow: 0 0 3px #999;
+    overflow: hidden;
+}
 
+#details img {
+    width: 130px;
+    height: 130px;
+    margin: 0 0 20px;
+}
 
-#content-container{
+#details dl {
+    overflow: hidden;
+    height: 40px;
+    line-height: 40px;
+}
+
+#details dl dt {
+    float: left;
+    width: 10%;
+}
+
+#details dl dd {
+    float: left;
+}
+
+#box-nav {
+    background-color: #fffeff;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -moz-box-shadow: 0 0 3px #999;
+    -webkit-box-shadow: 0 0 3px #999;
+    box-shadow: 0 0 3px #999;
+    overflow: hidden;
+    width: 90%;
+    padding: 5%;
+}
+
+#box-nav li {
+    line-height: 25px;
+}
+
+#box-nav li i {
+    margin-right: 5px;
+}
+
+#content-container {
     padding: 12px;
     position: relative;
 }
 
-
-#intro{
+#intro {
     padding: 30px 20px;
     min-height: 290px;
     background: #e7e2de url(../img/userena.png) no-repeat 90px 30px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-     -moz-box-shadow: inset 0 0 3px #999;
+    -moz-box-shadow: inset 0 0 3px #999;
     -webkit-box-shadow: inset 0 0 3px #999;
     box-shadow: inset 0 0 3px #999;
-   position: relative;
-   overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
-
-#xtra-info{
+#xtra-info {
     text-align: center;
     padding: 10px;
     margin: 0;
@@ -47,27 +105,25 @@ breadandpepper.com
     bottom: 0;
     left: 0;
     right: 0;
-	background-image: url(../img/trans.png);
-	-moz-border-radius-topleft: 0px;
--moz-border-radius-topright: 0px;
--moz-border-radius-bottomright: 8px;
--moz-border-radius-bottomleft: 8px;
-border-top-left-radius: 0px;
-border-top-right-radius: 0px;
-border-bottom-right-radius: 8px;
-border-bottom-left-radius: 8px;
- -moz-box-shadow: 0 -2px 3px #ccc;
+    background-image: url(../img/trans.png);
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    -moz-box-shadow: 0 -2px 3px #ccc;
     -webkit-box-shadow: 0 -2px 3px #ccc;
     box-shadow: 0 -2px 3px #ccc;
 }
 
-#xtra-info a{
-	color: #fff;
+#xtra-info a {
+    color: #fff;
 }
 
-
-
-.white-box{
+.white-box {
     margin: 70px auto 20px;
     padding: 12px 0;
     -moz-border-radius: 8px;
@@ -77,31 +133,12 @@ border-bottom-left-radius: 8px;
     width: 506px;
     -moz-box-shadow: inset 0 0 3px #999;
     -webkit-box-shadow: inset 0 0 3px #999;
-    box-shadow:  inset 0 0 3px #999;
+    box-shadow: inset 0 0 3px #999;
     overflow: auto;
 
 }
 
-#details{
-    width: 140px;
-    margin: 0 0;
-    background-color: #fffeff;
-    padding: 6px;
-    text-align: left;
-    -webkit-border-radius: 7px; 
-    -moz-border-radius: 7px; 
-    border-radius: 7px;
-    -moz-box-shadow: 0 0 3px #999;
-    -webkit-box-shadow: 0 0 3px #999;
-    box-shadow: 0 0 3px #999;
-    overflow: hidden;
-}
-
-#details img{
-	margin: 0 0 10px;
-}
-
-#try{
+#try {
     position: absolute;
     height: 90px;
     width: 124px;
@@ -113,9 +150,13 @@ border-bottom-left-radius: 8px;
 /*	Type
 ................................... */
 
-h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', helvetica, arial, Geneva, sans-serif; text-transform: uppercase; text-shadow: #ffffff 1px 1px 0px;}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Droid Sans', helvetica, arial, Geneva, sans-serif;
+    text-transform: uppercase;
+    text-shadow: #ffffff 1px 1px 0px;
+}
 
-p{
+p {
     font-size: 0.9em;
     line-height: 1.5em;
     color: #444;
@@ -123,47 +164,47 @@ p{
     text-shadow: #ffffff 1px 1px 0;
 }
 
-p.intro{
-	margin: 0 20px 0 380px;
+p.intro {
+    margin: 0 20px 0 380px;
 }
 
-.white-box p{
+.white-box p {
     margin: 0 12px 5px;
     color: #000;
 }
 
-h1{
-    margin: 25px 0 0 ;
+h1 {
+    margin: 25px 0 0;
     font-size: 2.2em;
 }
 
-h2.content-title{
-	font-size: 1.5em;
-	margin: 10px;
-    padding: 15px 15px 12px;	
+h2.content-title {
+    font-size: 1.5em;
+    margin: 10px;
+    padding: 15px 15px 12px;
     background: #e7e2de no-repeat 90px 30px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-     -moz-box-shadow: inset 0 0 3px #999;
+    -moz-box-shadow: inset 0 0 3px #999;
     -webkit-box-shadow: inset 0 0 3px #999;
     box-shadow: inset 0 0 3px #999;
     color: #ab292a;
 }
 
-h2.intro{
+h2.intro {
     font-size: 1.8em;
     margin: 10px 20px 9px 380px;
     padding: 0 0 5px;
     background: url(../img/stripe.png) repeat-x 0 bottom;
 }
 
-h2 span{
+h2 span {
     font-size: 1.8em;
     color: #ac1500;
 }
 
-.white-box h2{
+.white-box h2 {
     width: 482px;
     padding: 5px 12px 6px;
     font-size: 1.9em;
@@ -174,34 +215,32 @@ h2 span{
     background-image: none;
 }
 
-h3{
+h3 {
     font-size: 1.2em;
     margin: 0 0 5px;
 }
 
-
-h4{
+h4 {
     font-size: 1.2em;
 }
 
-h5{
+h5 {
     font-size: 1.0em;
 }
 
-h6{
+h6 {
     font-size: 0.7em;
 }
 
-
-a.button{ 
-    background: #ede9e4; 
-	display: block;
-	width: 200px;
-    padding: 4px 4px 3px; 
-    text-decoration: none; 
-    outline: 0; 
-    -webkit-border-radius: 10px; 
-    -moz-border-radius: 10px; 
+a.button {
+    background: #ede9e4;
+    display: block;
+    width: 200px;
+    padding: 4px 4px 3px;
+    text-decoration: none;
+    outline: 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     -webkit-background-clip: padding-box;
     clear: both;
@@ -210,39 +249,37 @@ a.button{
     top: -55px;
 }
 
-a.button span { 
-    display: block; 
-    color: #8b0908; 
-    padding: 0.52em 1.6em 0.48em;  
-    text-shadow: rgba(255,254,255,0.45) 0 1px 0; 
-    -webkit-box-shadow: rgba(33,33,33,0.45) 0px 0px 3px; 
-    -moz-box-shadow: rgba(33,33,33,0.45) 0px 0px 3px; 
-    box-shadow: rgba(33,33,33,0.45) 0px 0px 3px;
-    -webkit-border-radius: 7px; 
-    -moz-border-radius: 7px; 
+a.button span {
+    display: block;
+    color: #8b0908;
+    padding: 0.52em 1.6em 0.48em;
+    text-shadow: rgba(255, 254, 255, 0.45) 0 1px 0;
+    -webkit-box-shadow: rgba(33, 33, 33, 0.45) 0px 0px 3px;
+    -moz-box-shadow: rgba(33, 33, 33, 0.45) 0px 0px 3px;
+    box-shadow: rgba(33, 33, 33, 0.45) 0px 0px 3px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
     border-radius: 7px;
-    background: transparent -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.6)), color-stop(1.0, rgba(255,255,255,0.15)), color-stop(1.0, rgba(255,255,255,0.01)), to(transparent)); 
-    background: transparent -moz-linear-gradient(top, rgba(255,255,255,0.6), rgba(255,255,255,0.15) 100%, rgba(255,255,255,0.01) 100%, transparent);
+    background: transparent -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.6)), color-stop(1.0, rgba(255, 255, 255, 0.15)), color-stop(1.0, rgba(255, 255, 255, 0.01)), to(transparent));
+    background: transparent -moz-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.15) 100%, rgba(255, 255, 255, 0.01) 100%, transparent);
     -webkit-background-clip: padding-box;
     text-decoration: none;
     font-size: .9em;
     line-height: 1.4em;
     font-weight: bold;
-	text-align: center;
+    text-align: center;
 }
 
-
-
-a.button:active span {  
+a.button:active span {
     background-color: #e0dfda;
-    -webkit-box-shadow: rgba(33,33,33,0.45) 0px 0px 1px; 
-    -moz-box-shadow: rgba(33,33,33,0.45) 0px 0px 1px; 
-    box-shadow: rgba(33,33,33,0.45) 0px 0px 1px;
+    -webkit-box-shadow: rgba(33, 33, 33, 0.45) 0px 0px 1px;
+    -moz-box-shadow: rgba(33, 33, 33, 0.45) 0px 0px 1px;
+    box-shadow: rgba(33, 33, 33, 0.45) 0px 0px 1px;
     padding: 0.58em 1.6em 0.30em;
     line-height: 1.5em;
 }
 
-a#fork{
+a#fork {
     position: fixed;
     top: -2px;
     right: -2px;
@@ -253,7 +290,7 @@ a#fork{
     background-image: url(../img/forkme.png);
 }
 
-.white-box img{
+.white-box img {
     float: right;
     border: 3px double #f1edeb;
     padding: 4px;
@@ -261,12 +298,10 @@ a#fork{
     margin: 0 10px;
 }
 
-
-
 /*	Forms
 ................................... */
 
-form {
+/*form {
     margin: 15px auto 20px;
     padding: 12px 0;
     -moz-border-radius: 8px;
@@ -274,7 +309,7 @@ form {
     border-radius: 8px;
     width: 500px;
     margin-top: 70px;
-
+*/
 }
 
 form p {
@@ -314,7 +349,7 @@ span.label {
     font-weight: bold;
 }
 
-input[type=text],input[type=password], input[type=file], textarea, span.editable {
+/*input[type=text], input[type=password], input[type=file], textarea, span.editable {
     width: 306px;
     border: 1px solid #d7d7d7;
     font-size: 14px;
@@ -336,7 +371,7 @@ input[type=checkbox] {
 input[type=radio] {
     margin: 0 8px 0 0;
 }
-
+*/
 select {
     min-width: 60px;
     margin: 10px 2px 0;
@@ -420,14 +455,14 @@ legend {
     color: #ab292a;
     font-weight: bold;
     border-bottom: 1px solid #ddd;
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 fieldset {
     margin: 0 0 20px 0;
 }
 
-p.forgot-password{
+p.forgot-password {
     padding: 10px 0 10px 180px;
     margin: 30px 0 10px;
     border-bottom: 1px solid #f1edeb;
@@ -437,13 +472,13 @@ p.forgot-password{
 /*	Nav
 ................................... */
 
-#header h1{
+#header h1 {
     width: 150px;
     height: 112px;
     margin: 0;
 }
 
-#header h1 a{
+#header h1 a {
     width: 150px;
     height: 112px;
     display: block;
@@ -451,44 +486,41 @@ p.forgot-password{
     background: url(../img/bread-and-pepper-logo.png) center top;
 }
 
-#header h1 a:hover{
+#header h1 a:hover {
     background: url(../img/bread-and-pepper-logo.png) center bottom;
 }
 
-
-ul#profile-nav{
+ul#profile-nav {
     height: 40px;
     position: absolute;
     right: 25px;
     top: -47px;
-    width: 490px;   
+    width: 490px;
 }
 
-ul#profile-nav li{
+ul#profile-nav li {
     margin: 0 0 0 0;
     float: left;
     text-align: center;
 }
 
-ul#profile-nav li.selected a{
+ul#profile-nav li.selected a {
     color: #111;
     padding: 8px 25px 8px;
     text-decoration: none;
-	background-color: #f6f4f2;
-	-moz-border-radius-topleft: 8px;
+    background-color: #f6f4f2;
+    -moz-border-radius-topleft: 8px;
     -webkit-border-top-left-radius: 8px;
     -moz-border-radius-topright: 8px;
     -webkit-border-top-right-radius: 8px;
     -moz-box-shadow: 0 -1px 1px #ccc;
     -webkit-box-shadow: 0 -1px 1px #ccc;
-    box-shadow:  0 -1px 1px #ccc;
+    box-shadow: 0 -1px 1px #ccc;
     border: 1px solid #fff;
     border-bottom: none;
 }
 
-
-
-ul#profile-nav li a{
+ul#profile-nav li a {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.7em;
@@ -497,11 +529,10 @@ ul#profile-nav li a{
     line-height: 25px;
     padding: 8px 25px 8px;
     color: #999997;
-	text-align: center;
+    text-align: center;
 }
 
-
-ul#profile-nav li a:hover{
+ul#profile-nav li a:hover {
     text-decoration: underline;
 }
 
@@ -513,16 +544,14 @@ ul.features {
     margin: 30px -12px 0;
 }
 
-
-
-ul.features li{
+ul.features li {
     background: url(../img/stripe.png) repeat-x center top;
     padding: 30px 10px 0 0;
     float: left;
     width: 310px;
     margin: 10px 0 0 12px;
     min-height: 180px;
-}   
+}
 
 /*	blocks
 ................................... */
@@ -531,9 +560,7 @@ ul.blocks {
     margin: 40px -12px 0;
 }
 
-
-
-ul.blocks li{
+ul.blocks li {
     background: url(../img/stripe.png) repeat-x center top;
     padding: 30px 0 0;
     float: left;
@@ -542,7 +569,7 @@ ul.blocks li{
     text-align: center;
 }
 
-#browse{
+#browse {
     width: 128px;
     height: 128px;
     display: block;
@@ -551,7 +578,7 @@ ul.blocks li{
     margin: 20px auto;
 }
 
-#download{
+#download {
     width: 128px;
     height: 128px;
     display: block;
@@ -560,7 +587,7 @@ ul.blocks li{
     margin: 20px auto;
 }
 
-#docs{
+#docs {
     width: 128px;
     height: 128px;
     display: block;
@@ -569,32 +596,29 @@ ul.blocks li{
     margin: 20px auto;
 }
 
-#demo{
+#demo {
     width: 128px;
     height: 128px;
     display: block;
     text-indent: -9999px;
     background-image: url(../img/icon-demo.png);
     margin: 20px auto;
-}      
-
+}
 
 /*	footer
-................................... */ 
+................................... */
 
-   
-
-#footer p{
+#footer p {
     text-align: right;
     font-size: 0.7em;
-}   
+}
 
-#footer p a{
-	font-weight: bold;
+#footer p a {
+    font-weight: bold;
 }
 
 /*	change language
-................................... */ 
+................................... */
 div#lang_form {
     width: 1008px;
     margin: 0 auto;
@@ -607,8 +631,8 @@ div#lang_form p {
     font-size: small;
 }
 
-div#lang_form select{
-    margin: 5px 0 0 ;
+div#lang_form select {
+    margin: 5px 0 0;
 }
 
 div#lang_form form {
@@ -626,12 +650,11 @@ div#lang_form form {
     box-shadow: none;
 }
 
-div#lang_form form label{
+div#lang_form form label {
     color: #676767;
     font-size: 0.7em;
     font-weight: bold;
 }
-
 
 div#lang_form input[type=submit] {
     float: right;
@@ -656,11 +679,10 @@ div#lang_form input[type=submit] {
     font-family: 'Droid Sans', helvetica, arial, Geneva, sans-serif;
 }
 
-
 /*	notifications
 ................................... */
 
-ul.messages{
+ul.messages {
     position: absolute;
     font-size: 0.8em;
     font-weight: bold;
@@ -670,7 +692,7 @@ ul.messages{
     margin: 0 0 0 -270px;
 }
 
-ul.messages li{
+ul.messages li {
     background-color: #fcf5d8;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -680,115 +702,111 @@ ul.messages li{
 
 }
 
-
 /*	messages
-................................... */  
+................................... */
 
-#messages{
-	padding: 0;
-	margin: 20px 0 0;
+#messages {
+    padding: 0;
+    margin: 20px 0 0;
 }
 
-#messages li{
-	padding: 15px 10px;
-	margin: 0;
-	overflow: auto;
-}  
-
-#messages li a{
-	font-weight: bold;
-	display: block;
-	margin: 0 0 5px;
-	text-decoration: none;
+#messages li {
+    padding: 15px 10px;
+    margin: 0;
+    overflow: auto;
 }
 
-#messages.list-view a{
-	display: block;
-	overflow: auto;
-	padding: 10px 0 10px 10px;
-	border: 1px solid #ddd;
-	-moz-border-radius: 2px;
-border-radius: 2px;
+#messages li a {
+    font-weight: bold;
+    display: block;
+    margin: 0 0 5px;
+    text-decoration: none;
 }
 
-#messages.list-view a:hover{
-	background-color: #eee;
+#messages.list-view a {
+    display: block;
+    overflow: auto;
+    padding: 10px 0 10px 10px;
+    border: 1px solid #ddd;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
 
+#messages.list-view a:hover {
+    background-color: #eee;
+}
 
 p.date {
-  font-size: 70%;
-  margin: 10px 0 0;
-  color: #777;
+    font-size: 70%;
+    margin: 10px 0 0;
+    color: #777;
 }
 
 .avatar {
-  width: 80px;
-  border: 1px solid #ccc;
-  float: right;
-  margin: 0 10px;
+    width: 80px;
+    border: 1px solid #ccc;
+    float: right;
+    margin: 0 10px;
 }
 
 .avatar.received {
-  float: left;
+    float: left;
 }
 
-.message-content{
-	
-	margin: 0 110px;
-	padding: 15px;
-	-moz-border-radius: 2px;
-border-radius: 2px;
-position: relative;
-min-height: 52px;
+.message-content {
+
+    margin: 0 110px;
+    padding: 15px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    position: relative;
+    min-height: 52px;
 }
 
-.send .message-content{
-	margin: 0 110px;
-	background-color: #e6e6e6;
-	
+.send .message-content {
+    margin: 0 110px;
+    background-color: #e6e6e6;
+
 }
 
-.received .message-content{
-	margin:0 110px;
-	background-color: #dadada;
-	
+.received .message-content {
+    margin: 0 110px;
+    background-color: #dadada;
+
 }
-
-
 
 /*	account list
-................................... */    
+................................... */
 
-#account_list{
+#account_list {
     margin: 0 0 0 -12px;
     overflow: auto;
 }
 
-#account_list li{
+#account_list li {
     width: 142px;
     margin: 0 0 12px 12px;
     float: left;
     background-color: #fffeff;
     padding: 6px;
     text-align: center;
-    -webkit-border-radius: 7px; 
-    -moz-border-radius: 7px; 
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
     border-radius: 7px;
     -moz-box-shadow: 0 0 3px #999;
     -webkit-box-shadow: 0 0 3px #999;
     box-shadow: 0 0 3px #999;
 }
 
-#account_list li img{
+#account_list li img {
     width: 142px;
     height: 142px;
-    -webkit-border-radius: 7px; 
-    -moz-border-radius: 7px; 
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
     border-radius: 7px;
-} 
+}
 
-#account_list li a{
+#account_list li a {
     font-size: 0.9em;
     font-weight: bold;
     text-decoration: none;

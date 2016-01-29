@@ -15,7 +15,7 @@
             <img src="/site_media/{{ post.image }}" alt="" class="scenery-img"/>
             <div class="news-info">
                 <div class="fleft">
-                    <span class="address"><i class="icon iconfont">&#xe69f;</i><a href="">南京市</a></span>
+                    <span class="address"><i class="icon iconfont">&#xe603;</i><a href="">南京市</a></span>
 					{% for users in users %}
                     {% if users.id = post.author_id %}
                     <span class="author">by <a href="">
@@ -24,11 +24,11 @@
 
                     {% endfor %}
                     {{ post.author }}</a></span>
-                    <span class="views"><i class="icon iconfont">&#xe694;</i>
+                    <span class="views"><i class="icon iconfont">&#xe605;</i>
                     {{ post.count_hit }}</span>
                 </div>
                 <div class="fright comments">
-                    <i class="icon iconfont">&#xe612;</i>
+                    <i class="icon iconfont">&#xe600;</i>
                     {% load comments %}
                     {% get_comment_count for post as comment_count %}
                     {{ comment_count }}
@@ -53,7 +53,7 @@
             <div class="search-input">
                 <form action="">
                     <input type="text" name="" id="" class="m-search" placeholder="搜索关键字"/>
-                    <a href=""><i class="icon iconfont">&#xe6a7;</i></a>
+                    <a href=""><i class="icon iconfont">&#xe604;</i></a>
                 </form>
             </div>
         </div>

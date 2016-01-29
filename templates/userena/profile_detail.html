@@ -6,21 +6,9 @@
 {% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
 
 {% block content %}
-  <div class="white-box">
-    {% block profile_navigation %}
-      {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
-      {% if user.username == profile.user.username %}
-        <ul id="box-nav">
-          {% block profile_navigation_items %}
-            <li><a href="{% url 'userena_profile_detail' user.username %}">{% trans "View profile" %}</a></li>
-            <li><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></li>
-            <li><a href="{% url 'userena_password_change' user.username %}">{% trans "Change password" %}</a></li>
-            <li><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
-          {% endblock %}
-        </ul>
-      {% endif %}
-    {% endblock %}
 
+<div class="rds-container">
+    <div class="account-left">
     <div id="details">
       {% block profile_details %}
         <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
@@ -54,5 +42,23 @@
         </dl>
       {% endblock %}
     </div>
-  </div>
+        
+    </div>
+    <div class="account-right">
+{% block profile_navigation %}
+      {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
+      {% if user.username == profile.user.username %}
+        <ul id="box-nav">
+          {% block profile_navigation_items %}
+            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_detail' user.username %}">{% trans "View profile" %}</a></li>
+            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></li>
+            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_password_change' user.username %}">{% trans "Change password" %}</a></li>
+            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
+          {% endblock %}
+        </ul>
+      {% endif %}
+    {% endblock %}
+    </div>
+</div>
+
 {% endblock %}
