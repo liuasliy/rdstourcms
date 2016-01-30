@@ -19,7 +19,7 @@ urlpatterns = patterns('',
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'media'}),
                        url(r'^uploadimg/', 'blog.views.uploadimage'),
 
-                       url(r'^media/(?P<path>(\S)*)', 'django.views.static.serve', {'document_root':'media'}),
+                       url(r'^media/(?P<path>(\S)*)', 'django.views.static.serve', {'document_root': 'media'}),
                        url(r'^login/$', 'blog.views.login', name='login'),
                        url(r'^register/$', 'blog.views.register'),
                        (r'^accounts/', include('userena.urls')),
