@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'ckeditor_uploader',
     'favourite',
     'accounts',
+
     
 )
 AUTHENTICATION_BACKENDS = (
@@ -208,3 +209,5 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     },
 }
+
+

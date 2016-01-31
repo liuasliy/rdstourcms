@@ -4,7 +4,8 @@
 {% block title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<form action="" method="post">
+<div class="rds-container">
+    <form action="" method="post">
   {% csrf_token %}
   <fieldset>
     <legend>{% trans "Signup" %}</legend>
@@ -26,4 +27,6 @@
   </fieldset>
   <input type="submit" value="{% trans "Signup"%}" />
 </form>
+</div>
+
 {% endblock %}
