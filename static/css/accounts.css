@@ -1,7 +1,6 @@
 /*	WdeB
 breadandpepper.com
 ................................... */
-@import "reset.css";
 
 /*	Main elements
 ................................... */
@@ -821,7 +820,17 @@ p.date {
     text-decoration: none;
 }   
 
-
+#profile_list{
+    background-color: #fff;
+    padding: 20px;
+    border: solid 1px #e4e4e4;
+    border-radius: 4px;
+}
+#profile_list li+li{
+    border-top: solid 1px #e4e4e4;
+    padding-top: 20px;
+    margin-top: 20px;
+}
 
 
 
