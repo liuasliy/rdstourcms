@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import loader, Context
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.models import *
+from accounts.models import *
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.http import Http404
@@ -18,7 +19,7 @@ import datetime
 # Create your views here.
 def archive(request):
     posts = BlogPost.objects.all()
-    users = RdsUser.objects.all()
+    users = MyProfile.objects.all()
     blog_list = BlogPost.objects.order_by('-pub_date')
 
     # 总数据列表
@@ -36,7 +37,7 @@ def archive(request):
 
 
 def detail(request, blog_id):
-    users = request.user.rdsuser
+    users = MyProfile.objects.all()
     try:
         posts = BlogPost.objects.get(id=blog_id)
 

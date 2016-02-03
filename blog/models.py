@@ -27,14 +27,6 @@ admin.site.register(BlogPost, BlogPostAdmin)
 
 
 
-# 给注册用户添加头像
-class RdsUser(models.Model):
-    description = models.TextField(max_length=256, default="", blank=True)
-    headImage = models.ImageField(upload_to='upload', default='')
-    user = models.OneToOneField(User)
-    def __unicode__(self):
-        return self.description
-
 
 # 收藏
 class FavoriteBlog(models.Model):

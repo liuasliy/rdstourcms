@@ -7,7 +7,11 @@
     <div class="row">
         <div class="h1-title">{{ posts.title }}</div>
         <div class="per-img">
-            <img src="/site_media/{{ users.headImage }}" alt="" /> 
+           {% for users in users %}
+                    {% if users.id = posts.author_id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt=""/>
+                    {% endif %}
+                    {% endfor %}
         </div>
     </div>
 </div>
@@ -15,8 +19,8 @@
     <div class="row">
         <div class="per-info">
             <a href="">{{posts.author}}</a>
-            <span>{{posts.timestamp|date:"Y-m-d"}}</span>
-            <i class="icon iconfont">&#xe694;</i>333
+            <span>{{posts.pub_date|date:"Y-m-d"}}</span>
+            <i class="icon iconfont">&#xe605;</i>{{ posts.count_hit }}
         </div>
         <div class="share">
             <div class="fleft">
@@ -49,8 +53,13 @@
             {% for comment in comment_list %}
             <div class="com-list">
                 <div class="author-info">
-                    <div class="author-pic">     
-                <img src="/site_media/{{ users.headImage }}" alt="{{ comment.user_name }}" />
+                    <div class="author-pic">    
+                    {% for users in users %}
+                    {% if users.id = comment.user_id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt="{{ comment.user_name }}" />
+                    {% endif %}
+                    {% endfor %} 
+                
                     </div>
                     <span class="author-name"><a href="">{{comment.user_name}}</a></span>
                     <span class="date">{{comment.submit_date}}</span>
@@ -72,7 +81,13 @@
                  {{form.timestamp}} 
                  {{form.security_hash}}
                 <div class="avatar">
-                    <a href="" title="王尼玛"><img src="/site_media/{{ users.headImage }}" alt="王尼玛" /></a>
+                    <a href="" title="{{ user.username }}">
+                    {% for users in users %}
+                    {% if users.id = user.id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt="{{ user.username }}" />
+                    {% endif %}
+                    {% endfor %} 
+                    </a>
                 </div>
                 <div class="com-text">
                     <h2>回复内容</h2>
