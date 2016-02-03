@@ -145,7 +145,21 @@ def add_favorite(request):
     FavoriteBlog.objects.update_or_create(user=user, blog=blog, created_on=created_on)
 
 
-
+# 搜索
+def search(request):
+    errors = []
+    if 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            errors.append(u'请填写查询内容！')
+        elif len(q) > 50:
+            errors.append(u'填写内容必须小于50字！')
+        else:
+            blog = BlogPost.objects.filter(title__icontains=q)
+            return render_to_response('search.html',
+                                      {'blog': blog, 'q': q}, context_instance=RequestContext(request))
+    return render_to_response('search.html', {'errors': errors},
+                              context_instance=RequestContext(request))
 
 
 

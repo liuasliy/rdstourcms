@@ -23,6 +23,7 @@ urlpatterns = patterns('',
                        url(r'^login/$', 'blog.views.login', name='login'),
                        url(r'^register/$', 'blog.views.register'),
                        (r'^accounts/', include('userena.urls')),
+                       url(r'^search/$', 'blog.views.search', name="search"),
 
 
 )

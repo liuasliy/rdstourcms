@@ -829,3 +829,37 @@ input[type="submit"] {
 .com-textar .com-submit:hover {
   background-color: #ff8a00;
 }
+/*搜索模块*/
+.main-search {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 40px 20px;
+}
+.main-search form {
+  width: 60%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+.main-search input[type='text'] {
+  line-height: 15px;
+  padding: 10px;
+  border: solid 1px #ccc;
+  width: 80%;
+  float: left;
+  box-sizing: border-box;
+  border-right: none;
+}
+.main-search input[type='submit'] {
+  float: left;
+  width: 20%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  min-width: 20px;
+  text-shadow: none;
+  font-size: 16px;
+  height: 37px;
+  line-height: 37px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

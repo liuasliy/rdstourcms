@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}搜索{%endblock%}
+{% block content %}
+
+<div class="rds-container">
+<div class="main-search">
+
+	<form action="" method="get">
+		<input type="text" name='q' placeholder="请输入查询内容" />
+		<input type="submit" value="搜索" />
+	</form>
+          {% if errors %}
+		<ul>
+			{% for error in errors %}
+			<li>
+				<div class="alert alert-info">
+					<a class="close" data-dismiss="alert">×</a>
+					{{error}}
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% if not errors %}
+<p>查询: <strong>{{q}}</strong></p>
+
+{% if blog %}
+	<p>找到 {{blog|length}} 篇博文。</p>
+	<ul>
+		{% for b in blog %}
+		<a href="/blog/{{b.id}}"><li>{{b.title}}</li></a>
+		{% endfor %}
+	</ul>
+{% else %}
+
+	<p style="color: red;"> 没有找到包含“{{q}}”的博文。 </p>
+	
+{%endif%}{%endif%}
+</div>
+
+</div>
+{%endblock%}
