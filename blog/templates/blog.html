@@ -3,7 +3,12 @@
 {% block content %}
 {% load pagination_tags %}
 
-
+<script type="text/javascript">
+function queryByKeyword(){
+    $('#form').submit();
+    sessionStorage.lastname = $('#search-input').val();
+}
+</script>
 <!--container-->
 <div class="rds-container">
     <div class="rds-main">
@@ -58,10 +63,9 @@
             {% endfor %}
         </ul>
     {% endif %}
-                <form action="../search/" method="get">
-                    <input type="text" name="q" id="" class="m-search" placeholder="搜索关键字"/>
-                    <!--<a href=""><i class="icon iconfont">&#xe604;</i></a>-->
-                    <input type="submit" value="ss">
+                <form action="../search/" method="get" id="form">
+                    <input type="text" name="q" id="search-input" class="m-search" placeholder="搜索关键字"/>
+                    <a  onclick="queryByKeyword()"><i class="icon iconfont">&#xe604;</i></a>
                 </form>
             </div>
         </div>

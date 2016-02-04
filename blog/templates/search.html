@@ -2,11 +2,17 @@
 {% block title %}搜索{%endblock%}
 {% block content %}
 
+<script type="text/javascript">
+	$(function () {
+        $('#form').find('#search-input').val(sessionStorage.lastname);
+    })
+</script>
+
 <div class="rds-container">
 <div class="main-search">
 
-	<form action="" method="get">
-		<input type="text" name='q' placeholder="请输入查询内容" />
+	<form action="" method="get" id="form">
+		<input type="text" name='q' id="search-input" placeholder="请输入查询内容" />
 		<input type="submit" value="搜索" />
 	</form>
           {% if errors %}

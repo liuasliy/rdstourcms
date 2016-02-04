@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
     'userena.middleware.UserenaLocaleMiddleware',
 )
 
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 ROOT_URLCONF = 'rdstourcms.urls'
 

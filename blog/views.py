@@ -156,6 +156,7 @@ def search(request):
             errors.append(u'填写内容必须小于50字！')
         else:
             blog = BlogPost.objects.filter(title__icontains=q)
+            
             return render_to_response('search.html',
                                       {'blog': blog, 'q': q}, context_instance=RequestContext(request))
     return render_to_response('search.html', {'errors': errors},
