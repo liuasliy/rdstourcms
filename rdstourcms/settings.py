@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'ckeditor_uploader',
     'favourite',
     'accounts',
+    'photo',
 
     
 )
@@ -181,7 +182,8 @@ SUIT_CONFIG = {
     'MENU': (
         'sites',
         {'app': 'auth', 'label': u'认证管理'},
-        {'app': 'blog', 'label': u'博客'},
+        {'app': 'blog', 'label': u'游记'},
+        {'app': 'photo', 'label': u'摄影'},
         {'app': 'accounts', 'label': u'用户管理'},
         {'app': 'django_comments', 'label': u'评论'},
         {'app': 'favourite', 'label': u'收藏夹'},

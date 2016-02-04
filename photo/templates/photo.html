@@ -1,0 +1,30 @@
+ {% extends "base.html" %}
+{% block title %}Tour Blog{%endblock%}
+{% block content %}
+<style>
+    .footer{
+        display: none;
+    }
+</style>
+<div id="photowrap">
+{% for photos in photos %}
+    <div class="photobox">
+        <div class="info">
+            <div class="pic"><a href=""><img src="/site_media/{{photos.photo}}"></a></div>
+            <div class="title"><a href="">{{photos.title}}</a></div>
+            <div class="canvo">
+            {{users.username}}
+            
+                
+
+                <div class="fright">
+                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
+                    <div class="comments"><a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{%endblock%}

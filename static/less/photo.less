@@ -1,0 +1,192 @@
+//网页初始化样式
+/*------
+-------网站首页的整体样式
+--------
+*/
+@import "variables.less";
+
+/* photowrap */
+#photowrap {
+  width: auto;
+  height: auto;
+  min-height: 300px;
+  margin: 120px auto 50px;
+  position: relative;
+
+  &:after,
+  &:before{
+    display: table;
+    content: "";
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+#photowrap .photobox {
+  width: 280px;
+  height: auto;
+  padding: 10px;
+  border: none;
+  float: left;
+}
+
+#photowrap .photobox .info {
+  width: 280px;
+  height: auto;
+  box-shadow: 0 0 11px #ccc;
+  background: #fff;
+}
+
+#photowrap .photobox .info .pic {
+  width: 280px;
+  height: auto;
+  margin: 0 auto;
+  cursor: pointer
+}
+
+#photowrap .photobox .info .pic:hover {
+  -webkit-animation: shade 3s ease-in-out 1;
+  -moz-animation: shade 3s ease-in-out 1;
+  -ms-animation: shade 3s ease-in-out 1;
+  -o-animation: shade 3s ease-in-out 1;
+  animation: shade 3s ease-in-out 1;
+}
+
+#photowrap .photobox .info .pic img {
+  width: 280px;
+}
+
+#photowrap .photobox .info .title {
+  width: 260px;
+  height: 35px;
+  margin: 0 auto;
+  line-height: 35px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.canvo {
+  color: #999;
+  border-top: 1px solid #F2F2F2;
+  background: #FAFAFA;
+  position: relative;
+  overflow: hidden;
+  height: 65px;
+  padding: 0 15px;
+}
+
+.canvo .views {
+  margin-top: 8px;
+  padding-left: 5px;
+}
+
+.canvo .views span,
+.canvo .comments span {
+  padding-left: 5px;
+}
+
+.canvo .comments {
+  padding: 5px;
+  background-color: #fafafa;
+}
+
+.canvo .comments a {
+  color: #999;
+}
+
+.canvo .comments a:hover {
+  color: #ff9d00
+}
+
+.canvo img {
+  width: 34px;
+  height: 34px;
+  margin: 15px 0;
+  float: left;
+}
+
+.text {
+  line-height: 65px;
+  padding: 0 10px;
+  float: left;
+}
+
+.pic-views{
+  width: 1000px;
+  margin: 0 auto;
+}
+.main-part{
+  float: left;
+  background-color: #fff;
+  width: 698px;
+  border: solid 1px #ccc;
+}
+.side-part{
+  width: 278px;
+  float: right;
+  border: solid 1px #ccc;
+  background-color: #fff;
+}
+
+@-webkit-keyframes shade {
+  from {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes shade {
+  from {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes shade {
+  from {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes shade {
+  from {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shade {
+  from {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

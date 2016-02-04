@@ -25,6 +25,9 @@ urlpatterns = patterns('',
                        (r'^accounts/', include('userena.urls')),
                        url(r'^search/$', 'blog.views.search', name="search"),
 
+                       url(r'^photo/', include('photo.urls')),
+                       #url(r'^blog/(?P<blog_id>\d+)/$', 'blog.views.detail', name='detail'),
+
 
 )
 
