@@ -11,10 +11,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='photolist',
-            name='pub_date',
-            field=models.DateTimeField(default=b'2016-01-01', verbose_name=b'\xe5\x8f\x91\xe5\xb8\x83\xe6\x97\xa5\xe6\x9c\x9f'),
-            preserve_default=True,
-        ),
+       
     ]

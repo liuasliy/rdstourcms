@@ -10,12 +10,13 @@ from django.http import Http404
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
 from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
+from django.shortcuts import get_object_or_404 
+import json
 
 # Create your views here.
 def photopage(request):
-    #users = MyProfile.objects.all()
-    photo_list = photoList.objects.order_by('-title')
-    users = request.user
+    users = MyProfile.objects.all()
+    photo_list = photoList.objects.order_by('-pubdate')
 
     # 总数据列表
     paginator = Paginator(photo_list, 25)
@@ -30,3 +31,14 @@ def photopage(request):
 
     return render_to_response('photo.html', {"photos": photos, "users": users}, context_instance=RequestContext(request))
 
+
+
+
+def ajax_get_photo(request):
+    info = {
+            'name':'yihen',
+            'age':18,
+            'sex':'man'
+    }
+    my_json = json.dumps(info)
+    return  HttpResponse(my_json, content_type="application/json")

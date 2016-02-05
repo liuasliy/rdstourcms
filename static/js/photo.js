@@ -11,22 +11,7 @@ window.onload = function () {
             'views': '22',
             'comments': '33'
         },
-        {
-            'src': '2.jpg',
-            'title': '素材家园-sucaijiayuan.com',
-            'name': 'name',
-            'namepic': '1.jpg',
-            'views': '22',
-            'comments': '33'
-        },
-        {
-            'src': '3.jpg',
-            'title': '素材家园-sucaijiayuan.com',
-            'name': 'name',
-            'namepic': '1.jpg',
-            'views': '22',
-            'comments': '33'
-        },
+        
 
     ];
 

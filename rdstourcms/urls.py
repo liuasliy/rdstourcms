@@ -26,7 +26,8 @@ urlpatterns = patterns('',
                        url(r'^search/$', 'blog.views.search', name="search"),
 
                        url(r'^photo/', include('photo.urls')),
-                       #url(r'^blog/(?P<blog_id>\d+)/$', 'blog.views.detail', name='detail'),
+                       #url(r'^photo/(?P<photo_id>\d+)/$', 'photo.views.ajax_get_photo', name='detail'),
+                       url(r'^ajax_get_photo/$', 'photo.views.ajax_get_photo',name="ajax_get_photo"),
 
 
 )

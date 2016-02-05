@@ -13,8 +13,14 @@
             <div class="pic"><a href=""><img src="/site_media/{{photos.photo}}"></a></div>
             <div class="title"><a href="">{{photos.title}}</a></div>
             <div class="canvo">
-            {{users.username}}
-            
+            {% for users in users %}
+                    {% if users.id = photos.user_id %}
+                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt=""/>
+                    <div class="text">{{users.user}}</div>
+                </a>
+                    
+                    {% endif %}
+                    {% endfor %}
                 
 
                 <div class="fright">

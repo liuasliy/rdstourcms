@@ -12,10 +12,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='photolist',
-            name='user',
-            field=models.OneToOneField(default=b'', to=settings.AUTH_USER_MODEL),
-            preserve_default=True,
-        ),
+       
     ]

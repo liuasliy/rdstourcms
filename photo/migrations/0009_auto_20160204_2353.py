@@ -12,10 +12,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='photolist',
-            name='pub_date',
-            field=models.DateTimeField(default=django.utils.timezone.now),
-            preserve_default=True,
-        ),
+       
     ]

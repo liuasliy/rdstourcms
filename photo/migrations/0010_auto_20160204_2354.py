@@ -11,9 +11,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameField(
-            model_name='photolist',
-            old_name='pub_date',
-            new_name='pubdate',
-        ),
+        
     ]
