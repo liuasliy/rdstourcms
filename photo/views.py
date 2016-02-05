@@ -12,6 +12,7 @@ from django.contrib import auth
 from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 from django.shortcuts import get_object_or_404 
 import json
+from django.http import JsonResponse
 
 # Create your views here.
 def photopage(request):
@@ -34,11 +35,11 @@ def photopage(request):
 
 
 
+def photodetail(request):
+    return render(request, 'ajax_get_photo.html')
+ 
 def ajax_get_photo(request):
-    info = {
-            'name':'yihen',
-            'age':18,
-            'sex':'man'
-    }
-    my_json = json.dumps(info)
-    return  HttpResponse(my_json, content_type="application/json")
+    title = photoList.objects.order_by('title')
+    name_dict = {'twz': 'Love python and Django', 'zqxt': 'I am teaching Django'}
+
+    return JsonResponse(name_dict)

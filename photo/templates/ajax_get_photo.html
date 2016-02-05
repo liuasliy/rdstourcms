@@ -1,49 +1,22 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>document</title>
+ {% extends "base.html" %}
+{% block title %}Tour Blog{%endblock%}
+{% block content %}
 
-
-    <script src="js/jquery-1.8.3.min.js"></script>
-
-
-    <script>
-    /* function get_one_blog(id)
-        {
-            console.log('333');
-            var container = $('#blog_container');
-            container.html("loading...");
-            $.get('{%url ajax_get_photo%}',{'id':id}, function(ret) {
-                container.html(ret);
-            });
-        }*/
+<script>
+        $(function(){
+            $('#dict').click(function(){
+          $.getJSON("{% url 'ajax_get_photo' %}",function(ret){
+              //返回值 ret 在这里是一个字典
+              $.each(ret, function(index, item){
+                $('#dict_result').append('<img src="/static/pics/'+item+'">');
+            })
+          })
+      })
+        })
     </script>
+<div id="dict" style="margin-top:120px;margin-bottom:40px;">Ajax 加载字典</div>
+<p id="dict_result"></p>
+{% endblock %}
 
-    <script>
-        $.ajax({
-            type:"GET",
-            data:'send='+12,
-            url:'http://127.0.0.1:8000/ajax_get_photo/',
-            dataType:"json",
-            complete:function(){
-//                        alert('complete');
-            },
-            success:function(data){
-                alert(data.name);
-            },
-            error:function(data){
-                alert('error');
-            }
-        });
-    </script>
 
-</head>
-<body >
-<div class="result" id="blog_container">
-
-</div>
-</body>
-</html>
 
