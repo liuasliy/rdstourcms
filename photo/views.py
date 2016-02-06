@@ -39,7 +39,14 @@ def photodetail(request):
     return render(request, 'ajax_get_photo.html')
  
 def ajax_get_photo(request):
-    title = photoList.objects.order_by('title')
-    name_dict = {'twz': 'Love python and Django', 'zqxt': 'I am teaching Django'}
+    title = '宿主'
+    name_dict = {
+                'src': '1.jpg',
+                'title': title,
+                'name': 'name',
+                'namepic': '1.jpg',
+                'views': '22',
+                'comments': '33'
+                }
 
     return JsonResponse(name_dict)
