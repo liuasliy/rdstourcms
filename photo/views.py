@@ -35,9 +35,14 @@ def photopage(request):
 
 
 
-def photodetail(request):
-    return render(request, 'ajax_get_photo.html')
- 
+#def photodetail(request):
+    #return render(request, 'ajax_get_photo.html')
+
+
+def photodetail(request, photos_id):
+    photos = photoList.objects.get(id=photos_id)
+    return render_to_response('photodetail.html', {'photos': photos}, context_instance=RequestContext(request))
+
 def ajax_get_photo(request):
     title = '宿主'
     name_dict = {

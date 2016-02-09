@@ -10,7 +10,7 @@
 {% for photos in photos %}
     <div class="photobox">
         <div class="info">
-            <div class="pic"><a href=""><img src="/site_media/{{photos.photo}}"></a></div>
+            <div class="pic"><a href="/photo/{{ photos.id }}"><img src="/site_media/{{photos.photo}}"></a></div>
             <div class="title"><a href="">{{photos.title}}</a></div>
             <div class="canvo">
             {% for users in users %}
