@@ -40,8 +40,9 @@ def photopage(request):
 
 
 def photodetail(request, photos_id):
+    users = MyProfile.objects.all()
     photos = photoList.objects.get(id=photos_id)
-    return render_to_response('photodetail.html', {'photos': photos}, context_instance=RequestContext(request))
+    return render_to_response('photo-deils.html', {'photos': photos, "users": users}, context_instance=RequestContext(request))
 
 def ajax_get_photo(request):
     title = '宿主'

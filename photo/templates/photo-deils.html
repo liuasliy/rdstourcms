@@ -1,0 +1,55 @@
+ {% extends "base.html" %}
+{% block title %}Tour Blog{%endblock%}
+{% block content %}
+
+<div class="pic-views" style="margin-top:150px;">
+    <div class="single-header">
+    {% for users in users %}
+                    {% if users.id = photos.user_id %}
+                
+        <div class="single-meta">
+            <a href="" class="author-avatar"><img src="/site_media/{{ users.mugshot }}" alt=""/></a>
+            <h1>{{ photos.title }}</h1>
+            <p class="info">{{users.user}}</p>
+        </div>
+        <div class="data-meta">
+            <p class="click-num">221</p>
+            <p>
+                <span class="author">
+                    <a href="">{{users.user}}</a>发表于
+                    2015-11-12
+                </span>
+                <span class="comments-link">
+                    <a href="">33</a>
+                </span>
+            </p>
+        </div>
+         {% endif %}
+                    {% endfor %}
+    </div>
+    <div class="single-content">
+        <img src="/site_media/{{photos.photo}}" alt="">
+    </div>
+    <div class="single-footer">
+        <div class="single-heart">
+            <a href="">喜欢</a>
+            <div class="loading-line"></div>
+        </div>
+        <div class="tag-share">
+            <div class="tag-links">
+                <span>标签</span>
+                <a href="">标签阿紫</a>
+                <a href="">标签阿紫</a>
+            </div>
+            <div class="share fright">
+                <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1455518564188">
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

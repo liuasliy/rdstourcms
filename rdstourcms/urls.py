@@ -7,6 +7,7 @@ from django.conf.urls.defaults import *
 urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'rdstourcms.views.home', name='home'),
+                       url(r'^index/$', 'blog.views.index',name='index'),
                        url(r'^blog/', include('blog.urls')),
                        url(r'^blog/(?P<blog_id>\d+)/$', 'blog.views.detail', name='detail'),
                        url(r'^admin/', include(admin.site.urls)),

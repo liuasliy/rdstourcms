@@ -1,0 +1,64 @@
+//网页初始化样式
+/*------
+-------网站首页的整体样式
+--------
+*/
+@import "variables.less";
+
+//导入变量命名
+header{
+  height: 115px;
+}
+.photo-area{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  h2{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+    background: url(../images/bg-h2.png) repeat-x center;
+    margin-bottom: 40px;
+    span{
+      background: #424147;
+      color: #55A13C;
+      padding: 5px 40px;
+    }
+  }
+}
+.photo-list{
+  .row{
+    max-width: 1000px;
+    padding: 0 10px;
+  }
+}
+.trav-list{
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 50px;
+  h2{
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .col-md-4{
+    width: 22.3%;
+    float: left;
+    img{
+      width: 100%;
+      height: 240px;
+    }
+    .desc{
+      background: #414146;
+      padding: 20px;
+      h4{
+        color: #EEE;
+        font-size: 1em;
+        text-transform: uppercase;
+        line-height: 1.49em;
+      }
+    }
+  }
+  .col-md-4+.col-md-4{
+    margin: 0% 0 0% 3.6%;
+  }
+}
