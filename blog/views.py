@@ -17,12 +17,6 @@ from django.utils import timezone
 import datetime
 
 # Create your views here.
-def index(request):
-    '''
-    首页
-    '''
-    return render(request,'index.html')
-
 
 def archive(request):
     posts = BlogPost.objects.all()
