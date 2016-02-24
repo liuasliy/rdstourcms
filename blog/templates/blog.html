@@ -89,16 +89,25 @@ function queryByKeyword(){
                 最新评论
             </div>
             <ul>
+            {% for post in posts %}
+            {% load comments %} 
+            {% get_comment_list for post as comment_list %} 
+            {% for comment in comment_list|slice:":3" %}
                 <li>
+                {% for users in users %}
+                    {% if users.id = comment.user_id %}
                     <a href="">
-                        <img src="images/person-img.jpg" alt=""/>
+                        <img src="/site_media/{{ users.mugshot }}" alt="{{comment.user_name}}"/>
                         <div class="comments-text">
-                            <h2>思迈尔</h2>
-                            <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变</p>
+                            <h2>{{comment.user_name}}</h2>
+                         {% endif %}
+                    {% endfor %} 
+                            <p>{{comment.comment}}</p>
                         </div>
                     </a>
                 </li>
-                
+                {% endfor %}
+                {% endfor %}
             </ul>
         </div>
         <div class="hot-tags">

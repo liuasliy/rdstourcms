@@ -16,25 +16,19 @@ $(document).ready(function() {
 <!--index-banner-->
 <div class="index-banner">
     <ul>
-        <li data-background="images/field.jpg">
-            <div class="flick-title">Flickerplate Is Working</div>
+    {% for post in posts|slice:":4" %}
+        <li data-background="/site_media/{{ post.image }}">
+            <div class="flick-title">{{ post.title }}</div>
             <div class="flick-sub-text">Heaven forbid this package you downloaded is broken. That wouldn't be embarrassing at all.</div>
         </li>
-        <li data-background="images/forest.jpg">
-            <div class="flick-title">Editable via Javascript or CSS</div>
-            <div class="flick-sub-text">Take a look at the extensive documentation to see how you can change the settings in multiple ways.</div>
-        </li>
-        <li data-background="images/frozen-water.jpg">
-            <div class="flick-title">Touch Enabled Through the jQuery Finger Library</div>
-            <div class="flick-sub-text">jQuery Finger is a great touch library that has been included as part of the Flickerplate package.</div>
-        </li>
+        {% endfor %}
     </ul>
 </div>
 <div class="trav-list">
     <h2>
         <span>发动反击是</span>
     </h2> 
-    {% for post in posts %}
+    {% for post in posts|slice:"5:9" %}
     <div class="col-md-4">
         <img src="/site_media/{{ post.image }}" alt="" />
         <div class="desc">
