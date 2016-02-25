@@ -114,12 +114,14 @@
                 最新新闻
             </div>
             <ul>
+            {% for post in posts|slice:":3" %}
                 <li>
                     <a href="">
-                        <img src="images/jpg-2.jpg" alt="" />
-                        <p>魔鬼赛程阿森纳力压列强温格点破一冠军质变森纳</p>
+                        <img src="/site_media/{{ post.image }}" alt="" />
+                        <p>{{ post.title|slice:":52" }}...</p>
                     </a>
                 </li>
+                {% endfor %}
             </ul>
         </div>
         <div class="comment-list">
