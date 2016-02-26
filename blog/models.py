@@ -14,7 +14,7 @@ class BlogPost(models.Model):
     pub_date = models.DateTimeField()
     count_hit = models.IntegerField(default=0,editable=False)
     tags = models.CharField(max_length=100)
-    author = models.OneToOneField(User)
+    author = models.ForeignKey(User)
     class Meta:
         verbose_name = '游记管理'
         verbose_name_plural = '游记管理'

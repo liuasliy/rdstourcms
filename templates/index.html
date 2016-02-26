@@ -45,7 +45,7 @@ $(document).ready(function() {
     <article class="photo-list">
         <div class="row">
             <div id="demo-test-gallery" class="demo-gallery">
-            {% for photo in photos %}
+            {% for photo in photos|slice:":8" %}
                 <a href="/site_media/{{photo.photo}}" data-size="1600x1600" data-med="/site_media/{{photo.photo}}" data-med-size="1024x1024" data-author="Folkert Gorter" >
                     <img src="/site_media/{{photo.photo}}" alt="{{photo.title}}" />
                     <figure>{{photo.title}}</figure>
