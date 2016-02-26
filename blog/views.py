@@ -39,6 +39,7 @@ def archive(request):
 
 def detail(request, blog_id):
     users = MyProfile.objects.all()
+    postall = BlogPost.objects.all()
     try:
         posts = BlogPost.objects.get(id=blog_id)
 
@@ -47,7 +48,7 @@ def detail(request, blog_id):
         posts.save()
     except BlogPost.DoesNotExist:
         raise Http404
-    return render_to_response('blogdetails.html', {"posts": posts,  "users": users}, context_instance=RequestContext(request))
+    return render_to_response('blogdetails.html', {"posts": posts,  "users": users, "postall": postall}, context_instance=RequestContext(request))
 
 
 
