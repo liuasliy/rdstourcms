@@ -451,36 +451,8 @@ img {
   max-width: 740px;
   margin: 12px auto;
 }
-p {
-  margin: 0 0 12px;
-}
-ul {
-  list-style: disc;
-}
-ul,
-ol {
-  padding: 0;
-  margin: 0 0 12px 25px;
-}
-li {
-  margin: 0 0 12px 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: normal;
-}
-h1 {
-  font-size: 48px;
-  line-height: 1;
-  margin: 0;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
+
+
 .row--heading {
   position: relative;
 }
@@ -534,20 +506,7 @@ a.twitter-nav-link {
   background-position: 0 0.1em;
   margin-right: 0.1em;
 }
-h2 {
-  font-size: 32px;
-  line-height: 1.1;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-h3 {
-  font-size: 22px;
-  line-height: 28px;
-  margin: 0 0 8px 0;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
-}
+
 strong {
   font-weight: 600;
 }
@@ -560,7 +519,7 @@ span.highlight {
   max-width: 600px;
   margin-bottom: 24px;
 }
-p,
+
 ul.text-list {
   color: #444;
 }
