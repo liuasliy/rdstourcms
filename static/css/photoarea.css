@@ -1,10 +1,8 @@
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 code,
 pre {
   font-family: Menlo, Monaco, monospace;
@@ -451,8 +449,36 @@ img {
   max-width: 740px;
   margin: 12px auto;
 }
-
-
+p {
+  margin: 0 0 12px;
+}
+ul {
+  list-style: disc;
+}
+ul,
+ol {
+  padding: 0;
+  margin: 0 0 12px 25px;
+}
+li {
+  margin: 0 0 12px 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+h1 {
+  font-size: 48px;
+  line-height: 1;
+  margin: 0;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
 .row--heading {
   position: relative;
 }
@@ -506,7 +532,20 @@ a.twitter-nav-link {
   background-position: 0 0.1em;
   margin-right: 0.1em;
 }
-
+h2 {
+  font-size: 32px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 22px;
+  line-height: 28px;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
 strong {
   font-weight: 600;
 }
@@ -519,7 +558,7 @@ span.highlight {
   max-width: 600px;
   margin-bottom: 24px;
 }
-
+p,
 ul.text-list {
   color: #444;
 }
@@ -745,28 +784,28 @@ img.img--with_border {
   display: block;
   float: left;
   margin: 0 10px 12px 0;
-  width: 152px;
+  width: 164px;
   line-height: 0;
 }
-.demo-gallery a img{
-  width: 152px;
-    height: 114px;
+.demo-gallery a img {
+  width: 164px;
+  height: 114px;
 }
 a.demo-gallery__img--main {
   width: 320px;
   height: 240px;
 }
-a.demo-gallery__img--main img{
-    width: 320px;
-    height: 240px;
+a.demo-gallery__img--main img {
+  width: 320px;
+  height: 240px;
 }
 a.demo-gallery__img--main2 {
-    width: 314px;
-    height: 114px;
+  width: 314px;
+  height: 114px;
 }
-a.demo-gallery__img--main2 img{
-    width: 314px;
-    height: 114px;
+a.demo-gallery__img--main2 img {
+  width: 314px;
+  height: 114px;
 }
 .ukraine-flag {
   width: 21px;
@@ -952,19 +991,31 @@ a.demo-gallery__img--main2 img{
 */
 @media screen and (max-width: 450px) {
   .demo-gallery a {
-    width: 95px;
+    width: 33%;
     margin: 0 1px 1px 0;
   }
+    .demo-gallery a img{
+        width: 100%;
+    }
   a.demo-gallery__img--main {
-    width: 127px;
+    width: 100%;
   }
+    a.demo-gallery__img--main img {
+        width: 100%;
+    }
+    a.demo-gallery__img--main2 {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 350px) {
   .demo-gallery a {
-    width: 81px;
+    width: 100px;
     margin: 0 1px 1px 0;
   }
   a.demo-gallery__img--main {
-    width: 109px;
+    width: 320px;
   }
+    a.demo-gallery__img--main2 {
+        width: 320px;
+    }
 }

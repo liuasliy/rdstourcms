@@ -21,8 +21,8 @@ header {
   padding: 5px 40px;
 }
 .photo-list .row {
-  max-width: 1000px;
-  padding: 0 10px;
+  max-width: 1200px;
+  padding: 0;
 }
 .trav-list {
   width: 1200px;
@@ -59,4 +59,19 @@ header {
 }
 .trav-list .col-md-4 + .col-md-4 {
   margin: 0% 0 0% 3.6%;
+}
+@media (max-width: 768px) {
+  .trav-list {
+    width: 100%;
+  }
+  .trav-list .col-md-4 {
+    width: 96%;
+    margin: 0% 2%;
+  }
+  .trav-list .col-md-4 + .col-md-4 {
+    margin: 0% 2%;
+  }
+  .photo-list .row {
+    width: 100%;
+  }
 }
