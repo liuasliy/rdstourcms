@@ -101,32 +101,7 @@
         </form>
     </div>
 </div>
-<script>
-    $(function () {
-        $('.top-login').click(function () {
-            $(document.body).addClass('fadeIn');
-            $(document.body).append('<div class="overlay"></div>');
-            $('#sign').removeClass('wrap-register').addClass('wrap-login');
-        })
-        $('.top-register').click(function () {
-            $(document.body).addClass('fadeIn');
-            $(document.body).append('<div class="overlay"></div>');
-            $('#sign').removeClass('wrap-login').addClass('wrap-register');
-        })
-        $('.close').click(function () {
-            $(document.body).removeClass('fadeIn');
-            $('.overlay').remove();
-            $('#sign').removeClass('wrap-register').removeClass('wrap-login');
-        })
 
-        $('#register-active').on("click", function () {
-            $('#sign').removeClass('wrap-login').addClass('wrap-register');
-        })
-        $('#login-active').on("click", function () {
-            $('#sign').removeClass('wrap-register').addClass('wrap-login');
-        })
-    })
-</script>
 </body>
 
 </html>

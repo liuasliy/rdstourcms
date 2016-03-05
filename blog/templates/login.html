@@ -1,41 +1,37 @@
 {% extends "base.html" %}
-{% block title%}contact BigKola{%endblock%}
+{% block title%}登录{%endblock%}
 
   
 {% block content %} 
 
 <!--=======content================================--> 
 
-<script>
-$(document).ready(function(){
-	
-  $("#registerlink").click(function(e){	 
-  var url = $('#registerlink').attr('href','/register/');
-	 window.open(url,"_self");
-
-  });
-});
-</script>
 <div class="container " style="margin-top:100px;">
-  <div style="height:520px;">
-    <form  action=/login/ method="post" id="login">
-      {%csrf_token%}
-      <h1>登 录</h1>
-      <fieldset id="inputs">
-        <input id="username" type="text" name="username" placeholder="用户名" autofocus required>
-        <input id="password" type="password" name="password" placeholder="密码" required>
-      </fieldset>
-      <fieldset id="actions">
-        <input type="submit" id="submit" name="login" value="登 录">
-        <a href="">忘记密码?</a> <a  href="" id="registerlink">注册</a>
-      </fieldset>
-    </form>
-    <br>
-    <br>
-    <div style="text-align:center;clear:both"> </div>
-  </div>
-  
-  <!--end span8--> 
-  
+
+     <div id="sign" class="wrap-login">
+    <div class="part login">
+        <form action=/login/ method="post" id="login">
+         {%csrf_token%}
+
+            <h3>登录</h3>
+            <p>
+                <label for="username"></label>
+                <input type="text" name="username" id="username" class="input-control" placeholder="输入用户名"/>
+            </p>
+            <p>
+                <label for="userpassword"></label>
+                <input type="text" name="password" id="password" class="input-control" placeholder="请输入密码"/>
+            </p>
+            <p>
+                <input type="submit" id="submit" name="login" class="submit" value="登录"/>
+            </p>
+            <a class="close">
+                <i class="fa fa-times"></i>
+            </a>
+        </form>
+    </div>
+    </div>
 </div>
+
+
 {% endblock%}
