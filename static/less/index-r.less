@@ -6,6 +6,11 @@
 @import "variables.less";
 
 //导入变量命名
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 .hide{
   display: none;
 }
@@ -13,6 +18,7 @@
   font-size: 32px;
   text-align: center;
   margin-bottom: 40px;
+  margin-right: 40px;
 }
 .site-content{
   margin-bottom: 50px;
@@ -118,7 +124,7 @@ input[type="submit"] {
   color: #FFF;
   cursor: pointer;
   -webkit-appearance: button;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.075em;
@@ -129,9 +135,12 @@ input[type="submit"] {
   width: 160px;
   margin: 0 auto;
   button.photo-archive{
-    padding: 25px 40px;
+    padding: 18px 40px;
     display: block;
     margin: 50px auto 50px;
+  }
+  .col-1-1{
+    padding-right: 0
   }
 }
 /*---最新摄影---*/

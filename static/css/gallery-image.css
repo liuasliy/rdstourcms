@@ -670,7 +670,9 @@ div.lightbox-content {
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s
 }
-
+.close-content .icon{
+    font-size: 35px;
+}
 .close-content:hover {
     color: #999
 }
