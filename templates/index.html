@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/index-r.css"/>
     <link rel="stylesheet" href="/static/css/gallery-image.css"/>
+    <link rel="stylesheet" href="/static/css/menu-nav.css"/>
 
     <script src="/static/js/jquery-1.8.3.min.js"></script>
 
@@ -22,25 +23,29 @@
 </head>
 <body>
 <header class="site-header">
-    <!--<div class="nav-menu  ">
-    <h3>关闭</h3>
-        <div class="nav-menu-list">
-            <ul>
-                <li><a href="">首页</a></li>
-                <li><a href="">新闻</a></li>
-                <li><a href="">资讯</a></li>
+    <div class="nav-menu grid ">
+        <div class="navbar"></div>
+        <div class="circle"></div>
+        <div class="menu">
+            <ul >
+                <li><a href="http://www.baidu.com">首页</a></li>
+                <li><a href="">新闻资讯</a></li>
+                <li><a href="">产品超市</a></li>
+                <li><a href="">创业服务</a></li>
             </ul>
         </div>
-    </div>     -->
+        <div class="burger">
+            <div class="x"></div>
+            <div class="y"></div>
+            <div class="z"></div>
+        </div>
+    </div>
 <div class="grid">
     <div class="site-branding">
         <h1 class="site-title">
             <a href="">Gridsby</a>
         </h1>
         <h2 class="site-description">A Beautiful Way to Display Your Photos</h2>
-    </div>
-    <div class="nav-button">
-        <button>美剧</button>
     </div>
 </div>
 </header>
@@ -52,7 +57,7 @@
                 <div id="gallery-container" class="gridsby infinite-scroll">
                        {% for photo in photos|slice:":16" %}
                     <figure class="gallery-image" >
-                        <img width="450"  src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-thumb size-gridsby-gallery-thumb wp-post-image" alt="{{photo.title}}" srcset="/site_media/{{photo.photo}} 199w, /site_media/{{photo.photo}} 497w" sizes="(max-width: 450px) 100vw, 450px">
+                        <img width="450"  src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-thumb size-gridsby-gallery-thumb wp-post-image" alt="{{photo.title}}" srcset="/site_media/{{photo.photo}}, /site_media/{{photo.photo}}" >
                     </figure><!-- gallery-image -->
                        {% endfor %}
 
@@ -65,11 +70,11 @@
                     <div class="lightbox-content">
 
                         <div class="dummy-img">
-                            <img width="500"  src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-full size-gridsby-gallery-full wp-post-image" alt="true" srcset="/site_media/{{photo.photo}} 300w, /site_media/{{photo.photo}} 500w" sizes="(max-width: 500px) 100vw, 500px">                    </div><!-- dummy-img -->
+                            <img width="500"  src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-full size-gridsby-gallery-full wp-post-image" alt="true" srcset="/site_media/{{photo.photo}}, /site_media/{{photo.photo}}" >                    </div><!-- dummy-img -->
 
                         <h2 class="dummy-title">
 
-                            {{photo.title}} <div class="share-button share-button-left sharer-19" style="display: block;"><label class="entypo-export"><span>Share</span></label><div class="social load top left networks-5"><ul><li class="entypo-pinterest" data-network="pinterest"></li><li class="entypo-twitter" data-network="twitter"></li><li class="entypo-facebook" data-network="facebook"></li><li class="entypo-gplus" data-network="google_plus"></li><li class="entypo-paper-plane" data-network="email"></li></ul></div></div>
+                            {{photo.title}} 
 
                         </h2><!-- dummy-title -->
 
@@ -96,7 +101,7 @@
         </div>
     </div>
 <div class="grid grid-pad">
-    <h2>
+    <h2 class="trav-index-title">
         <span>最新游记</span>
         </h2>
 </div>
@@ -118,11 +123,66 @@
         </div>
         {% endfor %}
     </div>
+<div class="grid trav-more">
+        <div class="col-1-1">
+            <a href="../photo">
+                <button class="photo-archive">查看更多</button></a>
 
+        </div>
+    </div>
 </section>
 <footer class="site-footer">
     Copyright © 2012-2016 觉唯  All Rights Reserved. 粤ICP备12073831号-1
 </footer>
-
+<script>
+    if ('ontouchstart' in window) {
+        var click = 'touchstart';
+    } else {
+        var click = 'click';
+    }
+    $('div.burger').on(click, function () {
+        if (!$(this).hasClass('open')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+    $('div.menu ul li a').on(click, function (e) {
+        e.preventDefault();
+        closeMenu();
+    });
+    function openMenu() {
+        $('div.circle').addClass('expand');
+        $('div.menu').css('z-index','999');
+        $('div.burger').addClass('open');
+        $('div.x, div.y, div.z').addClass('collapse');
+        $('.menu li').addClass('animate');
+        setTimeout(function () {
+            $('div.y').hide();
+            $('div.x').addClass('rotate30');
+            $('div.z').addClass('rotate150');
+        }, 70);
+        setTimeout(function () {
+            $('div.x').addClass('rotate45');
+            $('div.z').addClass('rotate135');
+        }, 120);
+    }
+    function closeMenu() {
+        $('div.burger').removeClass('open');
+        $('div.menu').css('z-index','0');
+        $('div.x').removeClass('rotate45').addClass('rotate30');
+        $('div.z').removeClass('rotate135').addClass('rotate150');
+        $('div.circle').removeClass('expand');
+        $('.menu li').removeClass('animate');
+        setTimeout(function () {
+            $('div.x').removeClass('rotate30');
+            $('div.z').removeClass('rotate150');
+        }, 50);
+        setTimeout(function () {
+            $('div.y').show();
+            $('div.x, div.y, div.z').removeClass('collapse');
+        }, 70);
+    }
+</script>
 </body>
 </html>

@@ -9,6 +9,11 @@
 .hide{
   display: none;
 }
+.trav-index-title{
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+}
 .site-content{
   margin-bottom: 50px;
 }
@@ -81,12 +86,6 @@
   width: 1200px;
   margin: 0 auto;
   overflow: hidden;
-  padding-top: 50px;
-  h2{
-    font-size: 1.4em;
-    text-align: center;
-    padding-bottom: 30px;
-  }
 }
 @media (max-width: 768px) {
   .trav-list{
@@ -132,7 +131,7 @@ input[type="submit"] {
   button.photo-archive{
     padding: 25px 40px;
     display: block;
-    margin: 50px auto 100px;
+    margin: 50px auto 50px;
   }
 }
 /*---最新摄影---*/
@@ -146,7 +145,6 @@ input[type="submit"] {
     background: url(../images/bg-h2.png) repeat-x center;
     margin-bottom: 40px;
     span{
-
       color: #ac1500;
       padding: 5px 40px;
     }
@@ -183,25 +181,6 @@ input[type="submit"] {
   top: 90px;
   left: 440px;
 }
-.nav-menu{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 190px;
-  overflow-y: scroll;
-  z-index: 1000;
-  height: 100%;
-  background-color: #222;
-  h3{
-    color: #ededed;
-    font-size: 15px;
-    padding: 14px 20px;
-    margin: 0;
-    font-weight: 600;
-    background: #000;
-    cursor: pointer;
-  }
-}
 .nav-menu-list{
   li{
     position: relative;
@@ -230,53 +209,3 @@ input[type="submit"] {
 }
 
 
-@-webkit-keyframes bounceInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-2000px);
-    transform: translateX(-2000px)
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translateX(30px);
-    transform: translateX(30px)
-  }
-  80% {
-    -webkit-transform: translateX(-10px);
-    transform: translateX(-10px)
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0)
-  }
-}
-
-@keyframes bounceInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-2000px);
-    -ms-transform: translateX(-2000px);
-    transform: translateX(-2000px)
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translateX(30px);
-    -ms-transform: translateX(30px);
-    transform: translateX(30px)
-  }
-  80% {
-    -webkit-transform: translateX(-10px);
-    -ms-transform: translateX(-10px);
-    transform: translateX(-10px)
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0)
-  }
-}
-
-.bounceInLeft {
-  -webkit-animation-name: bounceInLeft;
-  animation-name: bounceInLeft
-}
