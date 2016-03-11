@@ -41,3 +41,8 @@
     color: #b7b7b7;
 }
 .icon-closeoutline02:before { content: "\e606"; }
+.icon-message04:before { content: "\e60a"; }
+.icon-user06:before { content: "\e60b"; }
+.icon-password:before { content: "\e607"; }
+.icon-yfagain11:before { content: "\e608"; }
+.icon-close03:before { content: "\e609"; }

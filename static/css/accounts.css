@@ -83,7 +83,7 @@ breadandpepper.com
 #intro {
     padding: 30px 20px;
     min-height: 290px;
-    background: #e7e2de url(../img/userena.png) no-repeat 90px 30px;
+    /*background: #e7e2de url(../images/userena.png) no-repeat 90px 30px;*/
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
@@ -105,7 +105,7 @@ breadandpepper.com
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url(../img/trans.png);
+    /*background-image: url(../img/trans.png); */
     -moz-border-radius-topleft: 0px;
     -moz-border-radius-topright: 0px;
     -moz-border-radius-bottomright: 8px;
@@ -144,7 +144,7 @@ breadandpepper.com
     width: 124px;
     right: -150px;
     top: 90px;
-    background: url(../img/try.png) no-repeat;
+    /*background: url(../img/try.png) no-repeat; */
 }
 
 /*	Type
@@ -186,7 +186,7 @@ h2.intro {
     font-size: 1.8em;
     margin: 10px 20px 9px 380px;
     padding: 0 0 5px;
-    background: url(../img/stripe.png) repeat-x 0 bottom;
+    /*background: url(../img/stripe.png) repeat-x 0 bottom; */
 }
 
 h2 span {
@@ -261,7 +261,7 @@ a#fork {
     height: 138px;
     display: block;
     text-indent: -9999px;
-    background-image: url(../img/forkme.png);
+    /*background-image: url(../img/forkme.png);  */
 }
 
 .white-box img {
@@ -283,8 +283,8 @@ a#fork {
     border-radius: 8px;
     width: 500px;
     margin-top: 70px;
-*/
-}
+
+}*/
 
 form p {
     padding: 4px 0 4px;
@@ -381,7 +381,6 @@ input[type=submit] {
     font-size: 13px;
     letter-spacing: 1px;
     font-weight: bold;
-    text-shadow: #5e98bd 0 -1px 0;
     text-align: center;
     cursor: pointer;
     font-family: 'Droid Sans', helvetica, arial, Geneva, sans-serif;
@@ -465,11 +464,11 @@ fieldset p input[type='password']{
     height: 112px;
     display: block;
     text-indent: -9999px;
-    background: url(../img/bread-and-pepper-logo.png) center top;
+    /*background: url(../img/bread-and-pepper-logo.png) center top;  */
 }
 
 #header h1 a:hover {
-    background: url(../img/bread-and-pepper-logo.png) center bottom;
+    /*background: url(../img/bread-and-pepper-logo.png) center bottom;*/
 }
 
 ul#profile-nav {
@@ -527,7 +526,7 @@ ul.features {
 }
 
 ul.features li {
-    background: url(../img/stripe.png) repeat-x center top;
+    /*background: url(../img/stripe.png) repeat-x center top;  */
     padding: 30px 10px 0 0;
     float: left;
     width: 310px;
@@ -543,7 +542,7 @@ ul.blocks {
 }
 
 ul.blocks li {
-    background: url(../img/stripe.png) repeat-x center top;
+   /* background: url(../img/stripe.png) repeat-x center top; */
     padding: 30px 0 0;
     float: left;
     width: 237px;
@@ -556,7 +555,7 @@ ul.blocks li {
     height: 128px;
     display: block;
     text-indent: -9999px;
-    background-image: url(../img/icon-browse.png);
+   /* background-image: url(../img/icon-browse.png);  */
     margin: 20px auto;
 }
 
@@ -565,7 +564,7 @@ ul.blocks li {
     height: 128px;
     display: block;
     text-indent: -9999px;
-    background-image: url(../img/icon-download.png);
+   /* background-image: url(../img/icon-download.png);*/
     margin: 20px auto;
 }
 
@@ -574,7 +573,7 @@ ul.blocks li {
     height: 128px;
     display: block;
     text-indent: -9999px;
-    background-image: url(../img/icon-docs.png);
+   /* background-image: url(../img/icon-docs.png); */
     margin: 20px auto;
 }
 
@@ -583,7 +582,7 @@ ul.blocks li {
     height: 128px;
     display: block;
     text-indent: -9999px;
-    background-image: url(../img/icon-demo.png);
+    /*background-image: url(../img/icon-demo.png); */
     margin: 20px auto;
 }
 
@@ -622,9 +621,9 @@ div#lang_form form {
     right: 10px;
     margin: 1px;
     padding: 0;
-    -moz-border-radius: none;
-    -webkit-border-radius: none;
-    border-radius: none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     background-color: transparent;
     width: auto;
     -moz-box-shadow: none;
@@ -645,7 +644,7 @@ div#lang_form input[type=submit] {
     padding: 0 10px;
     margin: 5px 0 0 10px;
     min-width: 80px;
-    background-color: none;
+    background-color: transparent;
     display: block;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;

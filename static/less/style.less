@@ -617,15 +617,21 @@
 }
 
 /*登录注册*/
+.container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  min-height: 407px;
+}
 #sign {
-  position: fixed;
+  /*position: fixed;
   z-index: 9999;
   top: 80px;
-  left: 50%;
+  left: 50%;   */
   border: solid 1px #e4e4e4;
   border-radius: 4px;
   width: 400px;
-  margin-left: -200px;
+  /*margin-left: -200px; */
+  margin: 0 auto;
   opacity: 1;
   -webkit-transform: translate3d(0, 0px, 0);
   transform: translate3d(0, 0px, 0);
@@ -637,10 +643,10 @@
   -ms-perspective: 800px;
   perspective: 800px;
   .part {
-    position: absolute;
+    /*position: absolute;
     width: 100%;
     left: 0;
-    top: 0;
+    top: 0;  */
     background-color: #f9f9f9;
     padding: 50px 50px 40px 50px;
     box-sizing: border-box;
@@ -689,6 +695,21 @@
     p {
       margin: 10px auto;
       position: relative;
+      border-bottom: none;
+      label.icon{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color: #999;
+        font-size: 20px;
+        color: rgba(0,0,0,.3);
+        width: 20px;
+        line-height: 23px;
+        padding-right: 0px;
+      }
+      .icon-email{
+            color: rgba(0, 0, 0, 0.3);
+      }
     }
     input {
       border: 1px solid #ddd;
@@ -702,6 +723,9 @@
       color: #FFF;
       border: 0 none;
       font-size: 14px;
+      margin: 20px auto;
+      line-height:15px;
+      text-shadow: none;
     }
     .close {
       position: absolute;
@@ -718,6 +742,7 @@
       i {
         -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
+        color:#fff;
       }
     }
     .close:hover i {

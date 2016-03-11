@@ -1,44 +1,34 @@
 {% extends "base.html" %}
 {% block title %}注册{%endblock%}
 {% block content %}
-<style>
-.span7{ height:580px;}
-</style>
-<div class="container main_body" style="margin-top:100px;">
+
+<div class="container main_body" >
 <div id="sign" class="wrap-register">
   <div class="part register">
-        <form action="">
-            <div id="login-active" class="switch">
-                <i class="fa fa-toggle-on"></i>
-                切换登录
-            </div>
+        <form action=/register/ method="post" id="register">
+            {%csrf_token%}
             <h3>注册</h3>
 
             <p>
-                <label for=""></label>
-                <input type="text" name="" id="" class="input-control" placeholder="输入用户名"/>
+                <label for="username" class="icon"><i class="icon iconfont">&#xe60b;</i></label>
+                <input type="text" name="username" id="username" class="input-control" placeholder="输入用户名" autofocus required/>
             </p>
 
             <p>
-                <label for=""></label>
-                <input type="text" name="" id="" class="input-control" placeholder="输入常用邮箱"/>
+                <label for="password" class="icon"><i class="icon iconfont">&#xe607;</i></label>
+                <input type="text" name="password1" id="password" class="input-control" placeholder="密码最小长度为6" required/>
             </p>
 
             <p>
-                <label for=""></label>
-                <input type="text" name="" id="" class="input-control" placeholder="密码最小长度为6"/>
+                <label for="passwordcf" class="icon"><i class="icon iconfont">&#xe608;</i></label>
+                <input type="text" name="password2" id="passwordcf" class="input-control" placeholder="再次输入密码" required/>
             </p>
 
             <p>
-                <label for=""></label>
-                <input type="text" name="" id="" class="input-control" placeholder="再次输入密码"/>
-            </p>
-
-            <p>
-                <input type="submit" class="submit" value="注册"/>
+                <input type="submit" class="submit" id="submit" name="register" value="注册"/>
             </p>
             <a class="close">
-                <i class="fa fa-times"></i>
+                <i class="icon iconfont">&#xe609;</i>
             </a>
         </form>
     </div>

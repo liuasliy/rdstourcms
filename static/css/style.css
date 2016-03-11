@@ -558,15 +558,21 @@
   border-bottom-right-radius: 3px;
 }
 /*登录注册*/
+.container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  min-height: 407px;
+}
 #sign {
-  position: fixed;
+  /*position: fixed;
   z-index: 9999;
   top: 80px;
-  left: 50%;
+  left: 50%;   */
   border: solid 1px #e4e4e4;
   border-radius: 4px;
   width: 400px;
-  margin-left: -200px;
+  /*margin-left: -200px; */
+  margin: 0 auto;
   opacity: 1;
   -webkit-transform: translate3d(0, 0px, 0);
   transform: translate3d(0, 0px, 0);
@@ -579,10 +585,10 @@
   perspective: 800px;
 }
 #sign .part {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
+  /*position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;  */
   background-color: #f9f9f9;
   padding: 50px 50px 40px 50px;
   box-sizing: border-box;
@@ -630,6 +636,21 @@
 #sign form p {
   margin: 10px auto;
   position: relative;
+  border-bottom: none;
+}
+#sign form p label.icon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: #999;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  width: 20px;
+  line-height: 23px;
+  padding-right: 0px;
+}
+#sign form p .icon-email {
+  color: rgba(0, 0, 0, 0.3);
 }
 #sign form input {
   border: 1px solid #ddd;
@@ -643,6 +664,9 @@
   color: #FFF;
   border: 0 none;
   font-size: 14px;
+  margin: 20px auto;
+  line-height: 15px;
+  text-shadow: none;
 }
 #sign form .close {
   position: absolute;
@@ -660,6 +684,7 @@
 #sign form .close i {
   -webkit-transition: all ease-out 0.3s;
   transition: all ease-out 0.3s;
+  color: #fff;
 }
 #sign form .close:hover i {
   -webkit-transform: rotate(180deg);

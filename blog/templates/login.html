@@ -6,7 +6,7 @@
 
 <!--=======content================================--> 
 
-<div class="container " style="margin-top:100px;">
+<div class="container " >
 
      <div id="sign" class="wrap-login">
     <div class="part login">
@@ -15,18 +15,20 @@
 
             <h3>登录</h3>
             <p>
-                <label for="username"></label>
-                <input type="text" name="username" id="username" class="input-control" placeholder="输入用户名"/>
+                <label for="username" class="icon"><i class="icon iconfont">&#xe60b;</i></label>
+                <input type="text" name="username" id="username" class="input-control"
+                       placeholder="输入用户名" autofocus required/>
             </p>
             <p>
-                <label for="userpassword"></label>
-                <input type="text" name="password" id="password" class="input-control" placeholder="请输入密码"/>
+                <label for="userpassword" class="icon"><i class="icon iconfont">&#xe607;</i></label>
+                <input type="text" name="password" id="password" class="input-control"
+                       placeholder="请输入密码" required/>
             </p>
             <p>
                 <input type="submit" id="submit" name="login" class="submit" value="登录"/>
             </p>
             <a class="close">
-                <i class="fa fa-times"></i>
+                <i class="icon iconfont">&#xe609;</i>
             </a>
         </form>
     </div>
