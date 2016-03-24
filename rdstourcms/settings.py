@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_comments',
-    'blog',
+    'travels',
     'pagination',
     'ckeditor',
     'ckeditor_uploader',
@@ -182,7 +182,7 @@ SUIT_CONFIG = {
     'MENU': (
         'sites',
         {'app': 'auth', 'label': u'认证管理'},
-        {'app': 'blog', 'label': u'游记'},
+        {'app': 'travels', 'label': u'游记'},
         {'app': 'photo', 'label': u'摄影'},
         {'app': 'accounts', 'label': u'用户管理'},
         {'app': 'django_comments', 'label': u'评论'},

@@ -1,0 +1,181 @@
+{% extends "base.html" %} {% block title %}{{ travels.title }}{%endblock%} {% block content %}
+<!--container-->
+<div class="news-index">
+    <div class="set-bg">
+        <img src="/site_media/{{ travels.image }}" alt="" class="scenery-img" />
+    </div>
+    <div class="row">
+        <div class="h1-title">{{ travels.title }}</div>
+        <div class="per-img">
+           {% for users in users %}
+                    {% if users.id = travels.author_id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt=""/>
+                    {% endif %}
+                    {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="share-box">
+    <div class="row">
+        <div class="per-info">
+            <a href="">{{travels.author}}</a>
+            <span>{{travels.pub_date|date:"Y-m-d"}}</span>
+            <i class="icon iconfont">&#xe605;</i>{{ travels.count_hit }}
+        </div>
+        <div class="share">
+            <div class="fleft">
+                <a>
+                    <i></i>
+                    <span>2324</span>
+                    <strong>收藏</strong>
+                </a>
+            </div>
+            <div class="fright">
+                <div class="bdsharebuttonbox">
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rds-container">
+    <div class="rds-main">
+        <div class="news-list">
+            <div class="news-content">
+                {{ travels.content|safe }}
+            </div>
+        </div>
+        <div class="comments">
+            {% load comments %} 
+            {% get_comment_list for travels as comment_list %}
+            {% for comment in comment_list %}
+            <div class="com-list">
+                <div class="author-info">
+                    <div class="author-pic">    
+                    {% for users in users %}
+                    {% if users.id = comment.user_id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt="{{ comment.user_name }}" />
+                    {% endif %}
+                    {% endfor %} 
+                
+                    </div>
+                    <span class="author-name"><a href="">{{comment.user_name}}</a></span>
+                    <span class="date">{{comment.submit_date}}</span>
+                </div>
+                <div class="com-content">
+                    {{comment.comment}}
+                </div>
+            </div>
+            {%endfor%}
+
+
+            <div class="com-textar">
+            {% if user.is_authenticated %}
+            {% get_comment_form for travels as form %}
+            <form action="{%comment_form_target%}" method="post">
+                {%csrf_token%} 
+                {{form.object_pk}}
+                 {{form.content_type}} 
+                 {{form.timestamp}} 
+                 {{form.security_hash}}
+                <div class="avatar">
+                    <a href="" title="{{ user.username }}">
+                    {% for users in users %}
+                    {% if users.id = user.id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt="{{ user.username }}" />
+                    {% endif %}
+                    {% endfor %} 
+                    </a>
+                </div>
+                <div class="com-text">
+                    <h2>回复内容</h2>
+                    <div class="com-box">
+                        <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
+                    </div>
+                </div>
+                <p style="display:none">
+                    <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
+                    <input type="text" name="honeypot" id="id_honeypot">
+                </p>
+                <input type="submit" name="post" value="发表回复" class="com-submit">
+                <input type="hidden" name="next" value="/travels/{{ travels.id }}">
+            </form>
+            {% else %} 请
+            <a href="/login">登录</a>,或<a href="/register">注册</a>后再评论 {% endif %}
+            </div>
+        </div>
+    
+    </div>
+    <div class="siderbar">
+        <div class="lately-news">
+            <div class="sider-title">
+                最新游记
+            </div>
+            <ul>
+            {% for travels in travelsall|slice:":3" %}
+                <li>
+                    <a href="/blog/{{ travels.id }}">
+                        <img src="/site_media/{{ travels.image }}" alt="" />
+                        <p>{{ travels.title|slice:":52" }}...</p>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="comment-list">
+            <div class="sider-title">
+                最新评论
+            </div>
+            <ul>
+            {% for travels in travelsall %}
+            {% load comments %} 
+            {% get_comment_list for travels as comment_list %}
+            {% for comment in comment_list|slice:":3" %}
+                <li>
+                {% for users in users %}
+                    {% if users.id = comment.user_id %}
+                    <a href="">
+                        <img src="/site_media/{{ users.mugshot }}" alt="{{comment.user_name}}" />
+                        <div class="comments-text">
+                            <h2>{{comment.user_name}}</h2>
+                            {% endif %}
+                    {% endfor %} 
+                            <p>{{comment.comment}}</p>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!--baidu share js-->
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "24"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["tsina", "qzone", "weixin"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["tsina", "qzone", "weixin"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+<!--end share-->
+{% endblock %}

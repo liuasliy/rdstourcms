@@ -34,7 +34,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="/index">首页</a></li>
-                    <li><a href="/blog">旅游游记</a></li>
+                    <li><a href="/travels">旅游游记</a></li>
                     <li><a href="/photo">旅游摄影</a></li>
                 </ul>
             </div>
@@ -104,16 +104,16 @@
         </div>
         <!--travel-->
         <div class="trav-list grid">
-            {% for post in posts|slice:":3" %}
+            {% for travels in travels|slice:":3" %}
             <div class="col-md-3">
                 <div class="trav-post">
-                    <div class="trav-bg" style="background-image: url('/site_media/{{ post.image }}')"></div>
-                    <a href="/blog/{{ post.id }}">
+                    <div class="trav-bg" style="background-image: url('/site_media/{{ travels.image }}')"></div>
+                    <a href="/travels/{{ travels.id }}">
                         <div class="trav-content">
                             <div class="post-container">
-                                <p class="date">{{ post.pub_date }}</p>
-                                <h4>{{ post.title }}</h4>
-                                <p>{{ post.content|safe|slice:":10" }}...</p>
+                                <p class="date">{{ travels.pub_date }}</p>
+                                <h4>{{ travels.title }}</h4>
+                                <p>{{ travels.content|safe|slice:":10" }}...</p>
                             </div>
                         </div>
                     </a>
@@ -123,7 +123,7 @@
         </div>
         <div class="grid trav-more">
             <div class="col-1-1">
-                <a href="../blog">
+                <a href="../travels">
                     <button class="photo-archive">查看更多</button>
                 </a>
             </div>

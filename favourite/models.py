@@ -1,11 +1,11 @@
 # -*- coding: UTF-8 -*-
 from django.db import models
 from django.contrib import admin
-from blog.models import BlogPost
+from travels.models import Travels
 
 # Create your models here.
 class Favourite(models.Model):
-    title = models.OneToOneField(BlogPost)
+    title = models.OneToOneField(Travels)
     def __unicode__(self):
         return self.title
     class Meta:

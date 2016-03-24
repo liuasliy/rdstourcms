@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.template import loader, Context
 from django.http import HttpResponse, HttpResponseRedirect
-from blog.models import *
+from travels.models import *
 from photo.models import *
 from accounts.models import *
 from django.shortcuts import render_to_response
@@ -22,9 +22,9 @@ def index(request):
     '''
     首页
     '''
-    posts = BlogPost.objects.all()
+    travels = Travels.objects.all()
     photos = photoList.objects.all()
-    return render_to_response('index.html', {"posts": posts, "photos": photos}, context_instance=RequestContext(request))
+    return render_to_response('index.html', {"travels": travels, "photos": photos}, context_instance=RequestContext(request))
 
 
 

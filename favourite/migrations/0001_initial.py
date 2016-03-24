@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0024_favoriteblog'),
+        ('travels', '0001_initial'),
     ]
 
     operations = [
@@ -15,9 +15,11 @@ class Migration(migrations.Migration):
             name='Favourite',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.OneToOneField(to='blog.BlogPost')),
+                ('title', models.OneToOneField(to='travels.Travels')),
             ],
             options={
+                'verbose_name': '\u6536\u85cf\u5939\u5217\u8868',
+                'verbose_name_plural': '\u6536\u85cf\u5939\u5217\u8868',
             },
             bases=(models.Model,),
         ),
