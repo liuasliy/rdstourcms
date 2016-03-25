@@ -129,9 +129,9 @@
                 最新评论
             </div>
             <ul>
-            {% for travels in travelsall %}
+            {% for post in postall %}
             {% load comments %} 
-            {% get_comment_list for travels as comment_list %}
+            {% get_comment_list for post as comment_list %}
             {% for comment in comment_list|slice:":3" %}
                 <li>
                 {% for users in users %}

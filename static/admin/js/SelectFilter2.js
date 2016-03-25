@@ -50,7 +50,8 @@ window.SelectFilter = {
 
         var search_filter_label = quickElement('label', filter_p, '', 'for', field_id + "_input");
 
-        var search_selector_img = quickElement('img', search_filter_label, '', 'src', admin_static_prefix + 'img/selector-search.gif', 'class', 'help-tooltip', 'alt', '', 'title', interpolate(gettext("Type into this box to filter down the list of available %s."), [field_name]));
+        // GRAPPELLI CUSTOM: removed search-icon as it is provided via css
+        // var search_selector_img = quickElement('img', search_filter_label, '', 'src', admin_static_prefix + 'img/selector-search.gif', 'class', 'help-tooltip', 'alt', '', 'title', interpolate(gettext("Type into this box to filter down the list of available %s."), [field_name]));
 
         filter_p.appendChild(document.createTextNode(' '));
 
@@ -83,6 +84,7 @@ window.SelectFilter = {
         from_box.setAttribute('name', from_box.getAttribute('name') + '_old');
 
         // Set up the JavaScript event handlers for the select box filter interface
+        addEvent(filter_input, 'keypress', function(e) { SelectFilter.filter_key_press(e, field_id); });
         addEvent(filter_input, 'keyup', function(e) { SelectFilter.filter_key_up(e, field_id); });
         addEvent(filter_input, 'keydown', function(e) { SelectFilter.filter_key_down(e, field_id); });
         addEvent(from_box, 'change', function(e) { SelectFilter.refresh_icons(field_id) });
@@ -95,18 +97,19 @@ window.SelectFilter = {
         // Move selected from_box options to to_box
         SelectBox.move(field_id + '_from', field_id + '_to');
 
-        if (!is_stacked) {
-            // In horizontal mode, give the same height to the two boxes.
-            var j_from_box = $(from_box);
-            var j_to_box = $(to_box);
-            var resize_filters = function() { j_to_box.height($(filter_p).outerHeight() + j_from_box.outerHeight()); }
-            if (j_from_box.outerHeight() > 0) {
-                resize_filters(); // This fieldset is already open. Resize now.
-            } else {
-                // This fieldset is probably collapsed. Wait for its 'show' event.
-                j_to_box.closest('fieldset').one('show.fieldset', resize_filters);
-            }
-        }
+        // GRAPPELLI: We don't need this as we assigned a fixed height to the elements
+        // if (!is_stacked) {
+        //     // In horizontal mode, give the same height to the two boxes.
+        //     var j_from_box = $(from_box);
+        //     var j_to_box = $(to_box);
+        //     var resize_filters = function() { j_to_box.height($(filter_p).outerHeight() + j_from_box.outerHeight()); }
+        //     if (j_from_box.outerHeight() > 0) {
+        //         resize_filters(); // This fieldset is already open. Resize now.
+        //     } else {
+        //         // This fieldset is probably collapsed. Wait for its 'show' event.
+        //         j_to_box.closest('fieldset').one('show.fieldset', resize_filters);
+        //     }
+        // }
 
         // Initial icon refresh
         SelectFilter.refresh_icons(field_id);
@@ -123,15 +126,19 @@ window.SelectFilter = {
         $('#' + field_id + '_add_all_link').toggleClass('active', from.find('option').length > 0);
         $('#' + field_id + '_remove_all_link').toggleClass('active', to.find('option').length > 0);
     },
-    filter_key_up: function(event, field_id) {
+    filter_key_press: function(event, field_id) {
         var from = document.getElementById(field_id + '_from');
         // don't submit form if user pressed Enter
         if ((event.which && event.which == 13) || (event.keyCode && event.keyCode == 13)) {
             from.selectedIndex = 0;
             SelectBox.move(field_id + '_from', field_id + '_to');
             from.selectedIndex = 0;
+            event.preventDefault()
             return false;
         }
+    },
+    filter_key_up: function(event, field_id) {
+        var from = document.getElementById(field_id + '_from');
         var temp = from.selectedIndex;
         SelectBox.filter(field_id + '_from', document.getElementById(field_id + '_input').value);
         from.selectedIndex = temp;
@@ -158,4 +165,4 @@ window.SelectFilter = {
     }
 }
 
-})(django.jQuery);
+})(grp.jQuery);

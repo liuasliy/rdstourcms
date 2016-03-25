@@ -5,12 +5,15 @@ import  settings
 from django.conf.urls import patterns, url, include
 
 
+
+
 urlpatterns = patterns('',
                        # Examples:
                        url(r'^$', 'rdstourcms.views.index', name='home'),
                        url(r'^index/$', 'rdstourcms.views.index', name='index'),
                        url(r'^travels/', include('travels.urls')),
                        url(r'^travels/(?P<travels_id>\d+)/$', 'travels.views.detail', name='detail'),
+
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^admin/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.DIR_Admin}),
                        (r'^comments/', include('django_comments.urls')),

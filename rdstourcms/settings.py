@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'suit',
+    'filebrowser',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -51,9 +53,11 @@ INSTALLED_APPS = (
     'favourite',
     'accounts',
     'photo',
-
     
 )
+
+
+
 AUTHENTICATION_BACKENDS = (
     'userena.backends.UserenaAuthenticationBackend',
     'guardian.backends.ObjectPermissionBackend',
@@ -176,6 +180,8 @@ TEMPLATE_DIRS = (
     )
 
 
+
+
 # 后台模板配置
 SUIT_CONFIG = {
     'ADMIN_NAME': u'路人行',
@@ -187,6 +193,7 @@ SUIT_CONFIG = {
         {'app': 'accounts', 'label': u'用户管理'},
         {'app': 'django_comments', 'label': u'评论'},
         {'app': 'favourite', 'label': u'收藏夹'},
+        {'app': 'filebrowser', 'label': u'文件管理'}
 
     ),
 }

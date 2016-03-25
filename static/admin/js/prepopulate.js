@@ -36,4 +36,4 @@
             }
         });
     };
-})(django.jQuery);
+})(grp.jQuery);
