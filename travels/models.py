@@ -10,9 +10,10 @@ from django.contrib.auth.models import User
 class Travels(models.Model):
     title = models.CharField(max_length=150)
     content = RichTextField()
-    image = models.ImageField(upload_to='upload/travels/', default='')
+    image = models.ImageField('首页大图', upload_to='upload/travels/', default='')
+    bigimage = models.ImageField('顶部大背景', upload_to='upload/travels/', default='')
     pub_date = models.DateTimeField()
-    count_hit = models.IntegerField(default=0,editable=False)
+    count_hit = models.IntegerField(default=0, editable=False)
     tags = models.CharField(max_length=100)
     author = models.ForeignKey(User)
     class Meta:

@@ -352,15 +352,30 @@
   clear: both;
 }
 .news-content p {
-  line-height: 25px;
+  line-height: 24px;
   font-size: 14px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-indent: 2em;
 }
 .news-content img {
   display: block;
   margin: 0 auto;
+}
+.map-adres {
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.map-adres img {
+  float: left;
+}
+.map-adres span {
+  display: block;
+  float: left;
+  margin-left: 10px;
+  line-height: 25px;
+  font-size: 12px;
+  color: #999;
 }
 .news-index {
   width: 100%;
