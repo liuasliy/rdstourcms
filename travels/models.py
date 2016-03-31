@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 class Travels(models.Model):
     title = models.CharField(max_length=150)
     content = RichTextField()
+    contextinfo = models.TextField('简介', default='')
     image = models.ImageField('首页大图', upload_to='upload/travels/', default='')
     bigimage = models.ImageField('顶部大背景', upload_to='upload/travels/', default='')
     pub_date = models.DateTimeField()
