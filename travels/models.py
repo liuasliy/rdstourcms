@@ -15,7 +15,7 @@ class Travels(models.Model):
     bigimage = models.ImageField('顶部大背景', upload_to='upload/travels/', default='')
     pub_date = models.DateTimeField()
     count_hit = models.IntegerField(default=0, editable=False)
-    tags = models.CharField(max_length=100)
+    city = models.CharField('城市', max_length=100, default='')
     author = models.ForeignKey(User)
     class Meta:
         verbose_name = '游记管理'
@@ -26,6 +26,7 @@ class TravelsAdmin(admin.ModelAdmin):
     list_display = ('title', 'pub_date')
 
 admin.site.register(Travels, TravelsAdmin)
+
 
 
 

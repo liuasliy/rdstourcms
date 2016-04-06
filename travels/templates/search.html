@@ -30,16 +30,16 @@
 {% if not errors %}
 <p>查询: <strong>{{q}}</strong></p>
 
-{% if blog %}
-	<p>找到 {{blog|length}} 篇博文。</p>
+{% if travels %}
+	<p>找到 {{travels|length}} 篇游记。</p>
 	<ul>
-		{% for b in blog %}
+		{% for b in travels %}
 		<a href="/blog/{{b.id}}"><li>{{b.title}}</li></a>
 		{% endfor %}
 	</ul>
 {% else %}
 
-	<p style="color: red;"> 没有找到包含“{{q}}”的博文。 </p>
+	<p style="color: red;"> 没有找到包含“{{q}}”的游记。 </p>
 	
 {%endif%}{%endif%}
 </div>

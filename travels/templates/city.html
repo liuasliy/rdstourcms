@@ -1,0 +1,57 @@
+ {% extends "base.html" %}
+{% block title %}Tour travels{%endblock%}
+{% block content %}
+{% load pagination_tags %}
+
+
+<!--container-->
+<div class="rds-container">
+    <div class="rds-main">
+    {% autopaginate travels 4 %}
+        {% for travels in travels %}
+        
+        <div class="news-list">
+            <h2><a href="/travels/{{ travels.id }}">{{ travels.title }}</a></h2>
+            <img src="/site_media/{{ travels.image }}" alt="" class="scenery-img"/>
+            <div class="news-info">
+                <div class="fleft">
+                    <span class="address"><i class="icon iconfont">&#xe603;</i>
+                        <a href="{% url 'search_city' city=travels.city %}">{{ travels.city }}</a></span>
+					{% for users in users %}
+                    {% if users.id = travels.author_id %}
+                    <span class="author">by <a href="">
+                    <img src="/site_media/{{ users.mugshot }}" alt=""/>
+                    {% endif %}
+
+                    {% endfor %}
+                    {{ travels.author }}</a></span>
+                    <span class="views"><i class="icon iconfont">&#xe605;</i>
+                    {{ travels.count_hit }}</span>
+                </div>
+                <div class="fright comments">
+                    <i class="icon iconfont">&#xe600;</i>
+                    {% load comments %}
+                    {% get_comment_count for travels as comment_count %}
+                    {{ comment_count }}
+                
+                </div>
+            </div>
+            <div class="brief">
+                {{ travels.contextinfo }}...
+            </div>
+            <div class="news-more">
+                <a href="/travels/{{ travels.id }}">更多详情>></a>
+            </div>
+        </div>
+           
+         {% endfor %}
+        <div class="col-md-12">
+               	 {% paginate %}
+            	</div>
+    </div>
+
+
+</div>
+
+  
+{%endblock%}

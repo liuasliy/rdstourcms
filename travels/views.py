@@ -51,7 +51,6 @@ def detail(request, travels_id):
     return render_to_response('travelsdetails.html', {"travels": travels,  "users": users, "travelsall": travelsall}, context_instance=RequestContext(request))
 
 
-
 def uploadimage(request):
     if request.method == 'POST':
         callback = request.GET.get('CKEditorFuncNum')
@@ -163,6 +162,16 @@ def search(request):
                                       {'travels': travels, 'q': q}, context_instance=RequestContext(request))
     return render_to_response('search.html', {'errors': errors},
                               context_instance=RequestContext(request))
+
+
+# 城市归类
+def search_city(request, city):
+        try:
+            travels_list = Travels.objects.filter(title__icontains=city)
+        except Travels.DoesNotExist:
+            raise Http404
+        return render_to_response('city.html', {'travels_list' : travels_list, "city": city}, context_instance=RequestContext(request))
+
 
 
 
