@@ -30,7 +30,7 @@ def photopage(request):
     except EmptyPage:
         photos = paginator.page(paginator.num_pages)
 
-    return render_to_response('photo.html', {"photos": photos, "users": users}, context_instance=RequestContext(request))
+    return render_to_response('photo-new.html', {"photos": photos, "users": users}, context_instance=RequestContext(request))
 
 
 
@@ -45,14 +45,10 @@ def photodetail(request, photos_id):
     return render_to_response('photo-deils.html', {'photos': photos, "users": users}, context_instance=RequestContext(request))
 
 def ajax_get_photo(request):
-    title = '宿主'
-    name_dict = {
-                'src': '1.jpg',
-                'title': title,
-                'name': 'name',
-                'namepic': '1.jpg',
-                'views': '22',
-                'comments': '33'
-                }
+    '''ajax请求数据'''
+    try:
+        items = photoList.objects.all()
+    except:
+        items = []
 
-    return JsonResponse(name_dict)
+    return render_to_response('ajax_get_photo.html', {'items': items}, context_instance=RequestContext(request))

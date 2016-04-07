@@ -22,7 +22,8 @@ function queryByKeyword(){
                 <div class="fleft">
                     <span class="address"><i class="icon iconfont">&#xe603;</i>
 
-                        <a href="/city/{{ travels.city }}">{{ travels.city|title }}</a></span>
+                        <a href="{% url 'search_city' city=travels.city %}">{{ travels.city|title }}</a>
+                    </span>
 					{% for users in users %}
                     {% if users.id = travels.author_id %}
                     <span class="author">by <a href="">

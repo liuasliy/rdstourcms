@@ -2,20 +2,25 @@
 {% block title %}Tour Blog{%endblock%}
 {% block content %}
 
-<script>
-        $(function(){
-            $('#dict').click(function(){
-          $.getJSON("{% url 'ajax_get_photo' %}",function(ret){
-              //返回值 ret 在这里是一个字典
-              $.each(ret, function(index, item){
-                $('#dict_result').append('<img src="/static/pics/'+item+'">');
-            })
-          })
-      })
-        })
-    </script>
-<div id="dict" style="margin-top:120px;margin-bottom:40px;">Ajax 加载字典</div>
-<p id="dict_result"></p>
+ {% if items %}
+ {% for item in items %}
+ <div class="item" >
+     <a target='_blank' title='{{ item.title }}' href='{{ item.url_address }}'>
+         <img src="/site_media/{{ item.photo }}" width="192" height="288">
+     </a>
+     <h3>{{ item.title|slice:"10" }}</h3>
+     <p>
+         <a class="btn btn-primary" target='_blank' href="{{ item.url_address }}">浏览</a>
+         <a class="btn have_feeling" href="#" onclick="Dajaxice.walkerfree.feeling(feeling_callback, {'id':'{{ item.id }}','type':'woman'});return false;">有感觉</a>
+         <a class="btn no_feeling" href="#" onclick="Dajaxice.walkerfree.no_feeling(no_feeling_callback,{'id':'{{ item.id }}','type':'woman'});return false;">没感觉</a>
+         <input type='hidden' value='woman' name='type'>
+     </p>
+ </div>
+ {% endfor %}
+ {% endif %}
+
+
+
 {% endblock %}
 
 
