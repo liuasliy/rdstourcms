@@ -2,16 +2,30 @@
 {% block title %}Tour Blog{%endblock%}
 {% block content %}
 
-
+       <div id="photowrap">
  <div id='container'>
 
      {% if items %}
      {% for item in items %}
-     <div class="item" >
-         <a target='_blank' title='{{ item.title }}' href='{{ item.url_address }}'>
-             <img src="http://www.xongju.com/data/haosme/info/web/2016/04/06/20160406172450796_0450.jpg" width="192" height="288">
-         </a>
-     </div>
+         <div class="item photobox">
+        <div class="info">
+            <div class="pic"><a href="/photo/{{ photos.id }}"><img src="/site_media/{{item.photo}}"></a></div>
+            <div class="title"><a href="">{{ item.title }}</a></div>
+            <div class="canvo">
+            {% for users in users %}
+                    {% if users.id = item.user_id %}
+                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt=""/>
+                    <div class="text">{{users.user}}</div>
+                </a>
+                    {% endif %}
+                    {% endfor %}
+                <div class="fright">
+                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
+                    <div class="comments"><a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
      {% endfor %}
      {% endif %}
 
@@ -29,7 +43,7 @@
     <a href="?&p=9" data-target="page" data-page="9">9</a>
     <a href="?&p=10" data-target="page" data-page="10">10</a>
     <a href="?&p=2" class="page-navigation-next"  data-page="2" title="下一页">下一页»</a>
-</div>
+</div> </div>
  </div>
  <script type='text/javascript' src="/static/js/handlebars.js"></script>
  <script type='text/javascript' src="/static/js/waterfall.min.js"></script>

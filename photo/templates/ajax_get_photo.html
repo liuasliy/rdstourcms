@@ -1,27 +1,32 @@
- {% extends "base.html" %}
-{% block title %}Tour Blog{%endblock%}
-{% block content %}
+
+
 
  {% if items %}
  {% for item in items %}
- <div class="item" >
-     <a target='_blank' title='{{ item.title }}' href='{{ item.url_address }}'>
-         <img src="/site_media/{{ item.photo }}" width="192" height="288">
-     </a>
-     <h3>{{ item.title|slice:"10" }}</h3>
-     <p>
-         <a class="btn btn-primary" target='_blank' href="{{ item.url_address }}">浏览</a>
-         <a class="btn have_feeling" href="#" onclick="Dajaxice.walkerfree.feeling(feeling_callback, {'id':'{{ item.id }}','type':'woman'});return false;">有感觉</a>
-         <a class="btn no_feeling" href="#" onclick="Dajaxice.walkerfree.no_feeling(no_feeling_callback,{'id':'{{ item.id }}','type':'woman'});return false;">没感觉</a>
-         <input type='hidden' value='woman' name='type'>
-     </p>
- </div>
+ <div class="item photobox">
+        <div class="info">
+            <div class="pic"><a href="/photo/{{ photos.id }}"><img src="/site_media/{{item.photo}}"></a></div>
+            <div class="title"><a href="">{{ item.title }}</a></div>
+            <div class="canvo">
+            {% for users in users %}
+                    {% if users.id = item.user_id %}
+                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt=""/>
+                    <div class="text">{{users.user}}</div>
+                </a>
+                    {% endif %}
+                    {% endfor %}
+                <div class="fright">
+                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
+                    <div class="comments"><a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
  {% endfor %}
  {% endif %}
 
 
 
-{% endblock %}
 
 
 
