@@ -166,11 +166,12 @@ def search(request):
 
 # 城市归类
 def search_city(request, city):
-        try:
-            travels_list = Travels.objects.filter(city__iexact=city)
-        except Travels.DoesNotExist:
-            raise Http404
-        return render_to_response('city.html', {'travels_list' : travels_list}, context_instance=RequestContext(request))
+    users = MyProfile.objects.all()
+    try:
+        travels_list = Travels.objects.filter(city__iexact=city)
+    except Travels.DoesNotExist:
+        raise Http404
+    return render_to_response('city.html', {'travels_list' : travels_list, 'users':users}, context_instance=RequestContext(request))
 
 
 

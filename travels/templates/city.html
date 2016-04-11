@@ -2,43 +2,54 @@
 {% block title %}Tour travels{%endblock%}
 {% block content %}
 
-
+<script>
+    $(function () {
+        h2 = $('.cityname').val();
+        $('.city-title h2').html(h2);
+    })
+</script>
 <!--container-->
 {% if travels_list %}
 <div class="rds-container">
-    {% for b in travels_list %}
-    <div class="city-title">
-        <h2>{{b.city}}</h2>
-    </div>
 
+    <div class="city-title">
+        <h2></h2>
+    </div>
+    {% for b in travels_list %}
     <div class="rds-main city-list">
         <div class="news-list">
-            <h2><a href="">{{b.title}}</a></h2>
-            <img src="../../static/images/20160324141905_4995.jpg" alt="" class="scenery-img"/>
+            <input type="hidden" name="" class="cityname" value="{{b.city}}"  id=""/>
+            <h2><a href="/travels/{{ b.id }}" target="_blank">{{b.title}}</a></h2>
+            <img src="/site_media/{{ b.image }}" alt="" class="scenery-img"/>
             <div class="news-info">
                 <div class="fleft">
                     <span class="address"><i class="icon iconfont">&#xe603;</i>
-                        <a href="">{{b.city}}</a></span>
+                        <a href="{% url 'search_city' city=b.city %}">{{b.city}}</a></span>
+                    {% for users in users %}
+                    {% if users.id = b.author_id %}
                     <span class="author">by <a href="">
-                        <img src="" alt=""/>
-                        mhugu</a></span>
-                    <span class="views"><i class="icon iconfont">&#xe605;</i>
-                    32</span>
+                        <img src="/site_media/{{ users.mugshot }}" alt=""/>
+                        {% endif %}
+                        {% endfor %}
+                        {{ b.author }}</a></span>
+
+                    <span class="views"><i class="icon iconfont">&#xe605;</i>{{b.count_hit}}</span>
                 </div>
                 <div class="fright comments">
-                    <i class="icon iconfont">&#xe600;</i>323
+                    <i class="icon iconfont">&#xe600;</i>
+                    {% load comments %}
+                    {% get_comment_count for b as comment_count %}
+                    {{ comment_count }}
                 </div>
             </div>
             <div class="brief">
-                蒋经国陪同蒋介石、宋美龄巡视台湾中部横贯公路 1988年1月1日，
-                在蒋经国的指示下，当局正式结束对报纸的限证（维持在二十九家）、限张（维持在三大张）的禁令。数...
+                {{ b.contextinfo }}
             </div>
         </div>
-
     </div>
-
+    {% endfor %}
 </div>
-     {% endfor %}
+
 {% endif %}
 
 
