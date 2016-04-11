@@ -30,7 +30,7 @@ def photopage(request):
     except EmptyPage:
         photos = paginator.page(paginator.num_pages)
 
-    return render_to_response('photo-new.html', {"photos": photos, "users": users}, context_instance=RequestContext(request))
+    return render_to_response('photo.html', {"photos": photos, "users": users}, context_instance=RequestContext(request))
 
 
 
@@ -46,9 +46,10 @@ def photodetail(request, photos_id):
 
 def ajax_get_photo(request):
     '''ajax请求数据'''
+    users = MyProfile.objects.all()
     try:
         items = photoList.objects.all()
     except:
         items = []
 
-    return render_to_response('ajax_get_photo.html', {'items': items}, context_instance=RequestContext(request))
+    return render_to_response('ajax_get_photo.html', {'items': items, "users": users}, context_instance=RequestContext(request))

@@ -31,7 +31,7 @@ urlpatterns = patterns('',
                        (r'^accounts/', include('userena.urls')),
                        url(r'^search/$', 'travels.views.search', name="search"),
 
-                       url(r'^photo-new/', include('photo.urls')),
+                       url(r'^photo/', include('photo.urls')),
                        url(r'^photo/(?P<photos_id>\d+)/$', 'photo.views.photodetail', name='photodetail'),
                        #url(r'^photodetail/$', 'photo.views.photodetail', name='photodetail'),
                        url(r'^ajax_get_photo/$', 'photo.views.ajax_get_photo',name="ajax_get_photo"),

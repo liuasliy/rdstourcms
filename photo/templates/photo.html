@@ -1,33 +1,70 @@
  {% extends "base.html" %}
-{% block title %}Tour Blog{%endblock%}
-{% block content %}
-<style>
-    .footer{
-        display: none;
-    }
-</style>
+ {% block title %}摄影{%endblock%}
+ {% block content %}
 <div id="photowrap">
-{% for photos in photos %}
-    <div class="photobox">
-        <div class="info">
-            <div class="pic"><a href="/photo/{{ photos.id }}"><img src="/site_media/{{photos.photo}}"></a></div>
-            <div class="title"><a href="">{{photos.title}}</a></div>
-            <div class="canvo">
-            {% for users in users %}
-                    {% if users.id = photos.user_id %}
-                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt=""/>
-                    <div class="text">{{users.user}}</div>
-                </a>
-                    {% endif %}
-                    {% endfor %}
-                <div class="fright">
-                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
-                    <div class="comments"><a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a></div>
+    <div id='container'>
+        {% if items %} {% for item in items %}
+        <div class="item photobox">
+            <div class="info">
+                <div class="pic">
+                    <a href="/photo/{{ photos.id }}"><img src="/site_media/{{item.photo}}"></a>
+                </div>
+                <div class="title"><a href="">{{ item.title }}</a></div>
+                <div class="canvo">
+                    {% for users in users %} {% if users.id = item.user_id %}
+                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt="" />
+                        <div class="text">{{users.user}}</div>
+                    </a>
+                    {% endif %} {% endfor %}
+                    <div class="fright">
+                        <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
+                        <div class="comments"><a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a></div>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %} {% endif %}
     </div>
-{% endfor %}
+    <div id="page-navigation" class="hide clear">
+        <span class="disabled page-navigation-prev" title="上一页">上一页</span>
+        <a href="?&p=1" data-target="page" data-page="1" class="cur">1</a>
+        <a href="?&p=2" data-target="page" data-page="2">2</a>
+        <a href="?&p=3" data-target="page" data-page="3">3</a>
+        <a href="?&p=4" data-target="page" data-page="4">4</a>
+        <a href="?&p=5" data-target="page" data-page="5">5</a>
+        <a href="?&p=6" data-target="page" data-page="6">6</a>
+        <a href="?&p=2" class="page-navigation-next" data-page="2" title="下一页">下一页</a>
+    </div>
 </div>
+<script type='text/javascript' src="/static/js/handlebars.js"></script>
+<script type='text/javascript' src="/static/js/waterfall.min.js"></script>
+<script>
+$('#container').waterfall({
+    itemCls: 'item',
+    colWidth: 280,
+    fitWidth: true,
+    gutterWidth: 15,
+    gutterHeight: 15,
+    maxPage: 1,
+    checkImagesLoaded: true,
+    dataType: 'html',
+    callbacks: {
+        loadingFinished: function($loading, isBeyondMaxPage) {
+            if (!isBeyondMaxPage) {
+                $loading.fadeOut();
+            } else {
+                $loading.hide();
+                $('#page-navigation').show();
+            }
+        }
+    },
+    path: function(page) {
+        return '/ajax_get_photo/?page=' + page;
+    }
+
+});
+
+</script>
+
 
 {%endblock%}

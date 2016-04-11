@@ -1,16 +1,15 @@
 
-
-
  {% if items %}
  {% for item in items %}
  <div class="item photobox">
         <div class="info">
-            <div class="pic"><a href="/photo/{{ photos.id }}"><img src="/site_media/{{item.photo}}"></a></div>
-            <div class="title"><a href="">{{ item.title }}</a></div>
+            <div class="pic"><a href="/photo/{{ item.id }}" target="_blank"><img src="/site_media/{{item.photo}}" width="280" ></a></div>
+            <div class="title"><a href="/photo/{{ item.id }}" target="_blank">{{ item.title }}</a></div>
             <div class="canvo">
             {% for users in users %}
                     {% if users.id = item.user_id %}
-                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt=""/>
+                <a href="">
+                    <img src="/site_media/{{ users.mugshot }}" alt=""/>
                     <div class="text">{{users.user}}</div>
                 </a>
                     {% endif %}
@@ -24,7 +23,6 @@
     </div>
  {% endfor %}
  {% endif %}
-
 
 
 
