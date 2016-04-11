@@ -51,6 +51,66 @@
             </div>
         </div>
     </div>
+  <!--评论-->
+ <div class="comments">
+            {% load comments %}
+            {% get_comment_list for photos as comment_list %}
+            {% for comment in comment_list %}
+            <div class="com-list">
+                <div class="author-info">
+                    <div class="author-pic">
+                    {% for users in users %}
+                    {% if users.id = comment.user_id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt="{{ comment.user_name }}" />
+                    {% endif %}
+                    {% endfor %}
+
+                    </div>
+                    <span class="author-name"><a href="">{{comment.user_name}}</a></span>
+                    <span class="date">{{comment.submit_date}}</span>
+                </div>
+                <div class="com-content">
+                    {{comment.comment}}
+                </div>
+            </div>
+            {%endfor%}
+
+
+            <div class="com-textar">
+            {% if user.is_authenticated %}
+            {% get_comment_form for photos as form %}
+            <form action="{%comment_form_target%}" method="post">
+                {%csrf_token%}
+                {{form.object_pk}}
+                 {{form.content_type}}
+                 {{form.timestamp}}
+                 {{form.security_hash}}
+                <div class="avatar">
+                    <a href="" title="{{ user.username }}">
+                    {% for users in users %}
+                    {% if users.id = user.id %}
+                    <img src="/site_media/{{ users.mugshot }}" alt="{{ user.username }}" />
+                    {% endif %}
+                    {% endfor %}
+                    </a>
+                </div>
+                <div class="com-text">
+                    <h2>回复内容</h2>
+                    <div class="com-box">
+                        <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
+                    </div>
+                </div>
+                <p style="display:none">
+                    <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
+                    <input type="text" name="honeypot" id="id_honeypot">
+                </p>
+                <input type="submit" name="post" value="发表回复" class="com-submit">
+                <input type="hidden" name="next" value="/photo/{{ photos.id }}">
+            </form>
+            {% else %} 请
+            <a href="/login">登录</a>,或<a href="/register">注册</a>后再评论 {% endif %}
+            </div>
+        </div>
 </div>
 
 {% endblock %}

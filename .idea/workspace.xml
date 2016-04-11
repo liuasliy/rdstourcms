@@ -2,7 +2,119 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2d10139-8953-4134-8a63-dd4f81143c09" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/changelists.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/dashboard.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/forms.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/ie.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/css/widgets.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/changelist-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/changelist-bg_rtl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/chooser-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/chooser_stacked-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/default-bg-reverse.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/default-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/deleted-overlay.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/gis/move_vertex_off.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/gis/move_vertex_on.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon-no.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon-unknown.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon-yes.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_addlink.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_alert.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_calendar.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_changelink.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_clock.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_deletelink.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_error.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_searchbox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/icon_success.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/inline-delete-8bit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/inline-delete.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/inline-restore-8bit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/inline-restore.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/inline-splitter-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/nav-bg-grabber.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/nav-bg-reverse.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/nav-bg-selected.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/nav-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/selector-icons.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/selector-search.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/sorting-icons.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tool-left.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tool-left_over.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tool-right.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tool-right_over.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tooltag-add.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tooltag-add.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tooltag-add_over.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tooltag-arrowright.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tooltag-arrowright.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/img/tooltag-arrowright_over.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/LICENSE-JQUERY.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/SelectBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/SelectFilter2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/actions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/actions.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/admin/DateTimeShortcuts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/admin/RelatedObjectLookups.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/admin/ordering.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/collapse.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/getElementsBySelector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/inlines.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/inlines.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/jquery.init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/prepopulate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/prepopulate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/timeparse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/admin###/js/urlify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/data1.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/404.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/500.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/actions.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/app_index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/auth/user/add_form.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/auth/user/change_password.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/base.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/base_site.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/change_form.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/change_list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/change_list_results.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/date_hierarchy.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/delete_confirmation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/delete_selected_confirmation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/edit_inline/stacked.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/edit_inline/tabular.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/filter.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/includes/fieldset.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/invalid_setup.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/object_history.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/pagination.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/popup_response.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/prepopulated_fields_js.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/search_form.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin#####/submit_line.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/logged_out.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_change_done.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_change_form.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_reset_complete.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_reset_confirm.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_reset_done.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_reset_email.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration#####/password_reset_form.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/models.py" afterPath="$PROJECT_DIR$/photo/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" afterPath="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/templates/photo-deils.html" afterPath="$PROJECT_DIR$/photo/templates/photo-deils.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/views.py" afterPath="$PROJECT_DIR$/photo/views.py" />
     </list>
     <ignored path="rdstourcms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,18 +155,18 @@
       <file leaf-file-name="photo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photo/templates/photo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="28" selection-end-column="10" />
+            <state vertical-scroll-proportion="-12.413794">
+              <caret line="43" column="39" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photo-new.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/photo/templates/photo-new.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photo/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15233415">
-              <caret line="51" column="48" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -63,8 +175,62 @@
       <file leaf-file-name="ajax_get_photo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photo/templates/ajax_get_photo.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.724138">
+              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photo-deils.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/photo/templates/photo-deils.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5293006">
+              <caret line="107" column="62" selection-start-line="107" selection-start-column="62" selection-end-line="107" selection-end-column="62" />
+              <folding>
+                <element signature="e#3870#3890#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photo/views.py">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rdstourcms/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="62" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/travels/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="168" column="66" selection-start-line="168" selection-start-column="35" selection-end-line="168" selection-end-column="35" />
+              <folding>
+                <element signature="e#24#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="travelsdetails.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/travels/templates/travelsdetails.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.8135593">
+              <caret line="126" column="27" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -105,7 +271,6 @@
         <option value="$PROJECT_DIR$/blog/templates/register￥￥￥￥￥￥￥￥.html" />
         <option value="$PROJECT_DIR$/static/css/accounts.css" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/photo/models.py" />
         <option value="$PROJECT_DIR$/rdstourcms/settings.py" />
         <option value="$PROJECT_DIR$/travels/templates/travelsdetails.html" />
         <option value="$PROJECT_DIR$/static/less/index-r.less" />
@@ -114,13 +279,16 @@
         <option value="$PROJECT_DIR$/static/less/style.less" />
         <option value="$PROJECT_DIR$/travels/models.py" />
         <option value="$PROJECT_DIR$/travels/templates/search.html" />
-        <option value="$PROJECT_DIR$/photo/views.py" />
         <option value="$PROJECT_DIR$/travels/views.py" />
         <option value="$PROJECT_DIR$/rdstourcms/urls.py" />
         <option value="$PROJECT_DIR$/travels/templates/travels.html" />
         <option value="$PROJECT_DIR$/travels/templates/city.html" />
-        <option value="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" />
         <option value="$PROJECT_DIR$/photo/templates/photo-new.html" />
+        <option value="$PROJECT_DIR$/photo/templates/photo.html" />
+        <option value="$PROJECT_DIR$/photo/models.py" />
+        <option value="$PROJECT_DIR$/photo/views.py" />
+        <option value="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" />
+        <option value="$PROJECT_DIR$/photo/templates/photo-deils.html" />
       </list>
     </option>
   </component>
@@ -179,7 +347,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,6 +359,52 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="rdstourcms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="travels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="travels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdstourcms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rdstourcms" />
@@ -232,6 +445,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -535,15 +749,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22541603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22844176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34042552" sideWeight="0.5030257" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23895253" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03927987" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14566284" sideWeight="0.4969743" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -563,17 +777,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/admin/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="65" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/app_index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -792,30 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travels/templates/travelsdetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036166366">
-          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photo/templates/photo-deils.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43399638">
-          <caret line="15" column="62" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photo/templates/photodetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/less/index-r.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="34.864407">
@@ -859,21 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23121387">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photo/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/travels/templates/city.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -882,60 +1052,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travels/views.py">
+    <entry file="file://$PROJECT_DIR$/photo/templates/photo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54295534">
-          <caret line="168" column="12" selection-start-line="168" selection-start-column="12" selection-end-line="168" selection-end-column="12" />
+        <state vertical-scroll-proportion="-12.413794">
+          <caret line="43" column="39" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rdstourcms/urls.py">
+    <entry file="file://$PROJECT_DIR$/photo/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03436426">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travels/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/travels/templates/travels.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036166366">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.68241966">
+          <caret line="41" column="39" selection-start-line="39" selection-start-column="20" selection-end-line="41" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travels/signals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/travels/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03436426">
-          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.13978495">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="e#24#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photo/templates/photo.html">
+    <entry file="file://$PROJECT_DIR$/travels/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="28" selection-end-column="10" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travels/templates/travelsdetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8135593">
+          <caret line="126" column="27" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photo/templates/ajax_get_photo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.724138">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photo/templates/photo-new.html">
+    <entry file="file://$PROJECT_DIR$/travels/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15233415">
-          <caret line="51" column="48" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="168" column="66" selection-start-line="168" selection-start-column="35" selection-end-line="168" selection-end-column="35" />
+          <folding>
+            <element signature="e#24#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rdstourcms/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="62" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photo/templates/photo-deils.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5293006">
+          <caret line="107" column="62" selection-start-line="107" selection-start-column="62" selection-end-line="107" selection-end-column="62" />
+          <folding>
+            <element signature="e#3870#3890#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

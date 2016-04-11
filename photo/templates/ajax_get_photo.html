@@ -15,9 +15,13 @@
                     {% endif %}
                     {% endfor %}
                 <div class="fright">
-                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
+                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>{{ item.count_hit }}</span></div>
                     <div class="comments">
-                        <a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a>
+                        <a href=""><i class="icon iconfont">&#xe600;</i>
+                            <span>{% load comments %}
+                    {% get_comment_count for item as comment_count %}
+                    {{ comment_count }}</span>
+                        </a>
                     </div>
                 </div>
             </div>
