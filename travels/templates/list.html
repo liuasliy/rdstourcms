@@ -1,0 +1,12 @@
+{% if list %}
+
+
+{%for blog in list%}
+<div style="border-bottom:1px dotted #ccc;">
+    <h3><a href="/updatetra/{{ blog.id }}">{{blog.title}}</a></h3>
+    <p>{{blog.content}}</p>
+    <a href="/deletetra/{{ blog.id }}">删除</a>
+</div>
+{%endfor%}
+
+{% endif %}

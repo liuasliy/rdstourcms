@@ -1,0 +1,62 @@
+/*------
+-------网站首页的整体样式
+--------
+*/
+.add-tra {
+  list-style: none;
+}
+.add-tra li {
+  margin-bottom: 10px;
+}
+.add-tra li:before,
+.add-tra li:after {
+  content: "";
+  display: table;
+}
+.add-tra li:after {
+  clear: both;
+}
+.add-tra li input,
+.add-tra li textarea,
+.add-tra li > div {
+  float: left;
+  width: 80%;
+}
+.add-tra li input[type="text"] {
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  line-height: 10px;
+  padding: 10px;
+}
+.add-tra li textarea {
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+.add-tra label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  margin-right: 5px;
+  line-height: 36px;
+  color: #333;
+}
+.add-tra .upload {
+  border: solid 1px #4cae4c;
+  background-color: #4cae4c;
+  border-radius: 4px;
+  line-height: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  width: 60px;
+  text-align: center;
+  margin-top: 3px;
+}
+.add-tra .filename {
+  line-height: 36px;
+  margin-left: 10px;
+}
+.add-tra .cke_chrome {
+  border: solid 1px #ccc;
+}

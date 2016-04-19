@@ -1,0 +1,28 @@
+<form method="post" enctype="multipart/form-data" >
+                {%csrf_token%}
+                {{uf.as_ul}}
+                <input type="submit" value="ok"/>
+            </form>
+
+
+
+
+
+
+<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
+
+<script>
+    $(function () {
+        $('#id_image').hide();
+        $('#id_image').parents('li').append('<label for="id_image" class="upload">upload</label>' +
+                '<div class="filename"></div>');
+        $('#id_image').change(function () {
+            console.log($('#id_image').val());
+            $('.filename').html($('#id_image').val());
+        })
+
+    })
+</script>
+

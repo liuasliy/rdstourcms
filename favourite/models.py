@@ -5,7 +5,7 @@ from travels.models import Travels
 
 # Create your models here.
 class Favourite(models.Model):
-    title = models.OneToOneField(Travels)
+    title = models.CharField(max_length=150)
     def __unicode__(self):
         return self.title
     class Meta:

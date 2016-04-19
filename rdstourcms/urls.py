@@ -36,6 +36,13 @@ urlpatterns = patterns('',
                        #url(r'^photodetail/$', 'photo.views.photodetail', name='photodetail'),
                        url(r'^ajax_get_photo/$', 'photo.views.ajax_get_photo',name="ajax_get_photo"),
 
+                       url(r'^add/$', 'travels.views.add',name="add"),
+                       url(r'^updatetra/(?P<travels_id>\d+)/$', 'travels.views.updatetra',name="updatetra"),
+                       url(r'^deletetra/(?P<travels_id>\d+)/$', 'travels.views.deletetra',name="deletetra"),
+                       url(r'^list/(?P<author>\w+)/$', 'travels.views.list',name="list"),
+
+
+
 
 )
 

@@ -21,6 +21,7 @@ import datetime
 def archive(request):
     travels = Travels.objects.all()
     users = MyProfile.objects.all()
+    user = request.user
     travels_list = Travels.objects.order_by('-pub_date')
 
     # 总数据列表
@@ -34,7 +35,7 @@ def archive(request):
     except EmptyPage:
         travels = paginator.page(paginator.num_pages)
 
-    return render_to_response('travels.html', {"travels": travels, "users": users}, context_instance=RequestContext(request))
+    return render_to_response('travels.html', {"travels": travels, "user": user, "users": users}, context_instance=RequestContext(request))
 
 
 def detail(request, travels_id):
@@ -136,16 +137,6 @@ def register(request):
         return render(request,'register.html')
 
 
-
-# 收藏游记
-def add_favorite(request):
-    user = request.user
-    travels = request.POST['travels_id']
-    travels = Travels.objests.get(id=travels)
-    created_on = datetime.datetime.now()
-    FavoriteTravels.objects.update_or_create(user=user, travels=travels, created_on=created_on)
-
-
 # 搜索
 def search(request):
     errors = []
@@ -176,4 +167,79 @@ def search_city(request, city):
 
 
 
+from travels.forms import *
+from django.core.urlresolvers import reverse
+def list(request, author):
+    users = MyProfile.objects.all()
+    try:
+        list = Travels.objects.filter(author__iexact=author)
+    except Travels.DoesNotExist:
+        raise Http404
+    return render_to_response('list.html', {'list' : list, 'users':users}, context_instance=RequestContext(request))
 
+
+# 新增:
+@csrf_exempt
+def add(request):
+    if request.method == "POST":
+        uf = UserForm(request.POST, request.FILES)
+        if uf.is_valid():
+            title = uf.cleaned_data['title']
+            content = uf.cleaned_data['content']
+            contextinfo = uf.cleaned_data['contextinfo']
+            image = uf.cleaned_data['image']
+            bigimage = uf.cleaned_data['bigimage']
+            city = uf.cleaned_data['city']
+            author = request.user.username
+            author_id = request.user.id
+            travels = Travels()
+            travels.title = title
+            travels.content = content
+            travels.contextinfo = contextinfo
+            travels.image = image
+            travels.bigimage = bigimage
+            travels.city = city
+            travels.author = author
+            travels.author_id = author_id
+            travels.save()
+            return HttpResponseRedirect('/list/'+author)
+    else:
+        uf = UserForm()
+    return render_to_response('add.html',{'uf':uf})
+
+#修改
+from django.shortcuts import render_to_response,get_object_or_404
+@csrf_exempt
+def updatetra(request, travels_id):
+    travels = get_object_or_404(Travels, pk=int(travels_id))
+    if request.method == 'POST':
+        uf = UserForm(request.POST, instance=travels)
+        if uf.is_valid():
+            title = uf.cleaned_data['title']
+            content = uf.cleaned_data['content']
+            contextinfo = uf.cleaned_data['contextinfo']
+            image = uf.cleaned_data['image']
+            bigimage = uf.cleaned_data['bigimage']
+            city = uf.cleaned_data['city']
+            author = request.user.username
+            author_id = request.user.id
+            travels.title = title
+            travels.content = content
+            travels.contextinfo = contextinfo
+            travels.image = image
+            travels.bigimage = bigimage
+            travels.city = city
+            travels.author = author
+            travels.author_id = author_id
+            travels.save()
+            return HttpResponseRedirect('/list/'+author)
+    return render_to_response('add.html',{'uf': UserForm(instance=travels)})
+
+#删除
+@csrf_exempt
+def deletetra(request, travels_id):
+    travels = get_object_or_404(Travels, pk=int(travels_id))
+
+    travels.delete()
+    author = request.user.username
+    return HttpResponseRedirect('/list/'+author)

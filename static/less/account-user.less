@@ -1,0 +1,63 @@
+/*------
+-------网站首页的整体样式
+--------
+*/
+@import "variables.less";
+
+.add-tra{
+  list-style: none;
+  li{
+    margin-bottom: 10px;
+    &:before,
+    &:after{
+      content: "";
+      display: table;
+    }
+    &:after{
+      clear: both;
+    }
+    input,textarea,
+    &>div{
+      float: left;
+      width: 80%;
+    }
+    input[type="text"]{
+      border: solid 1px #ccc;
+      border-radius: 4px;
+      line-height: 10px;
+      padding: 10px;
+    }
+    textarea{
+      border: solid 1px #ccc;
+      border-radius: 4px;
+      padding: 10px;
+    }
+  }
+  label{
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-right: 5px;
+    line-height: 36px;
+    color: #333;
+  }
+  .upload{
+    border: solid 1px #4cae4c;
+    background-color: #4cae4c;
+    border-radius: 4px;
+    line-height: 10px;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    width: 60px;
+    text-align: center;
+    margin-top: 3px;
+  }
+  .filename{
+    line-height: 36px;
+    margin-left: 10px;
+  }
+  .cke_chrome{
+    border: solid 1px #ccc;
+  }
+}
