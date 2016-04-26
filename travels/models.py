@@ -8,12 +8,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Travels(models.Model):
-    title = models.CharField(max_length=150)
-    content = RichTextField()
+    title = models.CharField('标题', max_length=150)
+    content = RichTextField('正文')
     contextinfo = models.TextField('简介', default='')
     image = models.ImageField('首页大图', upload_to='upload/travels/', default='')
     bigimage = models.ImageField('顶部大背景', upload_to='upload/travels/', default='')
-    pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField('创建时间', auto_now_add=True)
     count_hit = models.IntegerField(default=0, editable=False)
     city = models.CharField('城市', max_length=100, default='')
     author = models.CharField(max_length=150, editable=False)

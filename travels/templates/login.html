@@ -9,8 +9,13 @@
 <div class="container " >
 
      <div id="sign" class="wrap-login">
+         {% if user.is_authenticated %}
+         <div class="login-active">您已登录！
+            请返回 <a href="/">主页</a>
+         </div>
+         {% else %}
     <div class="part login">
-        <form action=/login/ method="post" id="login">
+        <form action='./?next={{ redirect_to }}' method="post" id="login">
          {%csrf_token%}
 
             <h3>登录</h3>
@@ -21,7 +26,7 @@
             </p>
             <p>
                 <label for="password" class="icon"><i class="icon iconfont">&#xe607;</i></label>
-                <input type="text" name="password" id="password" class="input-control"
+                <input type="password" name="password" id="password" class="input-control"
                        placeholder="请输入密码" required/>
             </p>
             <p>
@@ -31,6 +36,7 @@
                 <i class="icon iconfont">&#xe609;</i>
             </a>
         </form>
+        {% endif %}
     </div>
     </div>
 </div>

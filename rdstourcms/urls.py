@@ -28,6 +28,7 @@ urlpatterns = patterns('',
                        url(r'^media/(?P<path>(\S)*)', 'django.views.static.serve', {'document_root': 'media'}),
                        url(r'^login/$', 'travels.views.login', name='login'),
                        url(r'^register/$', 'travels.views.register'),
+                       url(r'^logout/$', 'travels.views.logout',),
                        (r'^accounts/', include('userena.urls')),
                        url(r'^search/$', 'travels.views.search', name="search"),
 

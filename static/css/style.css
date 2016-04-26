@@ -68,24 +68,28 @@
 }
 .login-reg {
   float: left;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 .login-reg a {
-  padding: 5px 10px;
-  background-color: #757575;
-  color: #fff;
-  border-radius: 4px;
+  padding: 0px 10px;
+  color: #666;
+  height: 16px;
+  line-height: 16px;
+  display: inline-block;
   float: left;
-  margin-left: 10px;
 }
-.login-reg .login {
-  border-right: solid 1px #000;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.login-reg a:hover {
+  color: #ff8a00;
 }
-.login-reg .register {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.login-reg a.top-login,
+.login-reg a.login-in {
+  border-right: solid 1px #999;
+}
+.login-active {
+  padding: 40px;
+}
+.login-active a {
+  font-size: 18px;
 }
 /*中间部分*/
 .rds-container {

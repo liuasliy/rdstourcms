@@ -38,16 +38,8 @@
                     <li><a href="/photo">旅游摄影</a></li>
                 </ul>
                 <div class="login-reg">
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'userena_profile_detail' user.username %}" class="login-in">{{user.username}}</a>
-                    <a href="/logout/?next={{ request.path }}" class="login-out">退出</a>
-
-                    {% else %}
-                    <a href="/login/?next={{ request.path }}" class="top-login">登录</a>
+                    <a href="/login" class="top-login">登录</a>
                     <a href="/register" class="top-register">注册</a>
-                    {% endif %}
-
-
                 </div>
             </div>
         </div>

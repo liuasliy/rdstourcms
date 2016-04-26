@@ -75,6 +75,7 @@ def uploadimage(request):
 def login(request):
     errors = []
     register_flag = False
+    redirect_to = request.REQUEST.get('next', '')
     if request.method == "POST":
         if not request.POST.get('username', ''):
             errors.append(u"请输入用户名")
@@ -86,21 +87,20 @@ def login(request):
             user = auth.authenticate(username=name, password=password)
             if user is not None and user.is_active:
                 auth.login(request, user)
-                return HttpResponseRedirect("/blog/")
+                return HttpResponseRedirect(redirect_to)
             else:
                 errors.append(u'登录失败，请重试')
-    #response = render(request,'login.html',locals())
     response = render_to_response('login.html', {'errors': errors, },
         context_instance=RequestContext(request))
     return render(request, 'login.html', locals())
 
 def logout(request):
+    redirect_to = request.REQUEST.get('next', '')
     if request.user.is_authenticated():
         auth.logout(request)
-        return render(request, "logout.html", {})
+        return render(request, "logout.html", {'redirect_to':redirect_to})
     else:
-# return render(request,"logout.html",{})
-        return HttpResponseRedirect("/blog/")
+        return HttpResponseRedirect(redirect_to)
 
 
 
@@ -175,12 +175,13 @@ def list(request, author):
         list = Travels.objects.filter(author__iexact=author)
     except Travels.DoesNotExist:
         raise Http404
-    return render_to_response('list.html', {'list' : list, 'users':users}, context_instance=RequestContext(request))
+    return render_to_response('../templates/userena/tra_list.html', {'list' : list, 'users':users}, context_instance=RequestContext(request))
 
 
 # 新增:
 @csrf_exempt
 def add(request):
+    user = request.user
     if request.method == "POST":
         uf = UserForm(request.POST, request.FILES)
         if uf.is_valid():
@@ -205,7 +206,7 @@ def add(request):
             return HttpResponseRedirect('/list/'+author)
     else:
         uf = UserForm()
-    return render_to_response('add.html',{'uf':uf})
+    return render_to_response('../templates/userena/tra_add.html',{'uf':uf,'user':user})
 
 #修改
 from django.shortcuts import render_to_response,get_object_or_404

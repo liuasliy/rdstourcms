@@ -82,23 +82,27 @@
 
 .login-reg {
   float: left;
-  margin-top: 15px;
-  a {
-    padding: 5px 10px;
-    background-color: #757575;
-    color: #fff;
-    border-radius: 4px;
+  margin-top: 25px;
+  a{
+    padding: 0px 10px;
+    color: #666;
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
     float: left;
-    margin-left: 10px;
+    &:hover{
+      color: #ff8a00;
+    }
   }
-  .login {
-    border-right: solid 1px #000;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  a.top-login,
+  a.login-in{
+    border-right: solid 1px #999;
   }
-  .register {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+}
+.login-active{
+  padding: 40px;
+  a{
+    font-size: 18px;
   }
 }
 
