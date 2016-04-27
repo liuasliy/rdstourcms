@@ -131,6 +131,10 @@ def register(request):
                     password = password1,
                     )
                 register_flag = True
+                user.save()
+                user = auth.authenticate(username=name,
+                                         password=password1)
+                auth.login(request, user)
                 return render(request,'login.html',{'register_flag':register_flag})
         return render(request,'register.html',{'errors':errors})
     else:

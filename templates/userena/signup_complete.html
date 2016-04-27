@@ -6,6 +6,7 @@
 {% block content_title %}<h2>{% trans "Signup" %}</h2>{% endblock %}
 
 {% block content %}
+<div class="rds-container">
 <p>{% trans "Thank you for signing up with us!" %}</p>
 
 {% if userena_activation_required %}
@@ -14,4 +15,5 @@
 {% else  %}
 <p>{% blocktrans %}You can now use the supplied credentials to signin.{% endblocktrans %}</p>
 {% endif %}
+    </div>
 {% endblock %}

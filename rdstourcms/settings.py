@@ -71,6 +71,13 @@ USERENA_SIGNIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = '945665033@qq.com'
+EMAIL_HOST_PASSWORD = 'asliy#222@liu'
+
+
 SITE_ID = 1
 
 
