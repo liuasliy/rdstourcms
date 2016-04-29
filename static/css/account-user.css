@@ -139,3 +139,82 @@
   color: #ff8a00;
   font-size: 22px;
 }
+.favlist li:before,
+.favlist li:after {
+  content: "";
+  display: table;
+}
+.favlist li:after {
+  clear: both;
+}
+.favpost-item {
+  padding: 20px 0;
+  margin-bottom: -1px;
+  border-bottom: 1px dashed #cecece;
+  color: #666;
+  position: relative;
+}
+.delpost {
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: url("../images/close03.png") no-repeat;
+  overflow: hidden;
+  background-size: cover;
+  display: block;
+}
+.hide {
+  display: none;
+}
+.pic {
+  width: 195px;
+  height: 140px;
+  float: left;
+  background: url(../images/nopic2.jpg) no-repeat center center;
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.pic img {
+  width: 195px;
+  height: 140px;
+}
+.favcontent {
+  width: 480px;
+  float: left;
+}
+.favcontent h2 {
+  margin: 0 25px 5px 0;
+  font-size: 16px;
+  overflow: hidden;
+  font-weight: normal;
+  height: 25px;
+}
+.favcontent h2 a {
+  font-size: 20px;
+  color: #fa0;
+}
+.favpost-intro {
+  overflow: hidden;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.author {
+  height: 20px;
+  float: left;
+}
+.author img {
+  width: 16px;
+  height: 16px;
+  margin-top: -4px;
+}
+.favpost-info {
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 22px;
+  clear: both;
+  color: #666;
+}

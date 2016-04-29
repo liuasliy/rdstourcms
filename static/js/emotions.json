@@ -1,0 +1,18 @@
+[
+	{ 
+	  "title": "dada秧歌",
+	  "category": "小恐龙",
+	  "imgurl": "/static/images/icon/dadayangge_thumb.gif"
+	},
+  {
+    "title": "xkl被抓",
+    "category": "小恐龙",
+    "imgurl": "/static/images/icon/xklbeizhua_thumb.gif"
+  },
+  {
+    "title": "xkl奔跑",
+    "category": "小恐龙",
+    "imgurl": "/static/images/icon/xklbenpao_thumb.gif"
+  }
+
+]

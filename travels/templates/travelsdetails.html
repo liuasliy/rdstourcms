@@ -101,9 +101,19 @@
                 </p>
                 <input type="submit" name="post" value="发表回复" class="com-submit">
                 <input type="hidden" name="next" value="/travels/{{ travels.id }}">
+
+                <a  class="com-submit2">回复</a>
             </form>
             {% else %} 请
             <a href="/accounts/signin">登录</a>,或<a href="/accounts/signup">注册</a>后再评论 {% endif %}
+            </div>
+            <div class="face-pop art-newpop">
+                <div class="face-icon face-icon1">
+                    <ul>
+
+                    </ul>
+
+                </div>
             </div>
         </div>
     
@@ -176,6 +186,67 @@ window._bd_share_config = {
     }
 };
 with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+<script>
+    $(document).ready(function(e) {
+        $.ajax( {
+            type: "post",
+            dataType : 'json',
+            url : '/static/js/emotions.json',
+            success : function(data) {
+                var legth = data.length;
+                for(var i = 0;i<legth;i++){
+                    $('.face-icon ul').append('<li title="'+ data[i].title +'"><img src="' + data[i].imgurl + '" /></li>')
+                }
+                $('.face-icon ul li').each(function () {
+                    $(this).click(function () {
+                        var areaval = $('.com-box textarea').val();
+                        var valText = areaval + '('+$(this).attr('title')+')';
+                        $('.com-box textarea').val(valText).focus();
+                    })
+                })
+            }
+        });
+
+        //提交
+        $('.com-submit').click(function () {
+            var areaval = $('.com-box textarea').val();
+            $('.com-box textarea').val(replace_em(areaval));
+            //console.log(replace_em(areaval));
+        })
+    });
+
+    function replace_em(str){
+        var areaval = $('.com-box textarea').val();
+        pattern =new RegExp("\\((.| )+?\\)","igm");
+        textarr = areaval.match(pattern);
+        areaval = areaval.replace(/\</g,'&lt;');
+        areaval = areaval.replace(/\>/g,'&gt;');
+        areaval = areaval.replace(/\n/g,'<br/>');
+        areaval = areaval.replace(/\(/g,'');
+        areaval = areaval.replace(/\)/g,'');
+        if(textarr){
+            for(var i=0;i<textarr.length;i++){
+                item = textarr[i].split(/[()]/)[1];
+                console.log(item);
+                var llist = $('.face-icon ul li');
+                for(var n=0;n<llist.length;n++){
+                    if(item == llist.eq(n).attr('title')){
+                        newstr = llist.eq(n).html();
+                    }
+                }
+                areaval = areaval.replace(item,newstr);
+            }
+            str = areaval;
+            return str;
+        }
+        else{
+            return str;
+        }
+
+    }
+
 </script>
 <!--end share-->
 {% endblock %}

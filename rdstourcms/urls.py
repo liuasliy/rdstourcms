@@ -15,6 +15,9 @@ urlpatterns = patterns('',
                        url(r'^travels/(?P<travels_id>\d+)/$', 'travels.views.detail', name='detail'),
                        url(r'^city/(?P<city>\w+)/$', 'travels.views.search_city', name='search_city'),
 
+                       url(r'^favlist/$', 'favourite.views.favlist', name='favlist'),
+
+
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^admin/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.DIR_Admin}),
                        (r'^comments/', include('django_comments.urls')),

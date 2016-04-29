@@ -9,5 +9,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	config.image_previewText='';
 	config.filebrowserImageUploadUrl= "/uploadimg/";
+	
 };
 

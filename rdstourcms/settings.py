@@ -73,9 +73,10 @@ LOGOUT_URL = '/accounts/signout/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 465
+EMAIL_PORT = 25
 EMAIL_HOST_USER = '945665033@qq.com'
-EMAIL_HOST_PASSWORD = 'asliy#222@liu'
+EMAIL_HOST_PASSWORD = 'ewqjmeiyxakobbed'
+DEFAULT_FROM_EMAIL = '945665033@qq.com'
 
 
 SITE_ID = 1
@@ -178,6 +179,7 @@ STATICFILES_DIRS = (
     ("img", os.path.join(STATIC_ROOT, 'img')),
     ("slider", os.path.join(STATIC_ROOT, 'slider')),
     ("font", os.path.join(STATIC_ROOT, 'font')),
+    ("ckeditor", os.path.join(STATIC_ROOT, 'ckeditor')),
 )
 # old settings // TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
@@ -210,16 +212,13 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
-            ['Styles', 'Format','Bold', 'Italic', 'Underline'],
-            ['Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Bold', 'Italic', 'Underline'],
+            ['Indent', '-', 'JustifyLeft', 'JustifyCenter'],
             ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source'],
-            ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'],
+            ['Image', 'HorizontalRule', 'Smiley'],
             ['TextColor', 'BGColor'],
-            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
-            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
-                       'HiddenField'],
-            ['Maximize']
+            ['Undo', 'Redo', 'RemoveFormat'],
+            ['Source', 'Maximize']
         ],
         'height': 300,
         'width': '100%',
