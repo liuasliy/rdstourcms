@@ -16,6 +16,7 @@ class photoList(models.Model):
     user = models.ForeignKey(User, default="")
     pubdate = models.DateTimeField('发布日期', default=timezone.now)
     count_hit = models.IntegerField(default=0, editable=False)
+    praise_num = models.IntegerField(default=0, editable=False)
     def __unicode__(self):
         return self.title
     class Meta:

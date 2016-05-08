@@ -3,27 +3,7 @@
  {% block content %}
 <div id="photowrap">
     <div id='container'>
-        {% if items %} {% for item in items %}
-        <div class="item photobox">
-            <div class="info">
-                <div class="pic">
-                    <a href="/photo/{{ photos.id }}"><img src="/site_media/{{item.photo}}"></a>
-                </div>
-                <div class="title"><a href="">{{ item.title }}</a></div>
-                <div class="canvo">
-                    {% for users in users %} {% if users.id = item.user_id %}
-                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt="" />
-                        <div class="text">{{users.user}}</div>
-                    </a>
-                    {% endif %} {% endfor %}
-                    <div class="fright">
-                        <div class="views"><i class="icon iconfont">&#xe605;</i><span>222</span></div>
-                        <div class="comments"><a href=""><i class="icon iconfont">&#xe600;</i><span>33</span></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %} {% endif %}
+
     </div>
     <div id="page-navigation" class="hide clear">
         <span class="disabled page-navigation-prev" title="上一页">上一页</span>

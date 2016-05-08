@@ -35,17 +35,11 @@ def photopage(request):
 
 
 
-#def photodetail(request):
-    #return render(request, 'ajax_get_photo.html')
-
-
 def photodetail(request, photos_id):
     users = MyProfile.objects.all()
 
     try:
         photos = photoList.objects.get(id=photos_id)
-
-
         photos.count_hit += 1
         photos.save()
     except photoList.DoesNotExist:
@@ -60,5 +54,20 @@ def ajax_get_photo(request):
         items = photoList.objects.all()
     except:
         items = []
-
     return render_to_response('ajax_get_photo.html', {'items': items, "users": users}, context_instance=RequestContext(request))
+
+
+def like_photo(request,photos_id):
+    p_id = None
+    LIKED = '谢谢鼓励，但你已经赞过啦！'
+
+    liked_post = request.session.get('liked')
+    p_id = photos_id
+    if p_id == liked_post:
+        return HttpResponse(LIKED)
+    photo = get_object_or_404(photoList, id=photos_id)
+    photo.praise_num += 1
+    likes =photo.praise_num
+    photo.save()
+    request.session['liked'] = p_id
+    return HttpResponse(likes)

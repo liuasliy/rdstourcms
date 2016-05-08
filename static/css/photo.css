@@ -197,6 +197,7 @@
   border: 1px solid #ea4c89;
   color: #fff;
   border-radius: 100px;
+  cursor: pointer;
 }
 .single-footer .single-heart .loading-line {
   height: 1px;

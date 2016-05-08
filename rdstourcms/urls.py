@@ -50,6 +50,9 @@ urlpatterns = patterns('',
                        url(r'^deletefav/(?P<favourite_id>\d+)/$', 'favourite.views.deletefav',name="deletefav"),
 
 
+                       url(r'^like_photo/(?P<photos_id>\d+)/$', 'photo.views.like_photo',name="like_photo"),
+
+
 
 
 )

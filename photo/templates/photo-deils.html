@@ -5,22 +5,27 @@
 <div class="pic-views" >
     <div class="single-header">
     {% for users in users %}
-                    {% if users.id = photos.user_id %}
-                
+                    {% if users.user_id = photos.user_id %}
         <div class="single-meta">
             <a href="" class="author-avatar"><img src="/site_media/{{ users.mugshot }}" alt=""/></a>
             <h1>{{ photos.title }}</h1>
             <p class="info">{{users.user}}</p>
         </div>
         <div class="data-meta">
-            <p class="click-num">221</p>
+            <p class="click-num">{{ photos.praise_num }}</p>
             <p>
+                {% load comments %}
+                {% get_comment_list for photos as comment_list %}
+                {% for comment in comment_list %}
                 <span class="author">
-                    <a href="">{{users.user}}</a>发表于
-                    2015-11-12
+                    <a href="">{{comment.user}}</a>发表于
+                    {{ comment.submit_date|date:"Y-m-j" }}
                 </span>
+                {% endfor %}
                 <span class="comments-link">
-                    <a href="">33</a>
+                    <a href="">
+                    {% get_comment_count for photos as comment_count %}
+                    {{ comment_count }}条评论</a>
                 </span>
             </p>
         </div>
@@ -33,7 +38,7 @@
     </div>
     <div class="single-footer">
         <div class="single-heart">
-            <a href="">喜欢</a>
+            <a >喜欢({{ photos.praise_num }})</a>
             <div class="loading-line"></div>
         </div>
         <div class="tag-share">
@@ -128,8 +133,27 @@
             </div>
         </div>
 </div>
-
+<div class="fav-note">
+     <iframe src=""  height="35" frameborder="0"></iframe>
+ </div>
     <!--script-->
+
+    <script>
+    $(function () {
+   $('.single-heart a').click(function () {
+       $('.fav-note').show() ;
+       url = "/like_photo/"+{{ photos.id }};
+       $('.fav-note iframe').attr('src',url);
+       setTimeout(function () {
+           $('.fav-note').hide();
+       },2000);
+
+   })
+
+
+})
+    </script>
+
     <script>
     $(document).ready(function(e) {
         $('.face-icon1').show();

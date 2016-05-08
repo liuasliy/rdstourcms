@@ -2,32 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2d10139-8953-4134-8a63-dd4f81143c09" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/favourite/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/favourite/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/favourite/models.py" afterPath="$PROJECT_DIR$/favourite/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/favourite/views.py" afterPath="$PROJECT_DIR$/favourite/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/models.py" afterPath="$PROJECT_DIR$/photo/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" afterPath="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/templates/photo-deils.html" afterPath="$PROJECT_DIR$/photo/templates/photo-deils.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rdstourcms/settings.py" afterPath="$PROJECT_DIR$/rdstourcms/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/templates/photo.html" afterPath="$PROJECT_DIR$/photo/templates/photo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photo/views.py" afterPath="$PROJECT_DIR$/photo/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rdstourcms/urls.py" afterPath="$PROJECT_DIR$/rdstourcms/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/photo.css" afterPath="$PROJECT_DIR$/static/css/photo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/emotions.json" afterPath="$PROJECT_DIR$/static/js/emotions.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/less/photo.less" afterPath="$PROJECT_DIR$/static/less/photo.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/less/style.less" afterPath="$PROJECT_DIR$/static/less/style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/email_form.html" afterPath="$PROJECT_DIR$/templates/userena/email_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/fav_list.html" afterPath="$PROJECT_DIR$/templates/userena/fav_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/password_form.html" afterPath="$PROJECT_DIR$/templates/userena/password_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/profile_detail.html" afterPath="$PROJECT_DIR$/templates/userena/profile_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/profile_form.html" afterPath="$PROJECT_DIR$/templates/userena/profile_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/tra_add.html" afterPath="$PROJECT_DIR$/templates/userena/tra_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userena/tra_list.html" afterPath="$PROJECT_DIR$/templates/userena/tra_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/travels/models.py" afterPath="$PROJECT_DIR$/travels/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/travels/templates/travels.html" afterPath="$PROJECT_DIR$/travels/templates/travels.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/travels/templates/travelsdetails.html" afterPath="$PROJECT_DIR$/travels/templates/travelsdetails.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/travels/views.py" afterPath="$PROJECT_DIR$/travels/views.py" />
     </list>
     <ignored path="rdstourcms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/favourite/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="64" selection-start-line="50" selection-start-column="64" selection-end-line="50" selection-end-column="64" />
+              <caret line="34" column="59" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="59" />
               <folding>
                 <element signature="e#24#59#0" expanded="true" />
               </folding>
@@ -89,11 +71,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fav_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/userena/fav_list.html">
+      <file leaf-file-name="photo-deils.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photo/templates/photo-deils.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5970149">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state vertical-scroll-proportion="-9.5172415">
+              <caret line="146" column="33" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+              <folding>
+                <element signature="e#2239#5438#0#HTML" expanded="false" />
+                <element signature="e#5867#8857#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photo/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/photo/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7876106">
+              <caret line="72" column="31" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photo.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/less/photo.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.247191">
+              <caret line="218" column="21" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -103,7 +118,7 @@
         <entry file="file://$PROJECT_DIR$/rdstourcms/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="56" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="56" />
+              <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -134,9 +149,6 @@
         <option value="$PROJECT_DIR$/travels/templates/search.html" />
         <option value="$PROJECT_DIR$/travels/templates/city.html" />
         <option value="$PROJECT_DIR$/photo/templates/photo-new.html" />
-        <option value="$PROJECT_DIR$/photo/templates/photo.html" />
-        <option value="$PROJECT_DIR$/photo/views.py" />
-        <option value="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" />
         <option value="$PROJECT_DIR$/travels/templates/index.html" />
         <option value="$PROJECT_DIR$/travels/forms.py" />
         <option value="$PROJECT_DIR$/travels/templates/update.html" />
@@ -151,13 +163,10 @@
         <option value="$PROJECT_DIR$/rdstourcms/settings.py" />
         <option value="$PROJECT_DIR$/travels/templates/travels.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/photo/templates/photo-deils.html" />
-        <option value="$PROJECT_DIR$/static/less/photo.less" />
         <option value="$PROJECT_DIR$/static/less/style.less" />
         <option value="$PROJECT_DIR$/travels/views.py" />
         <option value="$PROJECT_DIR$/travels/templates/travelsdetails.html" />
         <option value="$PROJECT_DIR$/travels/models.py" />
-        <option value="$PROJECT_DIR$/photo/models.py" />
         <option value="$PROJECT_DIR$/favourite/models.py" />
         <option value="$PROJECT_DIR$/templates/userena/profile_detail.html" />
         <option value="$PROJECT_DIR$/templates/userena/email_form.html" />
@@ -165,9 +174,15 @@
         <option value="$PROJECT_DIR$/templates/userena/profile_form.html" />
         <option value="$PROJECT_DIR$/templates/userena/tra_add.html" />
         <option value="$PROJECT_DIR$/templates/userena/tra_list.html" />
-        <option value="$PROJECT_DIR$/rdstourcms/urls.py" />
         <option value="$PROJECT_DIR$/favourite/views.py" />
         <option value="$PROJECT_DIR$/templates/userena/fav_list.html" />
+        <option value="$PROJECT_DIR$/photo/templates/photo.html" />
+        <option value="$PROJECT_DIR$/photo/templates/ajax_get_photo.html" />
+        <option value="$PROJECT_DIR$/photo/models.py" />
+        <option value="$PROJECT_DIR$/rdstourcms/urls.py" />
+        <option value="$PROJECT_DIR$/photo/templates/photo-deils.html" />
+        <option value="$PROJECT_DIR$/static/less/photo.less" />
+        <option value="$PROJECT_DIR$/photo/views.py" />
       </list>
     </option>
   </component>
@@ -274,38 +289,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rdstourcms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rdstourcms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rdstourcms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rdstourcms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="userena" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -708,29 +691,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/travels/templates/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0313076">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travels/templates/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travels/templates/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29795158">
-          <caret line="8" column="58" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/travels/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.827586">
@@ -793,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travels/templates/travels.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49362478">
-          <caret line="101" column="37" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -816,34 +768,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/less/photo.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41528925">
-          <caret line="118" column="11" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photo/templates/photo-deils.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14705883">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/less/style.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8314607">
           <caret line="557" column="29" selection-start-line="557" selection-start-column="29" selection-end-line="557" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38626608">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -853,16 +781,6 @@
         <state vertical-scroll-proportion="0.42123893">
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travels/templates/travelsdetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29850745">
-          <caret line="165" column="12" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="12" />
-          <folding>
-            <element signature="n#div#2;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1082,6 +1000,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/userena/fav_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5970149">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travels/templates/travels.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.620689">
+          <caret line="101" column="37" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photo/templates/photo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3793104">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photo/templates/ajax_get_photo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8208955">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rdstourcms/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photo/templates/photo-deils.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.5172415">
+          <caret line="146" column="33" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+          <folding>
+            <element signature="e#2239#5438#0#HTML" expanded="false" />
+            <element signature="e#5867#8857#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/photo.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.247191">
+          <caret line="218" column="21" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/travels/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1092,10 +1069,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rdstourcms/urls.py">
+    <entry file="file://$PROJECT_DIR$/travels/templates/travelsdetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22947761">
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="181" selection-end-column="2" />
+          <folding>
+            <element signature="n#div#2;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photo/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="56" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="56" />
+          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1103,17 +1090,17 @@
     <entry file="file://$PROJECT_DIR$/favourite/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="64" selection-start-line="50" selection-start-column="64" selection-end-line="50" selection-end-column="64" />
+          <caret line="34" column="59" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="59" />
           <folding>
             <element signature="e#24#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userena/fav_list.html">
+    <entry file="file://$PROJECT_DIR$/photo/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5970149">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.7876106">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
           <folding />
         </state>
       </provider>
