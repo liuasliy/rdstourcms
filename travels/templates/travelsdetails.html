@@ -24,11 +24,14 @@
         </div>
         <div class="share">
             <div class="fleft">
-                <a>
-                    <i></i>
-                    <span>2324</span>
+                {% if favis|length == 1 %}
+                <a class="fav-btn" ><i class="cur"></i></a>
+                {% else %}
+                    <a class="fav-btn" ><i class=""></i></a>
+                {% endif %}
+                    <span>{{ favlistall|length }}</span>
                     <strong>收藏</strong>
-                </a>
+
             </div>
             <div class="fright">
                 <div class="bdsharebuttonbox">
@@ -48,6 +51,9 @@
             </div>
         </div>
         <div class="comments">
+        <div class="comment-tit">
+            关于本篇游记,看看大家怎么说~
+        </div>
             {% load comments %} 
             {% get_comment_list for travels as comment_list %}
             {% for comment in comment_list %}
@@ -55,7 +61,7 @@
                 <div class="author-info">
                     <div class="author-pic">    
                     {% for users in users %}
-                    {% if users.id = comment.user_id %}
+                    {% if users.user_id = comment.user_id %}
                     <img src="/site_media/{{ users.mugshot }}" alt="{{ comment.user_name }}" />
                     {% endif %}
                     {% endfor %} 
@@ -65,7 +71,7 @@
                     <span class="date">{{comment.submit_date}}</span>
                 </div>
                 <div class="com-content">
-                    {{comment.comment}}
+                    {{comment.comment|safe}}
                 </div>
             </div>
             {%endfor%}
@@ -83,7 +89,7 @@
                 <div class="avatar">
                     <a href="" title="{{ user.username }}">
                     {% for users in users %}
-                    {% if users.id = user.id %}
+                    {% if users.user_id = user.id %}
                     <img src="/site_media/{{ users.mugshot }}" alt="{{ user.username }}" />
                     {% endif %}
                     {% endfor %} 
@@ -91,30 +97,38 @@
                 </div>
                 <div class="com-text">
                     <h2>回复内容</h2>
+                    <div class="face-btn">
+                        <img src="/static/images/face-icon.png" alt=""/>
+                    </div>
+                    <div class="face-pop art-newpop">
+                        <div class="face-tab">
+                            <ul>
+                                <li class="cur">常用表情</li>
+                                <li >小恐龙</li>
+                            </ul>
+                        </div>
+                        <div class="face-icon face-icon1"><ul></ul></div>
+                        <div class="face-icon face-icon2"><ul></ul></div>
+                    </div>
                     <div class="com-box">
                         <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
                     </div>
+
                 </div>
                 <p style="display:none">
                     <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
                     <input type="text" name="honeypot" id="id_honeypot">
                 </p>
+
                 <input type="submit" name="post" value="发表回复" class="com-submit">
                 <input type="hidden" name="next" value="/travels/{{ travels.id }}">
 
-                <a  class="com-submit2">回复</a>
+
             </form>
             {% else %} 请
             <a href="/accounts/signin">登录</a>,或<a href="/accounts/signup">注册</a>后再评论 {% endif %}
             </div>
-            <div class="face-pop art-newpop">
-                <div class="face-icon face-icon1">
-                    <ul>
 
-                    </ul>
-
-                </div>
-            </div>
         </div>
     
     </div>
@@ -134,34 +148,40 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="comment-list">
+        <div class="lately-news">
             <div class="sider-title">
-                最新评论
+                相关游记
             </div>
             <ul>
-            {% for post in postall %}
-            {% load comments %} 
-            {% get_comment_list for post as comment_list %}
-            {% for comment in comment_list|slice:":3" %}
+
                 <li>
-                {% for users in users %}
-                    {% if users.id = comment.user_id %}
-                    <a href="">
-                        <img src="/site_media/{{ users.mugshot }}" alt="{{comment.user_name}}" />
-                        <div class="comments-text">
-                            <h2>{{comment.user_name}}</h2>
-                            {% endif %}
-                    {% endfor %} 
-                            <p>{{comment.comment}}</p>
-                        </div>
-                    </a>
+
                 </li>
-                {% endfor %}
-                {% endfor %}
+
             </ul>
         </div>
     </div>
 </div>
+ <div class="fav-note">
+     <iframe src=""  height="35" frameborder="0"></iframe>
+ </div>
+<script>
+$(function () {
+   $('.fav-btn i').click(function () {
+       $(this).addClass('cur');
+       $('.fav-note').show() ;
+       url = "/addfav/"+{{ travels.id }};
+       $('.fav-note iframe').attr('src',url);
+       setTimeout(function () {
+           $('.fav-note').hide();
+       },2000);
+
+   })
+
+
+})
+</script>
+
 <!--baidu share js-->
 <script>
 window._bd_share_config = {
@@ -190,20 +210,42 @@ with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createEle
 
 <script>
     $(document).ready(function(e) {
+        $('.face-icon1').show();
+        $('.face-tab li').each(function () {
+            $(this).click(function (e) {
+                $(this).addClass('cur').siblings().removeClass('cur');
+                num = $(this).index();
+                $('.face-icon'+(num+1)).show().siblings('.face-icon').hide();
+                e.stopPropagation();
+            })
+        })
+        $('.face-btn img').click(function (e) {
+            $('.face-pop').show();
+            e.stopPropagation();
+        })
+        $(document).click(function () {
+            $('.face-pop').hide();
+        })
+
         $.ajax( {
             type: "post",
             dataType : 'json',
             url : '/static/js/emotions.json',
             success : function(data) {
-                var legth = data.length;
+                var legth = data.konglong.length;
+                var legth2 = data.changy.length;
                 for(var i = 0;i<legth;i++){
-                    $('.face-icon ul').append('<li title="'+ data[i].title +'"><img src="' + data[i].imgurl + '" /></li>')
+                    $('.face-icon2 ul').append('<li title="'+ data.konglong[i].title +'"><img src="' + data.konglong[i].imgurl + '" /></li>')
+                }
+                for(var i = 0;i<legth2;i++){
+                    $('.face-icon1 ul').append('<li title="'+ data.changy[i].title +'"><img src="' + data.changy[i].imgurl + '" /></li>')
                 }
                 $('.face-icon ul li').each(function () {
                     $(this).click(function () {
                         var areaval = $('.com-box textarea').val();
                         var valText = areaval + '('+$(this).attr('title')+')';
                         $('.com-box textarea').val(valText).focus();
+                        $('.face-pop').hide();
                     })
                 })
             }

@@ -15,7 +15,7 @@ urlpatterns = patterns('',
                        url(r'^travels/(?P<travels_id>\d+)/$', 'travels.views.detail', name='detail'),
                        url(r'^city/(?P<city>\w+)/$', 'travels.views.search_city', name='search_city'),
 
-                       url(r'^favlist/$', 'favourite.views.favlist', name='favlist'),
+                       #url(r'^favlist/$', 'favourite.views.favlist', name='favlist'),
 
 
                        url(r'^admin/', include(admin.site.urls)),
@@ -44,6 +44,10 @@ urlpatterns = patterns('',
                        url(r'^updatetra/(?P<travels_id>\d+)/$', 'travels.views.updatetra',name="updatetra"),
                        url(r'^deletetra/(?P<travels_id>\d+)/$', 'travels.views.deletetra',name="deletetra"),
                        url(r'^list/(?P<author>\w+)/$', 'travels.views.list',name="list"),
+
+                       url(r'^addfav/(?P<travels_id>\d+)/$', 'favourite.views.add_favorite',name="add_favorite"),
+                       url(r'^favlist/(?P<user>\w+)/$', 'favourite.views.favourite_list',name="favourite_list"),
+                       url(r'^deletefav/(?P<favourite_id>\d+)/$', 'favourite.views.deletefav',name="deletefav"),
 
 
 

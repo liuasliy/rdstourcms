@@ -2,7 +2,7 @@
 {% block title %}Tour Blog{%endblock%}
 {% block content %}
 
-<div class="pic-views" style="margin-top:150px;">
+<div class="pic-views" >
     <div class="single-header">
     {% for users in users %}
                     {% if users.id = photos.user_id %}
@@ -53,6 +53,9 @@
     </div>
   <!--评论-->
  <div class="comments">
+ <div class="comment-tit">
+            关于照片,看看大家怎么说~
+        </div>
             {% load comments %}
             {% get_comment_list for photos as comment_list %}
             {% for comment in comment_list %}
@@ -60,7 +63,7 @@
                 <div class="author-info">
                     <div class="author-pic">
                     {% for users in users %}
-                    {% if users.id = comment.user_id %}
+                    {% if users.user_id = comment.user_id %}
                     <img src="/site_media/{{ users.mugshot }}" alt="{{ comment.user_name }}" />
                     {% endif %}
                     {% endfor %}
@@ -70,7 +73,7 @@
                     <span class="date">{{comment.submit_date}}</span>
                 </div>
                 <div class="com-content">
-                    {{comment.comment}}
+                    {{comment.comment|safe}}
                 </div>
             </div>
             {%endfor%}
@@ -88,7 +91,7 @@
                 <div class="avatar">
                     <a href="" title="{{ user.username }}">
                     {% for users in users %}
-                    {% if users.id = user.id %}
+                    {% if users.user_id = user.id %}
                     <img src="/site_media/{{ users.mugshot }}" alt="{{ user.username }}" />
                     {% endif %}
                     {% endfor %}
@@ -96,6 +99,19 @@
                 </div>
                 <div class="com-text">
                     <h2>回复内容</h2>
+                    <div class="face-btn">
+                        <img src="/static/images/face-icon.png" alt=""/>
+                    </div>
+                    <div class="face-pop art-newpop">
+                        <div class="face-tab">
+                            <ul>
+                                <li class="cur">常用表情</li>
+                                <li >小恐龙</li>
+                            </ul>
+                        </div>
+                        <div class="face-icon face-icon1"><ul></ul></div>
+                        <div class="face-icon face-icon2"><ul></ul></div>
+                    </div>
                     <div class="com-box">
                         <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
                     </div>
@@ -108,9 +124,92 @@
                 <input type="hidden" name="next" value="/photo/{{ photos.id }}">
             </form>
             {% else %} 请
-            <a href="/login">登录</a>,或<a href="/register">注册</a>后再评论 {% endif %}
+            <a href="/accounts/signin">登录</a>,或<a href="/accounts/signup">注册</a>后再评论 {% endif %}
             </div>
         </div>
 </div>
 
+    <!--script-->
+    <script>
+    $(document).ready(function(e) {
+        $('.face-icon1').show();
+        $('.face-tab li').each(function () {
+            $(this).click(function (e) {
+                $(this).addClass('cur').siblings().removeClass('cur');
+                num = $(this).index();
+                $('.face-icon'+(num+1)).show().siblings('.face-icon').hide();
+                e.stopPropagation();
+            })
+        })
+        $('.face-btn img').click(function (e) {
+            $('.face-pop').show();
+            e.stopPropagation();
+        })
+        $(document).click(function () {
+            $('.face-pop').hide();
+        })
+
+        $.ajax( {
+            type: "post",
+            dataType : 'json',
+            url : '/static/js/emotions.json',
+            success : function(data) {
+                var legth = data.konglong.length;
+                var legth2 = data.changy.length;
+                for(var i = 0;i<legth;i++){
+                    $('.face-icon2 ul').append('<li title="'+ data.konglong[i].title +'"><img src="' + data.konglong[i].imgurl + '" /></li>')
+                }
+                for(var i = 0;i<legth2;i++){
+                    $('.face-icon1 ul').append('<li title="'+ data.changy[i].title +'"><img src="' + data.changy[i].imgurl + '" /></li>')
+                }
+                $('.face-icon ul li').each(function () {
+                    $(this).click(function () {
+                        var areaval = $('.com-box textarea').val();
+                        var valText = areaval + '('+$(this).attr('title')+')';
+                        $('.com-box textarea').val(valText).focus();
+                        $('.face-pop').hide();
+                    })
+                })
+            }
+        });
+
+        //提交
+        $('.com-submit').click(function () {
+            var areaval = $('.com-box textarea').val();
+            $('.com-box textarea').val(replace_em(areaval));
+            //console.log(replace_em(areaval));
+        })
+    });
+
+    function replace_em(str){
+        var areaval = $('.com-box textarea').val();
+        pattern =new RegExp("\\((.| )+?\\)","igm");
+        textarr = areaval.match(pattern);
+        areaval = areaval.replace(/\</g,'&lt;');
+        areaval = areaval.replace(/\>/g,'&gt;');
+        areaval = areaval.replace(/\n/g,'<br/>');
+        areaval = areaval.replace(/\(/g,'');
+        areaval = areaval.replace(/\)/g,'');
+        if(textarr){
+            for(var i=0;i<textarr.length;i++){
+                item = textarr[i].split(/[()]/)[1];
+                console.log(item);
+                var llist = $('.face-icon ul li');
+                for(var n=0;n<llist.length;n++){
+                    if(item == llist.eq(n).attr('title')){
+                        newstr = llist.eq(n).html();
+                    }
+                }
+                areaval = areaval.replace(item,newstr);
+            }
+            str = areaval;
+            return str;
+        }
+        else{
+            return str;
+        }
+
+    }
+
+</script>
 {% endblock %}

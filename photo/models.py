@@ -10,9 +10,9 @@ import datetime
 # Create your models here.
 
 class photoList(models.Model):
-    title = models.CharField(max_length=150)
-    photo = models.ImageField(upload_to='upload/photo/', default='')
-    photointro = RichTextField('图片介绍', default='')
+    title = models.CharField('标题', max_length=150)
+    photo = models.ImageField('照片',upload_to='upload/photo/', default='')
+    photointro = RichTextField('照片介绍', default='')
     user = models.ForeignKey(User, default="")
     pubdate = models.DateTimeField('发布日期', default=timezone.now)
     count_hit = models.IntegerField(default=0, editable=False)
@@ -23,6 +23,8 @@ class photoList(models.Model):
         verbose_name_plural = '摄影照片'
 
 
+class photoListAdmin(admin.ModelAdmin):
+    list_display = ('title', 'pubdate')
 
-admin.site.register(photoList)
+admin.site.register(photoList, photoListAdmin)
 

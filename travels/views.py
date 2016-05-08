@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import loader, Context
 from django.http import HttpResponse, HttpResponseRedirect
 from travels.models import *
+from favourite.models import *
 from accounts.models import *
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
@@ -43,13 +44,13 @@ def detail(request, travels_id):
     travelsall = Travels.objects.all()
     try:
         travels = Travels.objects.get(id=travels_id)
-
-
         travels.count_hit += 1
         travels.save()
+        favlistall = Favourite.objects.filter(travels=travels)
+        favis = Favourite.objects.filter(user__username=request.user, travels=travels)
     except Travels.DoesNotExist:
         raise Http404
-    return render_to_response('travelsdetails.html', {"travels": travels,  "users": users, "travelsall": travelsall}, context_instance=RequestContext(request))
+    return render_to_response('travelsdetails.html', {"travels": travels,  "users": users, "travelsall": travelsall, "favlistall": favlistall, "favis": favis}, context_instance=RequestContext(request))
 
 
 def uploadimage(request):
@@ -248,3 +249,4 @@ def deletetra(request, travels_id):
     travels.delete()
     author = request.user.username
     return HttpResponseRedirect('/list/'+author)
+

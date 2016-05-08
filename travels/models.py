@@ -16,7 +16,7 @@ class Travels(models.Model):
     pub_date = models.DateTimeField('创建时间', auto_now_add=True)
     count_hit = models.IntegerField(default=0, editable=False)
     city = models.CharField('城市', max_length=100, default='')
-    author = models.CharField(max_length=150, editable=False)
+    author = models.CharField('作者', max_length=150, editable=False)
     author_id = models.IntegerField(editable=False)
 
     def __unicode__(self):

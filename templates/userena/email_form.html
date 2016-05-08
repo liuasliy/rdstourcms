@@ -24,6 +24,7 @@
     <li class="last selected"><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
       <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'add'  %}">新增游记</a></li>
       <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'list' user.username %}">游记列表</a></li>
+        <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'favourite_list' user.username %}">我的收藏</a></li>
   </ul>
   </div>
 </div>
