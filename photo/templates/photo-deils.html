@@ -16,7 +16,7 @@
             <p>
                 {% load comments %}
                 {% get_comment_list for photos as comment_list %}
-                {% for comment in comment_list %}
+                {% for comment in comment_list|slice:':1' %}
                 <span class="author">
                     <a href="">{{comment.user}}</a>发表于
                     {{ comment.submit_date|date:"Y-m-j" }}
@@ -43,9 +43,8 @@
         </div>
         <div class="tag-share">
             <div class="tag-links">
-                <span>标签</span>
-                <a href="">标签阿紫</a>
-                <a href="">标签阿紫</a>
+                <span>照片标签</span>
+                <a >{{ photos.tag }}</a>
             </div>
             <div class="share fright">
                 <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1455518564188">
@@ -57,7 +56,7 @@
         </div>
     </div>
   <!--评论-->
- <div class="comments">
+ <div class="comments" id="comments">
  <div class="comment-tit">
             关于照片,看看大家怎么说~
         </div>
@@ -153,7 +152,31 @@
 
 })
     </script>
-
+<!--baidu share js-->
+<script>
+window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "0",
+        "bdSize": "24"
+    },
+    "share": {},
+    "image": {
+        "viewList": ["tsina", "qzone", "weixin"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+    },
+    "selectShare": {
+        "bdContainerClass": null,
+        "bdSelectMiniList": ["tsina", "qzone", "weixin"]
+    }
+};
+with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
     <script>
     $(document).ready(function(e) {
         $('.face-icon1').show();

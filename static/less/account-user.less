@@ -227,3 +227,72 @@
     clear: both;
     color: #666;
 }
+
+/*view-account*/
+.user-view{
+  &>span{
+    display: block;
+    line-height: 26px;
+    padding-left: 20px;
+    text-align: center;
+  }
+}
+.view-aver{
+  display: block;
+  margin: 10px auto;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.tab-type{
+  line-height: 40px;
+  overflow: hidden;
+  border-bottom: solid 1px #ff8a00;
+  margin-bottom: 10px;
+  li{
+    float: left;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #f2f2f2;
+  }
+  li.on{
+    background-color: #ff8a00;
+    color: #fff;
+  }
+}
+.tab-box{
+  display: none;
+}
+.travlist{
+  li{
+    position: relative;
+  }
+  .date{
+    position: absolute;
+    right: 0;
+    top:3px;
+  }
+  a{
+    display: block;
+    line-height: 24px;
+    color: #333;
+    &:hover{
+      color: #ff8a00;
+    }
+  }
+}
+.photolist{
+  li{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .photopic{
+    width: 180px;
+    display: block;
+  }
+}

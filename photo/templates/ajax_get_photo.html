@@ -7,8 +7,8 @@
             <div class="title"><a href="/photo/{{ item.id }}" target="_blank">{{ item.title }}</a></div>
             <div class="canvo">
             {% for users in users %}
-                    {% if users.user_id = item.user_id %}
-                <a href="">
+                    {% if users.user_id == item.user_id %}
+                <a href="/user/{{ users.user_id }}">
                     <img src="/site_media/{{ users.mugshot }}" alt=""/>
                     <div class="text">{{users.user}}</div>
                 </a>
@@ -17,10 +17,14 @@
                 <div class="fright">
                     <div class="views"><i class="icon iconfont">&#xe605;</i><span>{{ item.count_hit }}</span></div>
                     <div class="comments">
-                        <a href=""><i class="icon iconfont">&#xe600;</i>
-                            <span>{% load comments %}
-                    {% get_comment_count for item as comment_count %}
-                    {{ comment_count }}</span>
+                        {% load comments %}
+                        <a href="/photo/{{ item.id }}/#comments">
+                            <i class="icon iconfont">&#xe600;</i>
+                            <span>
+                                    {% get_comment_count for item as comment_count %}
+                                        {{ comment_count }}
+                            </span>
+
                         </a>
                     </div>
                 </div>

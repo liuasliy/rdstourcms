@@ -52,6 +52,7 @@ urlpatterns = patterns('',
 
                        url(r'^like_photo/(?P<photos_id>\d+)/$', 'photo.views.like_photo',name="like_photo"),
 
+                       url(r'^user/(?P<author_id>\d+)/$', 'rdstourcms.views.accountview',name="accountview"),
 
 
 

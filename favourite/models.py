@@ -10,7 +10,6 @@ class Favourite(models.Model):
     travels = models.ForeignKey(Travels, default="")
 
     def __unicode__(self):
-        #return "%s likes article %s" % (self.user, self.travels)
         return self.travels.title
 
     class Meta:

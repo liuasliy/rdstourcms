@@ -98,7 +98,7 @@ function queryByKeyword(){
             {% for comment in comment_list|slice:":3" %}
                 <li>
                 {% for users in users %}
-                    {% if users.user_id = comment.user_id %}
+                    {% if users.user_id == comment.user_id %}
                     <a href="">
                         <img src="/site_media/{{ users.mugshot }}" alt="{{comment.user_name}}"/>
                         <div class="comments-text">

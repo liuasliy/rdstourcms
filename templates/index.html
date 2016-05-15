@@ -61,7 +61,7 @@
             <section class="grid3d horizontal" id="grid3d">
                 <div class="grid-wrap">
                     <div id="gallery-container" class="gridsby infinite-scroll">
-                        {% for photo in photos|slice:":16" %}
+                        {% for photo in photos %}
                         <figure class="gallery-image">
                             <img width="450" src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-thumb size-gridsby-gallery-thumb wp-post-image" alt="{{photo.title}}" srcset="/site_media/{{photo.photo}}, /site_media/{{photo.photo}}">
                         </figure>
@@ -71,7 +71,7 @@
                 </div>
                 <!-- photo-info -->
                 <div class="content">
-                    {% for photo in photos|slice:":16" %}
+                    {% for photo in photos %}
                     <div>
                         <div class="lightbox-content">
                             <div class="dummy-img">
@@ -104,7 +104,7 @@
         </div>
         <!--travel-->
         <div class="trav-list grid">
-            {% for travels in travels|slice:":3" %}
+            {% for travels in travels %}
             <div class="col-md-3">
                 <div class="trav-post">
                     <div class="trav-bg" style="background-image: url('/site_media/{{ travels.image }}')"></div>
@@ -113,7 +113,11 @@
                             <div class="post-container">
                                 <p class="date">{{ travels.pub_date }}</p>
                                 <h4>{{ travels.title }}</h4>
-                                <p>{{ travels.content|safe|slice:":10" }}...</p>
+                                {% if  travels.contextinfo|length < 40 %}
+                                <p>{{ travels.contextinfo }}</p>
+                                    {% else %}
+                                      <p>{{ travels.contextinfo|slice:':40' }}...</p>
+                                    {% endif %}
                             </div>
                         </div>
                     </a>

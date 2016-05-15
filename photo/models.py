@@ -17,6 +17,7 @@ class photoList(models.Model):
     pubdate = models.DateTimeField('发布日期', default=timezone.now)
     count_hit = models.IntegerField(default=0, editable=False)
     praise_num = models.IntegerField(default=0, editable=False)
+    tag = models.CharField('照片标签', max_length=100,default="")
     def __unicode__(self):
         return self.title
     class Meta:
@@ -25,7 +26,7 @@ class photoList(models.Model):
 
 
 class photoListAdmin(admin.ModelAdmin):
-    list_display = ('title', 'pubdate')
+    list_display = ('title', 'pubdate', 'user')
 
 admin.site.register(photoList, photoListAdmin)
 

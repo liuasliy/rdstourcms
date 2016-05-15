@@ -1,0 +1,88 @@
+{% extends 'userena/base_userena.html' %}
+
+{% block title %}路人游{% endblock %}
+
+{% block content %}
+
+    <link rel="stylesheet" href="/static/css/account-user.css">
+<div class="rds-container">
+    <div class="account-left">
+
+         <div class="view-content">
+             <ul class="tab-type">
+                 <li class="on">游记发表</li>
+                 <li>摄影照片</li>
+             </ul>
+             <div class="tab-box" style="display: block">
+             <ul class="travlist">
+             {% if travelslist|length == 0 %}
+                 该用户暂时未发表游记！
+             {% else %}
+                 {% for account in travelslist %}
+                    <li>
+                        <a href="/travels/{{ account.id }}" target="_blank">{{ account.title }}</a>
+                        <span class="date">{{ account.pub_date|date:"Y-m-j" }}</span>
+                    </li>
+
+                 {% endfor %}
+             {% endif %}
+
+             </ul>
+
+             </div>
+             <div class="tab-box">
+             <ul class="photolist">
+             {% if photolist|length == 0 %}
+                 该用户暂时未发表摄影照片！
+             {% else %}
+                 {% for acctphoto in photolist %}
+                    <li>
+                        <a href="">
+                          <img src="/media/{{ acctphoto.photo }}" class="photopic" alt="">
+                            <span>{{ acctphoto.title }}</span>
+                        </a>
+                    </li>
+
+                {% endfor %}
+             {% endif %}
+
+             </ul>
+
+             </div>
+         </div>
+
+
+
+    
+        
+    </div>
+    <div class="account-right">
+        <div class="user-view" id="box-nav">
+
+        {% for useritem in useritem %}
+            <img class="view-aver" src="/media/{{ useritem.mugshot }}" alt="" />
+            {{ useritem.username }}
+            {% for user in users %}
+                {% if useritem.user_id == user.id %}
+                    <span>昵称：{{ user.username }}</span>
+                    <span>邮箱：{{ user.email }}</span>
+                {% endif %}
+                {% endfor %}
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+    <script>
+    $(function () {
+         $('.tab-type li').each(function () {
+               $(this).click(function () {
+                   $(this).addClass('on').siblings().removeClass('on');
+                   $('.tab-box').eq($(this).index()).show().siblings('.tab-box').hide();
+               })
+         })
+    })
+    </script>
+{% endblock %}
+
