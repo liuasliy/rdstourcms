@@ -6,6 +6,35 @@
 @import "variables.less";
 
 /* photowrap */
+#waterfall-message{
+  position: relative;
+  width: 1200px;
+  margin: 20px auto;
+  &:before,
+  &:after{
+    display: block;
+    position: absolute;
+    top: 25px;
+    width: 20%;
+    content: "";
+    border-top: 1px solid #ededed;
+  }
+  &:before{
+    left: 30px;
+  }
+  &:after{
+    right:30px;
+  }
+}
+.no-more{
+  display: inline-block;
+  font-size: 16px;
+  color: #999;
+  padding: 10px;
+  width: 49%;
+  background-color: #f7f7f7;
+
+}
 #photowrap {
   width: auto;
   height: auto;
@@ -66,6 +95,48 @@
   color: #666;
   font-size: 16px;
   overflow: hidden;
+}
+
+.photolist{
+  width: 253px;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 8px #a7a7a7;
+  box-shadow: 0px 0px 8px #a7a7a7;
+  overflow: hidden;
+  padding: 10px;
+  img{
+    display: block;
+    max-width: 100%;
+  }
+  p{
+    color: #666;
+    font-size: 14px;
+    padding: 10px 10px 1px 10px;
+    text-transform: uppercase;
+    height: 20px;
+    a{
+      color: #666;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 130px;
+      display: inline-block;
+      overflow: hidden;
+      &:hover{
+        color: #ff9d00;
+      }
+    }
+    span{
+      float: right;
+      height: 20px;
+      a{
+        color: #b3b2b2;
+        width: 22px;
+        font-size: 14px;
+        display: inline-block;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .canvo {

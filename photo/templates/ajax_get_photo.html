@@ -1,7 +1,20 @@
-
+ {% load pagination_tags %}
+ {% autopaginate items 8 %}
  {% if items %}
  {% for item in items %}
- <div class="item photobox">
+ <div class="item photolist">
+     <a href="/photo/{{ item.id }}" target="_blank"><img src="/site_media/{{item.photo}}" width="275" alt=""/></a>
+     <p>
+         <a href="/photo/{{ item.id }}" target="_blank">{{ item.title }}</a>
+                    <span>
+                        <a href="" title="浏览量:{{ item.count_hit }}"><i class="fa fa-eye"></i></a>
+                        <a href="" title="点赞数:3435"><i class="fa fa-thumbs-up"></i></a>
+                         {% load comments %}
+                        <a href="/photo/{{ item.id }}/#comments" title="评论:{% get_comment_count for item as comment_count %}{{ comment_count }}"><i class="fa fa-comments"></i></a>
+                    </span>
+     </p>
+
+        <!--隐藏
         <div class="info">
             <div class="pic"><a href="/photo/{{ item.id }}" target="_blank"><img src="/site_media/{{item.photo}}" width="280" ></a></div>
             <div class="title"><a href="/photo/{{ item.id }}" target="_blank">{{ item.title }}</a></div>
@@ -30,9 +43,12 @@
                 </div>
             </div>
         </div>
+        -->
+
     </div>
  {% endfor %}
  {% endif %}
+
 
 
 

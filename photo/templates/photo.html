@@ -5,16 +5,7 @@
     <div id='container'>
 
     </div>
-    <div id="page-navigation" class="hide clear">
-        <span class="disabled page-navigation-prev" title="上一页">上一页</span>
-        <a href="?&p=1" data-target="page" data-page="1" class="cur">1</a>
-        <a href="?&p=2" data-target="page" data-page="2">2</a>
-        <a href="?&p=3" data-target="page" data-page="3">3</a>
-        <a href="?&p=4" data-target="page" data-page="4">4</a>
-        <a href="?&p=5" data-target="page" data-page="5">5</a>
-        <a href="?&p=6" data-target="page" data-page="6">6</a>
-        <a href="?&p=2" class="page-navigation-next" data-page="2" title="下一页">下一页</a>
-    </div>
+
 </div>
 <script type='text/javascript' src="/static/js/handlebars.js"></script>
 <script type='text/javascript' src="/static/js/waterfall.min.js"></script>
@@ -25,7 +16,7 @@ $('#container').waterfall({
     fitWidth: true,
     gutterWidth: 15,
     gutterHeight: 15,
-    maxPage: 1,
+    maxPage: 28,
     checkImagesLoaded: true,
     dataType: 'html',
     callbacks: {
@@ -34,7 +25,23 @@ $('#container').waterfall({
                 $loading.fadeOut();
             } else {
                 $loading.hide();
-                $('#page-navigation').show();
+                $('#waterfall-message').html('<p class="no-more">没有更多了</p>')
+
+            }
+        },
+        renderData: function (data, dataType) {
+            var tpl,
+                template;
+
+
+            if ( dataType === 'json' ||  dataType === 'jsonp'  ) { // json or jsonp format
+                tpl = $('#waterfall-tpl').html();
+                template = Handlebars.compile(tpl);
+
+                return template(data);
+            } else { // html format
+                return data;
+
             }
         }
     },

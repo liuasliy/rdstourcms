@@ -3,6 +3,34 @@
 --------
 */
 /* photowrap */
+#waterfall-message {
+  position: relative;
+  width: 1200px;
+  margin: 20px auto;
+}
+#waterfall-message:before,
+#waterfall-message:after {
+  display: block;
+  position: absolute;
+  top: 25px;
+  width: 20%;
+  content: "";
+  border-top: 1px solid #ededed;
+}
+#waterfall-message:before {
+  left: 30px;
+}
+#waterfall-message:after {
+  right: 30px;
+}
+.no-more {
+  display: inline-block;
+  font-size: 16px;
+  color: #999;
+  padding: 10px;
+  width: 49%;
+  background-color: #f7f7f7;
+}
 #photowrap {
   width: auto;
   height: auto;
@@ -56,6 +84,47 @@
   color: #666;
   font-size: 16px;
   overflow: hidden;
+}
+.photolist {
+  width: 253px;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 8px #a7a7a7;
+  box-shadow: 0px 0px 8px #a7a7a7;
+  overflow: hidden;
+  padding: 10px;
+}
+.photolist img {
+  display: block;
+  max-width: 100%;
+}
+.photolist p {
+  color: #666;
+  font-size: 14px;
+  padding: 10px 10px 1px 10px;
+  text-transform: uppercase;
+  height: 20px;
+}
+.photolist p a {
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 130px;
+  display: inline-block;
+  overflow: hidden;
+}
+.photolist p a:hover {
+  color: #ff9d00;
+}
+.photolist p span {
+  float: right;
+  height: 20px;
+}
+.photolist p span a {
+  color: #b3b2b2;
+  width: 22px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
 }
 .canvo {
   color: #999;

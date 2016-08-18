@@ -179,6 +179,7 @@ STATICFILES_DIRS = (
     ("img", os.path.join(STATIC_ROOT, 'img')),
     ("slider", os.path.join(STATIC_ROOT, 'slider')),
     ("font", os.path.join(STATIC_ROOT, 'font')),
+    ("fonts", os.path.join(STATIC_ROOT, 'fonts')),
     ("ckeditor", os.path.join(STATIC_ROOT, 'ckeditor')),
 )
 # old settings // TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)

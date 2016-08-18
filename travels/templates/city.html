@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Tour travels{%endblock%}
+{% block title %}游记{%endblock%}
 {% block content %}
+{% load pagination_tags %}
 
 <script>
     $(function () {
@@ -15,6 +16,7 @@
     <div class="city-title">
         <h2></h2>
     </div>
+{% autopaginate travels_list 8 %}
     {% for b in travels_list %}
     <div class="rds-main city-list">
         <div class="news-list">
@@ -26,8 +28,8 @@
                     <span class="address"><i class="icon iconfont">&#xe603;</i>
                         <a href="{% url 'search_city' city=b.city %}">{{b.city}}</a></span>
                     {% for users in users %}
-                    {% if users.id = b.author_id %}
-                    <span class="author">by <a href="">
+                    {% if users.user_id == b.author_id %}
+                        <span class="author">by <a href="/user/{{ b.author_id }}">
                         <img src="/site_media/{{ users.mugshot }}" alt=""/>
                         {% endif %}
                         {% endfor %}
@@ -36,10 +38,13 @@
                     <span class="views"><i class="icon iconfont">&#xe605;</i>{{b.count_hit}}</span>
                 </div>
                 <div class="fright comments">
-                    <i class="icon iconfont">&#xe600;</i>
+                    <a href="/travels/{{ b.id }}#comments">
+                      <i class="icon iconfont">&#xe600;</i>
                     {% load comments %}
                     {% get_comment_count for b as comment_count %}
                     {{ comment_count }}
+                    </a>
+
                 </div>
             </div>
             <div class="brief">
@@ -48,6 +53,9 @@
         </div>
     </div>
     {% endfor %}
+<div class="col-md-12 city-list-pagin" >
+               	 {% paginate %}
+            	</div>
 </div>
 
 {% endif %}

@@ -1,5 +1,5 @@
  {% extends "base.html" %}
-{% block title %}Tour travels{%endblock%}
+{% block title %}游记{%endblock%}
 {% block content %}
 {% load pagination_tags %}
 
@@ -12,12 +12,12 @@ function queryByKeyword(){
 <!--container-->
 <div class="rds-container">
     <div class="rds-main">
-    {% autopaginate travels 2 %}
+    {% autopaginate travels 5 %}
         {% for travels in travels %}
         
         <div class="news-list">
-            <h2><a href="/travels/{{ travels.id }}">{{ travels.title }}</a></h2>
             <img src="/site_media/{{ travels.image }}" alt="" class="scenery-img"/>
+            <h2><a href="/travels/{{ travels.id }}">{{ travels.title }}</a></h2>
             <div class="news-info">
                 <div class="fleft">
                     <span class="address"><i class="icon iconfont">&#xe603;</i>
@@ -25,21 +25,24 @@ function queryByKeyword(){
                         <a href="{% url 'search_city' city=travels.city %}">{{ travels.city|title }}</a>
                     </span>
 					{% for users in users %}
-                    {% if users.id = travels.author_id %}
-                    <span class="author">by <a href="">
+                    {% if users.user_id == travels.author_id %}
+                    <span class="author">by
+                        <a href="/user/{{ travels.author_id }}">
                     <img src="/site_media/{{ users.mugshot }}" alt=""/>
                     {% endif %}
-
                     {% endfor %}
                     {{ travels.author }}</a></span>
                     <span class="views"><i class="icon iconfont">&#xe605;</i>
                     {{ travels.count_hit }}</span>
                 </div>
                 <div class="fright comments">
-                    <i class="icon iconfont">&#xe600;</i>
+                    <a href="/travels/{{ travels.id }}#comments">
+                     <i class="icon iconfont">&#xe600;</i>
                     {% load comments %}
                     {% get_comment_count for travels as comment_count %}
                     {{ comment_count }}
+                    </a>
+
                 
                 </div>
             </div>
