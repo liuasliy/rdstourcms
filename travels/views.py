@@ -25,8 +25,9 @@ def archive(request):
     user = request.user
     travels_list = Travels.objects.order_by('-pub_date')
 
+
     # 总数据列表
-    paginator = Paginator(travels_list, 25)
+    paginator = Paginator(travels_list, 555)
 
     page = request.GET.get('page')
     try:

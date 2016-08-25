@@ -22,9 +22,16 @@ def index(request):
     '''
     首页
     '''
+    users = MyProfile.objects.all()
     travels = Travels.objects.order_by('-pub_date')[:3]
-    photos = photoList.objects.order_by('-pubdate')[:10]
-    return render_to_response('index.html', {"travels": travels, "photos": photos}, context_instance=RequestContext(request))
+    photos = photoList.objects.order_by('-pubdate')[:12]
+    return render_to_response('index.html', {"travels": travels, "photos": photos, "users": users}, context_instance=RequestContext(request))
+
+def about(request):
+    '''
+    关于
+    '''
+    return render_to_response('about.html', context_instance=RequestContext(request))
 
 
 #用户信息预览

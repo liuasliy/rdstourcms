@@ -1,0 +1,57 @@
+ {% extends "base.html" %}
+{% block title %}游记{%endblock%}
+{% block content %}
+
+<!--main start here-->
+<div class="abt-main">
+    <div class="abt-content">
+        <div class="abt-title">
+            <i class="fa fa-certificate"></i>
+            来历
+        </div>
+        <div class="abt-text">
+            <p>
+                年少的我们总会被大世界所影响，睁开眼就要去感受一个个不同的环境<br>
+                当我们去往那一个个目的地，领略各自不同的风景，留在心中的永远是难忘魅力<br>
+                笔在手中，记录下的就是我们不忘的曾经
+            </p>
+            <p>
+                世界那么大，我们的下一个目的地又在哪里，而那里又有怎么的魅力在等着我们？
+            </p>
+            <p>
+                旅途的见闻，旅行的风景，旅游的意义，记录下路上的点滴，来见证我们来过这个世界<br>
+                这个也就是路人游名字的由来。
+            </p>
+        </div>
+        <div class="abt-title">
+            <i class="fa fa-certificate"></i>
+            主要做什么
+        </div>
+        <div class="abt-text">
+            <p>在这里你可以浏览游记，分享旅行<br>
+                交流旅行攻略，摄影技巧，分享摄影美照<br>
+                还可以联系他人，一起作伴，远离喧嚣的城市...
+            </p>
+        </div>
+        <div class="abt-title">
+            <i class="fa fa-certificate"></i>
+            参与进来
+        </div>
+        <div class="abt-text">
+            <p>
+                只要你爱旅行，只要你爱摄影<br>
+                这里的一切都是都由你和其他旅行者产生和决定<br>
+                你的每一篇游记，每一张摄影照都将出现在这里，供其他旅行者浏览和分享
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        var ofheight = $(document).height();
+        $('.abt-main').css('height',ofheight-120);
+    })
+</script>
+{%endblock%}

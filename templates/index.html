@@ -1,198 +1,192 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes" />
-    <meta name="Keywords" content="路人游,旅游游记,旅游摄影,rdstour">
-    <meta name="description" content="记录旅游路上的见闻,美丽摄影,记下每一次出门,每一次路上的旅行。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes"/>
     <title>路人游</title>
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/index-r.min.css" />
-    <link rel="stylesheet" href="/static/css/iconfont.css" />
-    <!--[if IE]>
-    <script src="js/html5shiv-printshiv.js"></script>
-    <![endif]-->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?d8e31619ca6a8535d32a5cecbef00ed4";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/default-skin/default-skin.css"/>
+    <link rel="stylesheet" href="/static/css/photoswipe.css"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/rs-index.css">
 </head>
 
 <body>
-    <!--header-->
-    <header class="site-header">
-        <div class="nav-menu grid ">
-            <div class="navbar"></div>
-            <div class="circle"></div>
-            <div class="menu">
-                <ul>
-                    <li><a href="/index">首页</a></li>
-                    <li><a href="/travels">旅游游记</a></li>
-                    <li><a href="/photo">旅游摄影</a></li>
-                </ul>
-            </div>
-            <div class="burger">
-                <div class="x"></div>
-                <div class="y"></div>
-                <div class="z"></div>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="site-branding">
-                <h1 class="site-title">
-            <a href="">路人游</a>
-        </h1>
-                <h2 class="site-description">背个小包，装着我们的理想和所有喜欢的歌，坐着哐当哐当的火车，去旅行...
-                </h2>
-            </div>
-        </div>
-    </header>
-    <!--container-->
-    <section id="content" class="site-content">
-        <div class="container home-grid">
-            <!--new photo-->
-            <section class="grid3d horizontal" id="grid3d">
-                <div class="grid-wrap">
-                    <div id="gallery-container" class="gridsby infinite-scroll">
-                        {% for photo in photos %}
-                        <figure class="gallery-image">
-                            <img width="450" src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-thumb size-gridsby-gallery-thumb wp-post-image" alt="{{photo.title}}" srcset="/site_media/{{photo.photo}}, /site_media/{{photo.photo}}">
-                        </figure>
-                        {% endfor %}
-                    </div>
-                    <!--photo-img-->
+<!--header start here-->
+<div class="header ">
+    <div class="container">
+        <div class="header-main">
+            <div class="header-left ">
+                <div class="logo">
+                    <a href="index.html"><img src="/static/images/rs-logo.png" alt=""/></a>
                 </div>
-                <!-- photo-info -->
-                <div class="content">
-                    {% for photo in photos %}
-                    <div>
-                        <div class="lightbox-content">
-                            <div class="dummy-img">
-                                <img width="500" src="/site_media/{{photo.photo}}" class="attachment-gridsby-gallery-full size-gridsby-gallery-full wp-post-image" alt="true" srcset="/site_media/{{photo.photo}}, /site_media/{{photo.photo}}"> </div>
-                            <h2 class="dummy-title">
-                            {{photo.title}} 
-                        </h2>
-                            <p>{{photo.photointro|safe}}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <span class="loading"></span>
-                    <span class="icon close-content">
-                    <i class="icon iconfont">&#xe606;</i>
-                </span>
+                <div class="top-nav">
+                    <ul class="res">
+                        <li><a href="/index">首页</a></li>
+                        <li><a href="/travels">游记</a></li>
+                        <li><a href="/photo">摄影</a></li>
+                        <li><a href="/about">关于我</a></li>
+                    </ul>
                 </div>
-            </section>
-        </div>
-        <div class="grid trav-more">
-            <div class="col-1-1">
-                <a href="../photo">
-                    <button class="photo-archive">查看更多</button>
-                </a>
             </div>
+            <div class="header-right">
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                        <a href="" class="submit"><i class="fa fa-search"></i></a>
+                    </form>
+                </div>
+                <div class="top-login-out hidden">
+                    <a href="">登录</a>
+                    <span class="split">|</span>
+                    <a href="">注册</a>
+                </div>
+                <div class="top-login-in ">
+                    <div class="head-user">
+                        <a href="" class="drop-trigger ">
+                            <img src="/static/images/person-img.jpg" alt=""/>
+                            <i class="fa fa-sort-down"></i>
+                        </a>
+                    </div>
+                    <div class="login-item dropdown-user">
+                        <ul>
+                            <li><a href=""><i class="fa fa-user-plus"></i>个人中心</a></li>
+                            <li><a href="">个人中心</a></li>
+                            <li><a href="">个人中心</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
         </div>
-        <div class="grid grid-pad">
-            <h2 class="trav-index-title">
-        <span>最新游记</span>
-        </h2>
-        </div>
-        <!--travel-->
-        <div class="trav-list grid">
-            {% for travels in travels %}
-            <div class="col-md-3">
-                <div class="trav-post">
-                    <div class="trav-bg" style="background-image: url('/site_media/{{ travels.image }}')"></div>
-                    <a href="/travels/{{ travels.id }}" target="_blank">
-                        <div class="trav-content">
-                            <div class="post-container">
-                                <p class="date">{{ travels.pub_date }}</p>
-                                <h4>{{ travels.title }}</h4>
-                                {% if  travels.contextinfo|length < 40 %}
-                                <p>{{ travels.contextinfo }}</p>
-                                    {% else %}
-                                      <p>{{ travels.contextinfo|slice:':40' }}...</p>
-                                    {% endif %}
+    </div>
+    <div class="head-shadow"></div>
+</div>
+<!--banner start here-->
+<div class="banner " >
+    <ul class="slides">
+        {% for travels in travels %}
+        <li>
+            <a href="/travels/{{ travels.id }}">
+                <div class="bannerbg" style="background: url('/site_media/{{ travels.bigimage }}') no-repeat; background-size: cover;"></div>
+                <div class="caption">
+                    <span class="banner-date"><i>{{ travels.pub_date|date:'d' }}</i>/{{ travels.pub_date|date:'m' }}.{{ travels.pub_date|date:'Y' }}</span>
+                    <h3>{{ travels.title }}</h3>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+
+    </ul>
+</div>
+<!--container start here-->
+<div class="container ">
+    <div class="rdstour-nav">
+        <h6><img src="/static/images/logo-zit.png"   alt=""/></h6>
+        <p>
+            背个小包，装着我们的理想和所有喜欢的歌，坐着哐当哐当的火车，去旅行...
+        </p>
+    </div>
+</div>
+
+<div class="photography  ">
+    <div id="demo-test-gallery" class="demo-gallery">
+        {% for photo in photos %}
+        <a href="/site_media/{{photo.photo}}" class="col-md-3 col-sm-4 col-xs-6" data-size="1600x1600" data-med="/site_media/{{photo.photo}}" data-med-size="1024x1024" data-author="Folkert Gorter" >
+            <img src="/site_media/{{photo.photo}}" alt="" />
+            <figure>This is dummy caption.</figure>
+            <div class="photover">
+                <h3> {{photo.title}} </h3>
+                <span class="photover-line"></span>
+                <small class="photover-viewmore"></small>
+                <div class="photover-grids">
+                    <div class="photover-left">
+                        <span class="photouser">
+                             {% for users in users %}
+                                 {% if users.user_id == photo.user_id %}
+                                    <img src="/site_media/{{ users.mugshot }}" alt=""/>
+                                 {% endif %}
+                             {% endfor %}
+                        </span>
+                        <p>{{photo.user}}</p>
+                    </div>
+                    <div class="photover-right">
+                        <span class="photoheart">{{ photo.praise_num }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
                 </div>
             </div>
-            {% endfor %}
         </div>
-        <div class="grid trav-more">
-            <div class="col-1-1">
-                <a href="../travels" >
-                    <button class="photo-archive">查看更多</button>
-                </a>
-            </div>
+
+    </div>
+</div>
+<!--footer start here-->
+<div class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <p>
+                Copyright &copy; 2015-2016 Powered by <a href="/index">路人游</a>
+                <span>苏ICP备14049610号-1</span>
+            </p>
         </div>
-    </section>
-    <!--footer-->
-    <footer class="site-footer">
-        Copyright © 2015-2016 <a href="http://www.rdstour.com">路人游</a> All Rights Reserved. 苏ICP备14049610号-1
-    </footer>
-    <!--script-->
-    <script src="/static/js/jquery-1.8.3.min.js"></script>
-    <script src="/static/js/until.min.js"></script>
-    <script src="/static/js/jqmain.js"></script>
-    <script>
-    if ('ontouchstart' in window) {
-        var click = 'touchstart';
-    } else {
-        var click = 'click';
-    }
-    $('div.burger').on(click, function() {
-        if (!$(this).hasClass('open')) {
-            openMenu();
-        } else {
-            closeMenu();
-        }
+    </div>
+</div>
+
+<!--script-->
+<script src="/static/js/jquery-v1.10.2.js"></script>
+<script src="/static/js/photoswipe.min.js"></script>
+<script src="/static/js/photoswipe-ui-default.min.js"></script>
+<script src="/static/js/jquery.flexslider-min.js"></script>
+<script src="/static/js/jquery.lazyload.min.js"></script>
+<script src="/static/js/jquery-rdsmain.js"></script>
+<script>
+    $(function() {
+        $(".banner").flexslider({
+            animation:'fade',
+            slideshowSpeed:'3000',
+            pauseOnHover:'false',
+        });
     });
-    /*$('div.menu ul li a').on(click, function(e) {
-        e.preventDefault();
-        closeMenu();
-    });*/
-
-    function openMenu() {
-        $('div.circle').addClass('expand');
-        $('div.menu').css('z-index', '999');
-        $('div.burger').addClass('open');
-        $('div.x, div.y, div.z').addClass('collapse');
-        $('.menu li').addClass('animate');
-        setTimeout(function() {
-            $('div.y').hide();
-            $('div.x').addClass('rotate30');
-            $('div.z').addClass('rotate150');
-        }, 70);
-        setTimeout(function() {
-            $('div.x').addClass('rotate45');
-            $('div.z').addClass('rotate135');
-        }, 120);
-    }
-
-    function closeMenu() {
-        $('div.burger').removeClass('open');
-        $('div.menu').css('z-index', '0');
-        $('div.x').removeClass('rotate45').addClass('rotate30');
-        $('div.z').removeClass('rotate135').addClass('rotate150');
-        $('div.circle').removeClass('expand');
-        $('.menu li').removeClass('animate');
-        setTimeout(function() {
-            $('div.x').removeClass('rotate30');
-            $('div.z').removeClass('rotate150');
-        }, 50);
-        setTimeout(function() {
-            $('div.y').show();
-            $('div.x, div.y, div.z').removeClass('collapse');
-        }, 70);
-    }
-    </script>
+</script>
 </body>
-
 </html>

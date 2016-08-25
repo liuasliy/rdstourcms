@@ -11,6 +11,7 @@ urlpatterns = patterns('',
                        # Examples:
                        url(r'^$', 'rdstourcms.views.index', name='home'),
                        url(r'^index/$', 'rdstourcms.views.index', name='index'),
+                       url(r'^about/$', 'rdstourcms.views.about', name='about'),
                        url(r'^travels/', include('travels.urls')),
                        url(r'^travels/(?P<travels_id>\d+)/$', 'travels.views.detail', name='detail'),
                        url(r'^city/(?P<city>\w+)/$', 'travels.views.search_city', name='search_city'),

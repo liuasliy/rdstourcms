@@ -1,0 +1,351 @@
+@import "variables";
+
+.ac-setting_list{
+  padding-left: 10px;
+  padding-right: 10px;
+  a{
+    display: block;
+    line-height: 46px;
+    font-size: 14px;
+    color: #666;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+    &:hover{
+      background-color:#f0f0f0;
+      text-decoration: none;
+    }
+    &.on{
+      background-color:#ffa800;
+      color:#fff;
+      i{
+        color: #fff;
+      }
+    }
+  }
+  i{
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+    color: #999;
+    display: inline-block;
+    margin: 0 10px 0 24px;
+    vertical-align: middle;
+  }
+}
+
+.ac-hd{
+  padding-bottom: 18px;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #eee;
+  strong{
+    font-size: 24px;
+    color: #444;
+    font-weight: normal;
+  }
+}
+.ac-userinfo{
+  .avatar{
+    width: 100%;
+    height: 120px;
+    position: relative;
+    img{
+      width: 120px;
+      height: 120px;
+      float: left;
+    }
+    .ac-btn-sub{
+      width: 320px;
+      float: left;
+      margin-left: 20px;
+      font-size: 12px;
+      margin-top: 50px;
+      padding-bottom: 0;
+      a{
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+.ac-setting_right{
+  margin-bottom: 30px;
+  padding-bottom: 40px;
+  dl{
+    clear: both;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+  dt{
+    width: 95px;
+    float: left;
+    padding: 6px 10px 0 0;
+    text-align: right;
+    color: #a1a1a1;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  dd{
+    width: 490px;
+    float: left;
+    input[type='text'],
+    input[type='password']{
+      width: 208px;
+      border: 1px solid #d3d3d3;
+      height: 32px;
+      padding: 6px 8px;
+      line-height: 18px;
+      font-size: 14px;
+      color: #999;
+      outline: none;
+      transition: box-shadow 0.25s linear 0s;
+      border-radius: 3px;
+      &:focus{
+        border:1px solid #ffa800;
+        transition:box-shadow 0.25s linear 0s;
+        box-shadow:0 0 5px #ffa200;
+      }
+    }
+    textarea {
+      width: 472px;
+      height: 110px;
+      border: 1px solid #d3d3d3;
+      padding: 6px 8px;
+      line-height: 1.6em;
+      font-size: 14px;
+      color: #999;
+      outline: none;
+      transition: box-shadow 0.25s linear 0s;
+      border-radius: 3px;
+      resize: none;
+      &:focus{
+        border:1px solid #ffa800;
+        transition:box-shadow 0.25s linear 0s;
+        box-shadow:0 0 5px #ffa200;
+      }
+    }
+  }
+  .ac-tips{
+    font-size: 12px;
+    color: #999;
+    line-height: 1.8em;
+    background-color: #f6f6f6;
+    width: 385px;
+    padding: 15px 20px;
+    .title{
+      font-size: 14px;
+      color: #999;
+      padding-bottom: 5px;
+      b{
+        color: #ffa800;
+        font-weight: normal;
+        font-size: 12px;
+        vertical-align: text-top;
+      }
+    }
+  }
+  .ac-btn-sub{
+    padding: 10px 0;
+    width: 590px;
+    float: right;
+    a{
+      width: 112px;
+      height: 36px;
+      display: block;
+      line-height: 36px;
+      background-color: #ffa800;
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+.ac-userpass{
+  .dd-fix,
+  .dd-span{
+    line-height: 22px;
+    display: inline-block;
+    padding-top: 6px;
+    padding-right: 10px;
+  }
+  .dd-fix{
+    color: #ffa800;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+.set-pwmail{
+  display: none;
+  dt{
+    width: 110px;
+  }
+  dd{
+    width: 300px;
+  }
+  .ac-sub-ok,
+  .ac-sub-cancel{
+    width: 90px;
+    height: 30px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    line-height: 30px;
+    background-color: #ffa800;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .ac-sub-cancel{
+    background-color: #d8d7d7;
+  }
+}
+.ac-postlist{
+  .list-item {
+    padding: 25px 12px;
+    border-bottom: 1px dotted #e1e1e1;
+    display: table;
+    &:hover{
+      background-color: #f8f8f8
+    }
+  }
+}
+.layout-column {
+  width: 1200px;
+  display: table-cell;
+}
+.list-item{
+  .title a {
+    font-size: 2.0rem;
+    color: #333;
+    word-break: break-all;
+    &:hover{
+      color: #ffa800;
+    }
+  }
+  .data-info {
+    padding: 10px 0;
+    color: #666;
+    li{
+      display: inline-block;
+      a{
+        color: #333;
+        &:hover{
+          color: #ffa800;
+        }
+      }
+    }
+  }
+  .time{
+    font-size: 1.3rem;
+  }
+}
+.ac-favlist{
+
+}
+.ac-post-item{
+  padding: 20px 0;
+  margin-bottom: -1px;
+  border-bottom: 1px dashed #cecece;
+  color: #666;
+  position: relative;
+  a{
+    color: #ffa800;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .pic{
+    float: left;
+    width: 195px;
+    height: 140px;
+    overflow: hidden;
+    background: url(../images/nopic.jpg) no-repeat center center;
+    margin-right: 15px;
+    position: relative;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  dd{
+    overflow: hidden;
+    float: none;
+    width: auto;
+  }
+  dl{
+    clear: none;
+    padding-bottom: 0;
+  }
+  h2{
+    height: 25px;
+    margin: 0 25px 5px 0;
+    font-size: 16px;
+    overflow: hidden;
+    font-weight: normal;
+    a{
+      font-size: 20px;
+      color: #ffa800;
+    }
+  }
+  .count{
+    float: right;
+    text-align: center;
+    color: #999;
+    font-size: 1.3rem;
+    i{
+      color: #999;
+    }
+  }
+  .author{
+    margin-right: 120px;
+    height: 22px;
+    line-height: 20px;
+    position: relative;
+    overflow: hidden;
+    p{
+      float: left;
+      height: 20px;
+      overflow: hidden;
+    }
+    .author-info{
+      width: 150px;
+      img{
+        float: left;
+        margin: 1px 5px 0 0;
+        height: 16px;
+      }
+    }
+    .time{
+      position: absolute;
+      left: 150px;
+      top: 0;
+      width: 215px;
+      font-size: 1.2rem;
+    }
+  }
+  .post-info{
+    padding-top: 10px;
+    font-size: 14px;
+    line-height: 22px;
+    clear: both;
+  }
+}
+.delpost{
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+  i{
+    color: #999;
+  }
+}
