@@ -33,11 +33,9 @@ def photopage(request):
     return render_to_response('photo.html', {"photos": photos, "users": users}, context_instance=RequestContext(request))
 
 
-
-
 def photodetail(request, photos_id):
     users = MyProfile.objects.all()
-
+    photoAll = photoList.objects.order_by('-pubdate')[:4]
     try:
         photos = photoList.objects.get(id=photos_id)
         photos.count_hit += 1
@@ -45,7 +43,7 @@ def photodetail(request, photos_id):
     except photoList.DoesNotExist:
         raise Http404
 
-    return render_to_response('photo-deils.html', {'photos': photos, "users": users}, context_instance=RequestContext(request))
+    return render_to_response('photo-deils.html', {'photos': photos, "photoAll":photoAll, "users": users}, context_instance=RequestContext(request))
 
 def ajax_get_photo(request):
     '''ajax请求数据'''
@@ -70,4 +68,4 @@ def like_photo(request,photos_id):
     likes =photo.praise_num
     photo.save()
     request.session['liked'] = p_id
-    return HttpResponse(likes)
+    return HttpResponse('点赞成功！点赞数+%s' %likes)

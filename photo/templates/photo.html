@@ -1,6 +1,7 @@
  {% extends "base.html" %}
  {% block title %}摄影{%endblock%}
  {% block content %}
+
 <div id="photowrap">
     <div id='container'>
 
@@ -22,7 +23,7 @@ $('#container').waterfall({
     callbacks: {
         loadingFinished: function($loading, isBeyondMaxPage) {
             if (!isBeyondMaxPage) {
-                $loading.fadeOut();
+                $loading.show();
             } else {
                 $loading.hide();
                 $('#waterfall-message').html('<p class="no-more">没有更多了</p>')
@@ -32,7 +33,6 @@ $('#container').waterfall({
         renderData: function (data, dataType) {
             var tpl,
                 template;
-
 
             if ( dataType === 'json' ||  dataType === 'jsonp'  ) { // json or jsonp format
                 tpl = $('#waterfall-tpl').html();

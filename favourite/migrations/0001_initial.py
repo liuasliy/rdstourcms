@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(default=b'', to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'verbose_name': '\u6536\u85cf\u5939\u5217\u8868',
+                'verbose_name': '\u6e38\u8bb0\u6807\u9898',
                 'verbose_name_plural': '\u6536\u85cf\u5939\u5217\u8868',
             },
             bases=(models.Model,),

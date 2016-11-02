@@ -11,7 +11,7 @@ import datetime
 
 class photoList(models.Model):
     title = models.CharField('标题', max_length=150)
-    photo = models.ImageField('照片',upload_to='upload/photo/', default='')
+    photo = models.ImageField('照片',upload_to='upload/photo/%Y/%m', default='')
     photointro = RichTextField('照片介绍', default='')
     user = models.ForeignKey(User, default="")
     pubdate = models.DateTimeField('发布日期', default=timezone.now)

@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes"/>
+    <meta name="Keywords" content="路人游,旅游游记,旅游摄影,rdstour">
+    <meta name="description" content="记录旅游路上的见闻,美丽摄影,记下每一次出门,每一次路上的旅行。">
     <title>路人游</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/static/css/default-skin/default-skin.css"/>
-    <link rel="stylesheet" href="/static/css/photoswipe.css"/>
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/static/css/rs-index.css">
+    <link rel="Shortcut Icon" href="/static/images/logo_net_321.png">
+    <link rel="stylesheet" href="/static/css/rs-index.css?v=89d4eda240">
 </head>
 
 <body>
@@ -32,32 +31,37 @@
                 </div>
             </div>
             <div class="header-right">
-                <div class="search">
-                    <form>
-                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                        <a href="" class="submit"><i class="fa fa-search"></i></a>
-                    </form>
-                </div>
-                <div class="top-login-out hidden">
-                    <a href="">登录</a>
-                    <span class="split">|</span>
-                    <a href="">注册</a>
-                </div>
+
+                {% if user.is_authenticated %}
                 <div class="top-login-in ">
                     <div class="head-user">
-                        <a href="" class="drop-trigger ">
-                            <img src="/static/images/person-img.jpg" alt=""/>
+                        <a href="" class="drop-trigger" title="{{user.username}}">
+                            {% for users in users %}
+                            {% if users.user_id == user.id %}
+                            <img src="/site_media/{{ users.mugshot }}" alt=""/>
                             <i class="fa fa-sort-down"></i>
+                            {% endif %}
+                            {% endfor %}
                         </a>
                     </div>
                     <div class="login-item dropdown-user">
                         <ul>
-                            <li><a href=""><i class="fa fa-user-plus"></i>个人中心</a></li>
-                            <li><a href="">个人中心</a></li>
-                            <li><a href="">个人中心</a></li>
+                            <li><a href="{% url 'userena_profile_detail' user.username %}" target="_blank"><i class="fa fa-user"></i>个人中心</a></li>
+                            <li><a href="{% url 'add'  %}" target="_blank"><i class="fa fa-plus"></i>写游记</a></li>
+                            <li><a href="{% url 'list' user.username %}" target="_blank"><i class="fa fa-list-ul" ></i>我的游记</a></li>
+                            <li><a href="{% url 'favourite_list' user.username %}" target="_blank"><i class="fa fa-star-o" ></i>我的收藏</a></li>
+                            <li><a href="{% url 'userena_profile_edit' user.username %}" target="_blank"><i class="fa fa-cog" ></i>设置</a></li>
+                            <li><a href="/accounts/signout"><i class="fa fa-power-off"></i>退出</a></li>
                         </ul>
                     </div>
                 </div>
+                {% else %}
+                <div class="top-login-out">
+                    <a href="/accounts/signin">登录</a>
+                    <span class="split">|</span>
+                    <a href="/accounts/signup">注册</a>
+                </div>
+                {% endif %}
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -94,9 +98,9 @@
 <div class="photography  ">
     <div id="demo-test-gallery" class="demo-gallery">
         {% for photo in photos %}
-        <a href="/site_media/{{photo.photo}}" class="col-md-3 col-sm-4 col-xs-6" data-size="1600x1600" data-med="/site_media/{{photo.photo}}" data-med-size="1024x1024" data-author="Folkert Gorter" >
+        <a href="/site_media/{{photo.photo}}" class="col-md-3 col-sm-4 col-xs-6" data-size="1600x1600" data-med="/site_media/{{photo.photo}}" data-med-size="1024x1024" data-author="{{photo.user}}" >
             <img src="/site_media/{{photo.photo}}" alt="" />
-            <figure>This is dummy caption.</figure>
+            <figure>{{ photo.photointro }}</figure>
             <div class="photover">
                 <h3> {{photo.title}} </h3>
                 <span class="photover-line"></span>
@@ -173,7 +177,8 @@
 </div>
 
 <!--script-->
-<script src="/static/js/jquery-v1.10.2.js"></script>
+<script src="/static/js/require.js" data-main="/static/js/rdsmain"></script>
+<!--<script src="/static/js/jquery-v1.10.2.js"></script>
 <script src="/static/js/photoswipe.min.js"></script>
 <script src="/static/js/photoswipe-ui-default.min.js"></script>
 <script src="/static/js/jquery.flexslider-min.js"></script>
@@ -187,6 +192,6 @@
             pauseOnHover:'false',
         });
     });
-</script>
+</script>-->
 </body>
 </html>

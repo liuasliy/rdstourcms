@@ -3,48 +3,20 @@
  {% if items %}
  {% for item in items %}
  <div class="item photolist">
-     <a href="/photo/{{ item.id }}" target="_blank"><img src="/site_media/{{item.photo}}" width="275" alt=""/></a>
+     <a href="/photo/{{ item.id }}" target="_blank">
+         <img src="/site_media/{{item.photo}}"  alt=""/>
+     </a>
      <p>
          <a href="/photo/{{ item.id }}" target="_blank">{{ item.title }}</a>
-                    <span>
-                        <a href="" title="浏览量:{{ item.count_hit }}"><i class="fa fa-eye"></i></a>
-                        <a href="" title="点赞数:3435"><i class="fa fa-thumbs-up"></i></a>
-                         {% load comments %}
-                        <a href="/photo/{{ item.id }}/#comments" title="评论:{% get_comment_count for item as comment_count %}{{ comment_count }}"><i class="fa fa-comments"></i></a>
-                    </span>
+         <span>
+             <a title="浏览量:{{ item.count_hit }}"><i class="fa fa-eye"></i></a>
+             <a href="/photo/{{ item.id }}" target="_blank" title="点赞数:{{ item.praise_num }}"><i class="fa fa-thumbs-up"></i></a>
+             {% load comments %}
+             <a href="/photo/{{ item.id }}/#comments" title="评论:{% get_comment_count for item as comment_count %}{{ comment_count }}">
+                 <i class="fa fa-comments"></i>
+             </a>
+         </span>
      </p>
-
-        <!--隐藏
-        <div class="info">
-            <div class="pic"><a href="/photo/{{ item.id }}" target="_blank"><img src="/site_media/{{item.photo}}" width="280" ></a></div>
-            <div class="title"><a href="/photo/{{ item.id }}" target="_blank">{{ item.title }}</a></div>
-            <div class="canvo">
-            {% for users in users %}
-                    {% if users.user_id == item.user_id %}
-                <a href="/user/{{ users.user_id }}">
-                    <img src="/site_media/{{ users.mugshot }}" alt=""/>
-                    <div class="text">{{users.user}}</div>
-                </a>
-                    {% endif %}
-                    {% endfor %}
-                <div class="fright">
-                    <div class="views"><i class="icon iconfont">&#xe605;</i><span>{{ item.count_hit }}</span></div>
-                    <div class="comments">
-                        {% load comments %}
-                        <a href="/photo/{{ item.id }}/#comments">
-                            <i class="icon iconfont">&#xe600;</i>
-                            <span>
-                                    {% get_comment_count for item as comment_count %}
-                                        {{ comment_count }}
-                            </span>
-
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-
     </div>
  {% endfor %}
  {% endif %}

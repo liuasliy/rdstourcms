@@ -5,6 +5,34 @@
 {% block content_title %}<h2>{% trans 'Confirm your new email' %}</h2>{% endblock %}
 
 {% block content %}
-<p>{% blocktrans with viewed_user.userena_signup.email_unconfirmed as email %}You have received an email at {{ email }}.{% endblocktrans %}</p>
-<p>{% blocktrans with viewed_user.username as username %}To associate this email address with your account ({{ username }}) click on the link provided in this email.{% endblocktrans %}</p>
+<div class="main ">
+    <div class="container">
+        <div class="col-md-3">
+            <div class="ac-setting_list">
+                <a href="{% url 'userena_profile_detail' user.username %}" ><i class="fa fa-user"></i>个人中心</a>
+                <a href="{% url 'userena_profile_edit' user.username %}" ><i class="fa fa-user-plus"></i>信息修改</a>
+                <a href="{% url 'userena_password_change' user.username %}"><i class="fa fa-get-pocket"></i>{% trans "Change password" %}</a>
+                <a href="{% url 'userena_email_change' user.username %}" class="on"><i class="fa fa-envelope"></i>{% trans "Change email" %}</a>
+                <a href="{% url 'list' user.username %}"><i class="fa fa-list-ul"></i>游记列表</a>
+                <a href="{% url 'add'  %}"><i class="fa fa-plus"></i>新增游记</a>
+                <a href="{% url 'favourite_list' user.username %}"><i class="fa fa-star-o"></i>游记收藏</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="ac-setting_right">
+                <div class="ac-hd">
+                    <strong>邮箱更改</strong>
+                </div>
+                <!--emailchange-->
+                <div class="ac-text ">
+                    {% blocktrans with viewed_user.userena_signup.email_unconfirmed as email %}You have received an email at {{ email }}.{% endblocktrans %}<br/>
+                    {% blocktrans with viewed_user.username as username %}To associate this email address with your account ({{ username }}) click on the link provided in this email.{% endblocktrans %}
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
 {% endblock %}

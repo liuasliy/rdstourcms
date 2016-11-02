@@ -8,24 +8,31 @@
     <div class="tour-cover-bg"></div>
     <div class="tour-cover-content">
         <div class="tour-side-toolbar">
-            <a href="" class="side-btn">
+            <a href="javascript:;" class="side-btn click-heart">
                 <div class="recommend-btn">
                     <span class="side-btn-icon"><i class="fa fa-thumbs-up"></i></span>
-                    <span class="side-btn-num">22</span>
-                    <span class="side-btn-hovertip">推荐</span>
+                    <span class="side-btn-num">{{ travels.praise_num }}</span>
+                    <span class="side-btn-hovertip">点赞</span>
+                </div>
+                <div class="fav-note">
+                    <iframe src=""  height="35" frameborder="0"></iframe>
                 </div>
             </a>
-            <a href="" class="side-btn">
+            <a href="javascript:;" class="side-btn click-fav">
                 <div class="favourite-btn">
                     <span class="side-btn-icon"><i class="fa fa-star"></i></span>
-                    <span class="side-btn-num">22</span>
+                    <span class="side-btn-num">{{ favlistall|length }}</span>
                     <span class="side-btn-hovertip">收藏</span>
                 </div>
             </a>
-            <a href="" class="side-btn">
+            <a href="#comments" class="side-btn">
                 <div class="comment-btn">
                     <span class="side-btn-icon"><i class="fa fa-comments"></i></span>
-                    <span class="side-btn-num">22</span>
+                    <span class="side-btn-num">
+                        {% load comments %}
+                        {% get_comment_count for travels as comment_count %}
+                        {{ comment_count }}
+                    </span>
                     <span class="side-btn-hovertip">评论</span>
                 </div>
             </a>
@@ -62,8 +69,7 @@
                     <a href="" class="uname">{{travels.author}}</a>
                     <span class="user-date">{{travels.pub_date|date:"Y-m-d H:i:s"}}</span>
                     <span class="user-view-info">
-                        <span>查看{{ travels.count_hit }}</span>|
-                        <span>回复34</span>
+                        <span>浏览{{ travels.count_hit }}</span>
                     </span>
                 </div>
             </div>
@@ -80,25 +86,35 @@
                             <span class="icon-circle"><i class="fa fa-clock-o"></i></span>
                             出发时间
                             <span>/</span>
-                            2016-06-03
+                            {{ travels.setout_date|date:'Y-m-d' }}
                         </li>
                         <li class="day">
                             <span class="icon-circle"><i class="fa fa-calendar-o"></i></span>
                             出行天数
                             <span>/</span>
-                            8天
+                            {% if travels.setout_days == Null %}
+                            {% else %}
+                                {{ travels.setout_days }}天
+                            {% endif %}
+
                         </li>
                         <li class="people">
                             <span class="icon-circle"><i class="fa fa-user"></i></span>
                             人物
                             <span>/</span>
-                            小两口
+                            {% if travels.setout_people == Null %}
+                            {% else %}
+                            {{ travels.setout_people }}
+                            {% endif %}
                         </li>
                         <li class="cost">
                             <span class="icon-circle"><i class="fa fa-dollar"></i></span>
                             人均费用
                             <span>/</span>
-                            20000RMB
+                            {% if travels.setout_cost == Null %}
+                            {% else %}
+                            {{ travels.setout_cost }}RMB
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -107,90 +123,69 @@
                 </div>
             </div>
             <!--comment-->
-            <div class="comment-box">
+            <div class="comment-box" id="comments">
                 <div class="comment-list">
                     <div class="comment-list-tit">
-                        本篇文章共有22个人回复
+                        本篇文章共有
+                        {% load comments %}
+                        {% get_comment_count for travels as comment_count %}
+                        {{ comment_count }}
+                        个人回复
                     </div>
                     <ul>
+                        {% load comments %}
+                        {% get_comment_list for travels as comment_list %}
+                        {% for comment in comment_list %}
                         <li>
                             <div class="comuser-info">
                                 <div class="comuser-photo">
-                                    <a href=""><img src="images/avaster.jpg" alt=""/></a>
+                                    {% for users in users %}
+                                    {% if users.user_id = comment.user_id %}
+                                    <a href=""><img src="/site_media/{{ users.mugshot }}" alt="{{ comment.user_name }}" /></a>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
                                 <div class="comuser-user">
-                                    <a href="">Lukyle</a>
+                                    <a href="">{{comment.user_name}}</a>
                                 </div>
-                                <div class="comuser-other">1F</div>
+                                <div class="comuser-other">{{comment.id}}F</div>
                             </div>
                             <div class="comuser-con-wrap">
                                 <div class="comuser-word">
-                                    <p>先收藏，准备今年11月中旬去新西兰呢</p>
+                                    <p>{{comment.comment|safe}}</p>
                                 </div>
                             </div>
                             <div class="comuser-bot">
-                                <div class="time">2016-03-11 16:22</div>
+                                <div class="time">{{comment.submit_date|date:"Y-m-d H:i:s"}}</div>
                                 <div class="option">
                                     <a href="">回复</a>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="comuser-info">
-                                <div class="comuser-photo">
-                                    <a href=""><img src="images/avaster.jpg" alt=""/></a>
-                                </div>
-                                <div class="comuser-user">
-                                    <a href="">Lukyle</a>
-                                </div>
-                                <div class="comuser-other">1F</div>
-                            </div>
-                            <div class="comuser-con-wrap">
-                                <div class="comuser-word">
-                                    <p>先收藏，准备今年11月中旬去新西兰呢</p>
-                                </div>
-                            </div>
-                            <div class="comuser-bot">
-                                <div class="time">2016-03-11 16:22</div>
-                                <div class="option">
-                                    <a href="">回复</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="comuser-info">
-                                <div class="comuser-photo">
-                                    <a href=""><img src="images/avaster.jpg" alt=""/></a>
-                                </div>
-                                <div class="comuser-user">
-                                    <a href="">Lukyle</a>
-                                </div>
-                                <div class="comuser-other">1F</div>
-                            </div>
-                            <div class="comuser-con-wrap">
-                                <div class="comuser-word">
-                                    <p>先收藏，准备今年11月中旬去新西兰呢</p>
-                                </div>
-                            </div>
-                            <div class="comuser-bot">
-                                <div class="time">2016-03-11 16:22</div>
-                                <div class="option">
-                                    <a href="">回复</a>
-                                </div>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="comment-form">
                     <div class="comuser-reply">
                         <span>回复信息 <i></i></span>
                     </div>
+                    {% if user.is_authenticated %}
+                    {% get_comment_form for travels as form %}
                     <div class="comuser-form">
                         <div class="user-photo">
-                            <a href=""><img src="images/avaster.jpg" alt=""/></a>
+                            {% for users in users %}
+                            {% if users.user_id = user.id %}
+                            <a href="" title="{{ user.username }}"><img src="/site_media/{{ users.mugshot }}" alt="{{ user.username }}" /></a>
+                            {% endif %}
+                            {% endfor %}
                         </div>
                         <div class="reply-form">
-                            <form action="" method="post">
+                            <form action="{%comment_form_target%}" method="post">
+                                {%csrf_token%}
+                                {{form.object_pk}}
+                                {{form.content_type}}
+                                {{form.timestamp}}
+                                {{form.security_hash}}
                                 <div class="comuser-text">
                                     <div class="face-btn">
                                         <i class="fa fa-smile-o"></i>
@@ -209,6 +204,10 @@
                                         <textarea name="comment" id="evx" cols="30" rows="8"></textarea>
                                     </div>
                                 </div>
+                                <p style="display:none">
+                                    <label for="id_honeypot">如果你这该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label>
+                                    <input type="text" name="honeypot" id="id_honeypot">
+                                </p>
                                 <div class="comuser-submit">
                                     <input type="submit" name="post" value="发表回复" class="btn-submit">
                                     <input type="hidden" name="next" value="/travels/{{ travels.id }}">
@@ -217,6 +216,9 @@
                             </form>
                         </div>
                     </div>
+                    {% else %} 请
+                    <a href="/accounts/signin">登录</a>,或<a href="/accounts/signup">注册</a>后再评论
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -224,70 +226,38 @@
             <!--pic-switc-->
             <div class="side-swap">
                 <ul class="slides">
+                    {% for travels in travelsall|slice:":5" %}
                     <li>
-                        <a href="">
-                            <div class="bannerbg" style="background: url('images/jpg-11.jpeg') no-repeat; background-size: cover;"></div>
+                        <a href="{% url 'search_city' city=travels.city %}" target="_blank">
+                            <div class="bannerbg" style="background: url('/site_media/{{ travels.image }}') no-repeat; background-size: cover;"></div>
                             <div class="caption">
-                                <h3>南京</h3>
+                                <h3>{{ travels.city|title }}</h3>
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <div class="bannerbg" style="background: url('images/jpg-22.jpeg') no-repeat; background-size: cover;"></div>
-                            <div class="caption">
-                                <h3>上海</h3>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="bannerbg" style="background: url('images/b3.jpg') no-repeat; background-size: cover;"></div>
-                            <div class="caption">
-                                <h3>杭州</h3>
-                            </div>
-                        </a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
 
             <div class="side-postion_fix">
                 <div class="project-related">
-                    <h4 class="sider-h4">相关新闻</h4>
+                    <h4 class="sider-h4">相关游记</h4>
                     <ul>
+                        {% for post in travelsall %}
+                        {% if post.city == travels.city %}
                         <li>
                             <i class="fa fa-star"></i>
-                            <a href="#">高房价和工会经费合计金凤凰酒店风华绝代规划</a>
-                            <p>32234/212</p>
+                            <a href="/travels/{{ post.id }}">{{ post.title }}</a>
+                            <p>{{ post.praise_num }}/{{ post.count_hit }}</p>
                         </li>
-                        <li>
-                            <i class="fa fa-star"></i>
-                            <a href="#">高房价和工会经费合计金凤凰酒店风华绝代规划</a>
-                            <p>32234/212</p>
-                        </li>
-                        <li>
-                            <i class="fa fa-star"></i>
-                            <a href="#">高房价和工会经费合计金凤凰酒店风华绝代规划</a>
-                            <p>32234/212</p>
-                        </li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
                 <!--directory-->
                 <div class="tour-directory">
                     <h4 class="sider-h4">目录</h4>
                     <ul>
-                        <li>
-                            <span class="direct-num">01/</span>
-                            <a href="">封面故事</a>
-                        </li>
-                        <li>
-                            <span class="direct-num">02/</span>
-                            <a href="">预告片</a>
-                        </li>
-                        <li>
-                            <span class="direct-num">03/</span>
-                            <a href="">准备工作</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -325,6 +295,48 @@
             if(foothei <= 150){
                 sidelemt.removeClass('rds-side_fix');
             }
+        })
+
+        var length = $('.project-related li').length;
+        if(length > 3){
+            for(var i=3;i<length;i++){
+                $('.project-related li').eq(i).remove();
+            }
+        }
+
+        //directory
+        $('.tour-article p strong').each(function (index) {
+            var dirName = $(this).text();
+            console.log(index);
+            if(index<10){
+                var aHtml = '<li><span class="direct-num">'+'0'+(index+01)+'/</span><a href="#'+(index+1)+'">'+dirName+'</a></li>';
+            }
+            else{
+                var aHtml = '<li><span class="direct-num">'+(index+01)+'/</span><a href="#'+(index+1)+'">'+dirName+'</a></li>';
+            }
+            $('.tour-directory ul').append(aHtml);
+        })
+
+        //dianzan
+        $('.click-heart').click(function () {
+          $('.fav-note').show();
+            var url = "/like_tarvels/"+{{ travels.id }};
+           $('.fav-note iframe').attr('src',url);
+           setTimeout(function () {
+               $('.fav-note').hide();
+               $('.fav-note iframe').attr('src','');
+           },2000);
+        })
+
+        //shoucang
+        $('.click-fav').click(function () {
+            $('.fav-note').show() ;
+            var url = "/addfav/"+{{ travels.id }};
+            $('.fav-note iframe').attr('src',url);
+            setTimeout(function () {
+                $('.fav-note').hide();
+                $('.fav-note iframe').attr('src','');
+            },2000);
         })
     })
 

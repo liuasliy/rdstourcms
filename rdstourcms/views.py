@@ -17,7 +17,9 @@ from django.core.mail import send_mail
 from django.utils import timezone
 import datetime
 
+
 # Create your views here.
+
 def index(request):
     '''
     首页
@@ -31,7 +33,8 @@ def about(request):
     '''
     关于
     '''
-    return render_to_response('about.html', context_instance=RequestContext(request))
+    users = MyProfile.objects.all()
+    return render_to_response('about.html', {"users": users}, context_instance=RequestContext(request))
 
 
 #用户信息预览
@@ -56,6 +59,16 @@ def accountview(request, author_id):
                                 }, context_instance=RequestContext(request))
 
 
+def userpass(request):  
+    if request.method == 'POST':  
+        form = userpassForm(request.POST)  
+        if form.is_valid():  
+            exam_info = form.save()  
+            exam_info.save()  
+            return HttpResponse('Thank you')  
+    else:  
+        form = userpassForm()  
+    return render_to_response('../templates/userena/user_pass_form.html', {'form': form})  
 
 
 

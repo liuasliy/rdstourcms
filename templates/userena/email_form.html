@@ -5,29 +5,51 @@
 {% block content_title %}<h2>{% blocktrans with user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}</h2>{% endblock %}
 
 {% block content %}
-<div class="rds-container">
-  <div class="account-left">
-    <form action="" method="post">
-  {% csrf_token %}
-  <fieldset>
-    <legend>{% trans "Change email address" %}</legend>
-    {{ form.as_p }}
-  </fieldset>
-  <input type="submit" value="{% trans "Change email" %}" />
-</form>
-  </div>
-  <div class="account-right">
-    <ul id="box-nav">
-    <li class="first"><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_detail' user.username %}"><span>{% trans 'View profile' %}</span></a></li>
-    <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit profile" %}</a></li>
-    <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_password_change' user.username %}">{% trans "Change password" %}</a></li>
-    <li class="last selected"><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
-      <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'add'  %}">新增游记</a></li>
-      <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'list' user.username %}">游记列表</a></li>
-        <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'favourite_list' user.username %}">我的收藏</a></li>
-  </ul>
+
+<div class="main ">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="ac-setting_list">
+        <a href="{% url 'userena_profile_detail' user.username %}" ><i class="fa fa-user"></i>个人中心</a>
+        <a href="{% url 'userena_profile_edit' user.username %}" ><i class="fa fa-user-plus"></i>信息修改</a>
+        <a href="{% url 'userena_password_change' user.username %}"><i class="fa fa-get-pocket"></i>{% trans "Change password" %}</a>
+        <a href="{% url 'userena_email_change' user.username %}" class="on"><i class="fa fa-envelope"></i>{% trans "Change email" %}</a>
+        <a href="{% url 'list' user.username %}"><i class="fa fa-list-ul"></i>游记列表</a>
+        <a href="{% url 'add'  %}"><i class="fa fa-plus"></i>新增游记</a>
+        <a href="{% url 'favourite_list' user.username %}"><i class="fa fa-star-o"></i>游记收藏</a>
+
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="ac-setting_right">
+        <div class="ac-hd">
+          <strong>邮箱更改</strong>
+        </div>
+        <!--emailchange-->
+        <div class="ac-userpass ">
+          <dl class="clearfix">
+            <dt></dt>
+            <dd>
+              <div id="set-pw" class="set-pwmail">
+                <form action="" method="post">
+                  {% csrf_token %}
+                  <fieldset>
+                    {{ form.as_ul }}
+                  </fieldset>
+                  <input type="submit"  class="ac-sub-ok" value="{% trans 'Change email' %}" />
+                </form>
+
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+    <div class="clearfix"></div>
   </div>
 </div>
+
 
 
 {% endblock %}

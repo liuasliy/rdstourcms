@@ -13,13 +13,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-comments:before {
-    content: "\e600";
-}
-
-.icon-shieldleft:before {
-    content: "\e601";
-}
 
 .icon-jiantouleft:before {
     content: "\e602";

@@ -1,0 +1,112 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Change password" %}{% endblock %}
+
+{% block content_title %}<h2>{% blocktrans with user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}</h2>{% endblock %}
+
+{% block content %}
+<div class="main ">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="ac-setting_list">
+        <a href="" class="on"><i class="fa fa-user-plus"></i>信息</a>
+        <a href=""><i class="fa fa-get-pocket"></i>密码</a>
+        <a href=""><i class="fa fa-list-ul"></i>列表</a>
+        <a href=""><i class="fa fa-plus"></i>新增</a>
+        <a href=""><i class="fa fa-star-o"></i>收藏</a>
+
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="ac-setting_right">
+        <div class="ac-hd">
+          <strong>我的信息</strong>
+        </div>
+        <!--passchange-->
+        <div class="ac-userpass ">
+          <dl class="clearfix">
+            <dt>密码：</dt>
+            <dd>
+              <a href="javascript:;" class="dd-fix">修改密码</a>
+              <div id="set-pw" class="set-pwmail" style="display: block">
+                <form action="" method="post"  id="password_change_form">
+                  {% csrf_token %}
+                <dl class="clearfix">
+                  <dt>旧密码：</dt>
+                  <dd>
+                    {{ form.old_password }}
+                  </dd>
+                </dl>
+                <dl class="clearfix">
+                  <dt>新密码：</dt>
+                  <dd><input type="text" name="name" value="古一夜" maxlength="16" autocomplete="off" data-verification-name="名号" class="verification[required,funcCall[checkNickname]]"></dd>
+                </dl>
+                <dl class="clearfix">
+                  <dt>新密码确认：</dt>
+                  <dd><input type="text" name="name" value="古一夜" maxlength="16" autocomplete="off" data-verification-name="名号" class="verification[required,funcCall[checkNickname]]"></dd>
+                </dl>
+                <dl class="clearfix">
+                  <dt></dt>
+                  <dd>
+                    <a href="" class="ac-sub-ok">确定</a>
+                    <a href="javascript:;" class="ac-sub-cancel">取消</a>
+                  </dd>
+                </dl>
+                  <fieldset>
+
+                    {{ form.username }}
+                    {{ form.email }}
+                  </fieldset>
+                  <input type="submit"  value="submit" />
+                </form>
+              </div>
+            </dd>
+          </dl>
+          <dl class="clearfix">
+            <dt>邮箱：</dt>
+            <dd>
+              <!--
+              <form action="" method="post">
+              <span class="dd-span">liuasliy@live.com</span>
+                <input type="button" class="dd-fix" name="chanemail" value='修改邮箱'>
+              <div id="set-mail" class="set-pwmail">
+                  {% csrf_token %}
+                  <fieldset>
+                    {{ form.as_ul }}
+                  </fieldset>
+                  <input type="submit" value="{% trans 'Change email' %}" />
+              </div>
+              </form>
+              -->
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $('.ac-userpass .dd-fix').each(function () {
+      $(this).click(function () {
+        $(this).hide();
+        $(this).prev().hide();
+        $(this).siblings('.set-pwmail').slideDown();
+      })
+    })
+    $('.ac-userpass .ac-sub-cancel').each(function () {
+      $(this).click(function () {
+        $(this).parents('.set-pwmail').hide();
+        $(this).parents('.set-pwmail').prevAll().show();
+      })
+    })
+  })
+</script>
+
+{% endblock %}

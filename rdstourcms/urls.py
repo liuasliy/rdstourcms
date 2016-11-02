@@ -15,9 +15,10 @@ urlpatterns = patterns('',
                        url(r'^travels/', include('travels.urls')),
                        url(r'^travels/(?P<travels_id>\d+)/$', 'travels.views.detail', name='detail'),
                        url(r'^city/(?P<city>\w+)/$', 'travels.views.search_city', name='search_city'),
+                       url(r'^like_tarvels/(?P<travels_id>\d+)/$', 'travels.views.like_tarvels',name="like_tarvels"),
 
                        #url(r'^favlist/$', 'favourite.views.favlist', name='favlist'),
-
+                       url(r'^userpass/$', 'rdstourcms.views.userpass', name='userpass'),
 
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^admin/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.DIR_Admin}),

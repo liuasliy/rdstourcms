@@ -38,11 +38,12 @@ def add_favorite(request, travels_id):
 
 
 def favourite_list(request,user):
+    users = MyProfile.objects.all()
     try:
         favlist = Favourite.objects.filter(user__username=user)
     except Favourite.DoesNotExist:
         raise Http404
-    return render_to_response('../templates/userena/fav_list.html', {'favlist' : favlist}, context_instance=RequestContext(request))
+    return render_to_response('../templates/userena/fav_list.html', {'favlist' : favlist, 'users': users}, context_instance=RequestContext(request))
 
 
 

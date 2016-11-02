@@ -11,21 +11,21 @@
 </script>
 <!--container-->
 {% if travels_list %}
-<div class="rds-container">
+<div class="container city-main">
 
     <div class="city-title">
         <h2></h2>
     </div>
-{% autopaginate travels_list 8 %}
+{% autopaginate travels_list 10 %}
     {% for b in travels_list %}
-    <div class="rds-main city-list">
-        <div class="news-list">
+    <div class="city-main-list">
+        <div class="city-content">
             <input type="hidden" name="" class="cityname" value="{{b.city}}"  id=""/>
             <h2><a href="/travels/{{ b.id }}" target="_blank">{{b.title}}</a></h2>
             <img src="/site_media/{{ b.image }}" alt="" class="scenery-img"/>
-            <div class="news-info">
+            <div class="city-news-info">
                 <div class="fleft">
-                    <span class="address"><i class="icon iconfont">&#xe603;</i>
+                    <span class="address"><i class="fa fa-map-marker"></i>
                         <a href="{% url 'search_city' city=b.city %}">{{b.city}}</a></span>
                     {% for users in users %}
                     {% if users.user_id == b.author_id %}
@@ -35,11 +35,11 @@
                         {% endfor %}
                         {{ b.author }}</a></span>
 
-                    <span class="views"><i class="icon iconfont">&#xe605;</i>{{b.count_hit}}</span>
+                    <span class="views"><i class="fa fa-eye"></i>&nbsp;{{b.count_hit}}</span>
                 </div>
                 <div class="fright comments">
                     <a href="/travels/{{ b.id }}#comments">
-                      <i class="icon iconfont">&#xe600;</i>
+                      <i class="fa fa-comments"></i>
                     {% load comments %}
                     {% get_comment_count for b as comment_count %}
                     {{ comment_count }}
@@ -53,14 +53,20 @@
         </div>
     </div>
     {% endfor %}
-<div class="col-md-12 city-list-pagin" >
-               	 {% paginate %}
-            	</div>
+    <div class="city-list-pagin" >
+        {% paginate %}
+    </div>
+    <br/><br/><br/>
 </div>
 
 {% endif %}
 
-
+<script>
+    $(function () {
+        var ofheight = $(document).height();
+        $('.city-main').css('min-height',ofheight-120);
+    })
+</script>
 {%endblock%}
 
 

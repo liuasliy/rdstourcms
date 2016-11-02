@@ -2,18 +2,26 @@
 {% block title %}搜索{%endblock%}
 {% block content %}
 
+<style>
+	.header-right .search{
+		display: none;
+	}
+</style>
 <script type="text/javascript">
 	$(function () {
-        $('#form').find('#search-input').val(sessionStorage.lastname);
+		var ofheight = $(document).height();
+		$('.main').css('height',ofheight-145);
+		$('.header-right').find('.search').remove();
     })
 </script>
 
-<div class="rds-container">
-<div class="main-search">
+<div class="main">
+<div class="container main-search">
 
 	<form action="" method="get" id="form">
-		<input type="text" name='q' id="search-input" placeholder="请输入查询内容" />
+		<input type="text" name='q' id="search-input" value="{{ q }}" placeholder="请输入查询内容" />
 		<input type="submit" value="搜索" />
+		<div class="clear"></div>
 	</form>
           {% if errors %}
 		<ul>
@@ -28,13 +36,26 @@
 		</ul>
 	{% endif %}
 {% if not errors %}
-<p>查询: <strong>{{q}}</strong></p>
+<p class="sea-keyword">查询关键字: <strong>{{q}}</strong></p>
 
 {% if travels %}
-	<p>找到 {{travels|length}} 篇游记。</p>
-	<ul>
+	<p class="sea-result">共找到 {{travels|length}} 篇游记</p>
+	<ul class="result-list">
 		{% for b in travels %}
-		<a href="/blog/{{b.id}}"><li>{{b.title}}</li></a>
+		<li>
+			<div class="sea-pic">
+				<a href="" target="_blank"><img class="rd_lazyload" src="/site_media/{{ b.image }}" alt=""/></a>
+			</div>
+			<div class="sea-text">
+				<h3><a href="/blog/{{b.id}}" target="_blank">{{b.title}}</a></h3>
+				<p>{{b.contextinfo}}</p>
+				<div class="sea-item">
+					<span><a href="{% url 'search_city' city=b.city %}">{{b.city}}</a></span>
+					<span>浏览({{b.count_hit}})</span>
+					<span>{{b.pub_date|date:"Y年m月d日"}}</span>
+				</div>
+			</div>
+		</li>
 		{% endfor %}
 	</ul>
 {% else %}

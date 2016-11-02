@@ -8,34 +8,39 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="/static/css/account-user.css"/>
 
+<div class="main ">
+    <div class="container">
+        <div class="col-md-3">
+            <div class="ac-setting_list">
+                <a href="{% url 'userena_profile_detail' user.username %}" ><i class="fa fa-user"></i>个人中心</a>
+                <a href="{% url 'userena_profile_edit' user.username %}" ><i class="fa fa-user-plus"></i>信息修改</a>
+                <a href="{% url 'userena_password_change' user.username %}"><i class="fa fa-get-pocket"></i>{% trans "Change password" %}</a>
+                <a href="{% url 'userena_email_change' user.username %}" ><i class="fa fa-envelope"></i>{% trans "Change email" %}</a>
+                <a href="{% url 'list' user.username %}"><i class="fa fa-list-ul"></i>游记列表</a>
+                <a href="{% url 'add'  %}" class="on"><i class="fa fa-plus"></i>新增游记</a>
+                <a href="{% url 'favourite_list' user.username %}"><i class="fa fa-star-o"></i>游记收藏</a>
 
-<div class="rds-container">
-    <div class="account-left">
-        <ul class="add-tra">
-            <form method="post" enctype="multipart/form-data" >
-                {%csrf_token%}
-                {{uf.as_ul}}
-                <input type="submit" value="ok"/>
-            </form>
-        </ul>
-    </div>
-    <div class="account-right">
-        {% block profile_navigation %}
-        {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
-        <ul id="box-nav">
-            {% block profile_navigation_items %}
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_detail' user.username %}">{% trans "View profile" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_password_change' user.username %}">{% trans "Change password" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'add' %}">新增游记</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'list' user.username %}">游记列表</a></li>
-                <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'favourite_list' user.username %}">我的收藏</a></li>
-            {% endblock %}
-        </ul>
-        {% endblock %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="ac-setting_right">
+                <div class="ac-hd">
+                    <strong>增加游记</strong>
+                </div>
+                <!--add-->
+                <div class="ac-text">
+                    <form method="post" class="form-add" enctype="multipart/form-data" >
+                        {%csrf_token%}
+                        {{uf.as_ul}}
+                        <input type="submit" value="确定"/>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 
@@ -43,19 +48,23 @@
 
 
 
-
-<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
 
 <script>
     $(function () {
         $('#id_image').hide();
-        $('#id_image').parents('li').append('<label for="id_image" class="upload">upload</label>' +
+        $('#id_image').parents('li').append('<label for="id_image" class="upload">上传图片</label>' +
                 '<div class="filename"></div>');
         $('#id_image').change(function () {
-            console.log($('#id_image').val());
             $('.filename').html($('#id_image').val());
+        })
+//
+        $('#id_bigimage').hide();
+        $('#id_bigimage').parents('li').append('<label for="id_bigimage" class="upload">上传图片</label>' +
+                '<div class="filename02"></div>');
+        $('#id_bigimage').change(function () {
+            $('.filename02').html($('#id_bigimage').val());
         })
 
     })

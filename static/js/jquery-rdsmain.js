@@ -352,8 +352,8 @@ $(function() {
 
 /**********************************replyemotions***************************************/
 function replace_em(str){
-    var areaval = $('.com-box textarea').val();
-    pattern =new RegExp("\\((.| )+?\\)","igm");
+    var areaval = $('.comuser-textarea textarea').val();
+    var pattern =new RegExp("\\((.| )+?\\)","igm");
     var textarr = areaval.match(pattern);
     areaval = areaval.replace(/\</g,'&lt;');
     areaval = areaval.replace(/\>/g,'&gt;');
@@ -401,7 +401,7 @@ $(document).ready(function(e) {
     $.ajax( {
         type: "post",
         dataType : 'json',
-        url : 'js/emotions.json',
+        url : '/static/js/emotions.json',
         success : function(data) {
             var legth = data.konglong.length;
             var legth2 = data.changy.length;
@@ -413,24 +413,33 @@ $(document).ready(function(e) {
             }
             $('.face-icon ul li').each(function () {
                 $(this).click(function () {
-                    var areaval = $('.com-box textarea').val();
+                    var areaval = $('.comuser-textarea textarea').val();
                     var valText = areaval + '('+$(this).attr('title')+')';
-                    $('.com-box textarea').val(valText).focus();
+                    $('.comuser-textarea textarea').val(valText).focus();
                     $('.face-pop').hide();
                 })
             })
         }
     });
 
-    //提交
-    $('.com-submit').click(function () {
-        var areaval = $('.com-box textarea').val();
-        $('.com-box textarea').val(replace_em(areaval));
-        //console.log(replace_em(areaval));
+    //comments-biaoqing
+    $('.btn-submit').click(function () {
+        var areaval = $('.comuser-textarea textarea').val();
+        if(areaval == ""){
+            $('.comuser-textarea').append('<div class="textarea-tips">璇疯緭鍏ヨ瘎璁哄唴瀹箏</div>')
+            setTimeout(function () {
+                $('.textarea-tips').remove()
+            },2000)
+            return false;
+        }else{
+            $('.comuser-textarea textarea').css('opacity',0).val(replace_em(areaval));
+        }
+
     })
 });
 
-//摄影详情页表情
+
+//photodetils-pinglun
 $(function () {
     $('.topcomment').on('click', function () {
         $('.po-commentbox').addClass('active');
@@ -451,3 +460,46 @@ $(function () {
 /**********************************side-postion***************************************/
 
 
+/**********************************list-city-num***************************************/
+
+$(function () {
+    var liarr = $('.project-city li'),temp =[];
+    for(var i = 0;i<liarr.length;i++){
+        temp.push(liarr.eq(i).find('a').text());
+    }
+    function unique(liarr){
+        var tmp = new Array();
+        for(var i in liarr){
+            if(tmp.indexOf(liarr[i])==-1){
+                tmp.push(liarr[i]);
+            }
+        }
+        return tmp;
+    }
+    $('.city-total p a').text(unique(temp).length);
+    var cityli = unique(temp);
+    $('.project-city ul').children('li').remove();
+    $('.project-city ul').show();
+    for(var n in cityli){
+        if(n<8){
+            $('.project-city ul').append('<li><a href="/city/'+cityli[n]+'" target="_blank">'+cityli[n]+'</a></li>');
+        }
+    }
+});
+
+/***************************account************************************/
+$(function () {
+    //login
+    $('.drop-trigger').hover(function () {
+        $('.login-item').show();
+    }, function () {
+        $('.login-item').hide();
+    })
+    $('.login-item').hover(function () {
+        $('.drop-trigger').addClass('drop-active');
+        $('.login-item').show();
+    }, function () {
+        $('.login-item').hide();
+        $('.drop-trigger').removeClass('drop-active');
+    })
+})

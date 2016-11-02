@@ -1,32 +1,92 @@
-{% extends 'userena/base_userena.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes"/>
+  <meta name="Keywords" content="路人游,旅游游记,旅游摄影,rdstour">
+  <meta name="description" content="记录旅游路上的见闻,美丽摄影,记下每一次出门,每一次路上的旅行。">
+  <title>路人游</title>
+  <link rel="Shortcut Icon" href="/static/images/logo_net_321.png">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="/static/css/rs-account.css"/>
+  <link rel="stylesheet" href="/static/css/rs-index.css"/>
+</head>
+
+<body>
 {% load i18n %}
+<!--account start here-->
+<div id="login_bg" class ="login_bg" style="background-image:url(/static/images/signin_bg.jpg);"></div>
 
-{% block title %}{% trans "Signup" %}{% endblock %}
+<div class="sign-main">
+  <div class="sign_forms" >
 
-{% block content %}
-<div class="rds-container">
-    <form action="" method="post">
-  {% csrf_token %}
-  <fieldset>
-    <legend>{% trans "Signup" %}</legend>
-    {{ form.non_field_errors }}
-    {% for field in form %}
-    {{ field.errors }}
-    {% comment %} Displaying checkboxes differently {% endcomment %}
-    {% if field.name == 'tos' %}
-    <p class="checkbox">
-    <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
-    </p>
-    {% else %}
-    <p>
-    {{ field.label_tag }} 
-    {{ field }}
-    </p>
-    {% endif %}
-    {% endfor %}
-  </fieldset>
-  <input type="submit" value="{% trans "Signup"%}" />
-</form>
+    <form class="sign_form_form" id="sign_form" method="post" action="">
+      {% csrf_token %}
+      <div  class="sign_forms_container">
+        <div class="form_header">
+          <h1 class="sign-title"><span>{% trans "Signup" %}</span></h1>
+        </div>
+        <div class="sign_account" >
+          {{ form.non_field_errors }}
+          {% for field in form %}
+          {{ field.errors }}
+          {% comment %} Displaying checkboxes differently {% endcomment %}
+          {% if field.name == 'tos' %}
+          <p class="checkbox">
+            <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
+          </p>
+          {% elif field.name == 'username' %}
+          <div class="form_user">
+            <i class="fa fa-user">&nbsp;&nbsp;|</i>
+            {{ field }}
+          </div>
+          {% elif field.name == 'email' %}
+          <div class="form_password">
+            <i class="fa fa-envelope-o">&nbsp;|</i>
+            {{ field }}
+          </div>
+          {% else %}
+          <div class="form_password">
+            <i class="fa fa-lock">&nbsp;&nbsp;|</i>
+            {{ field }}
+          </div>
+          {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+      <input type="submit" class="form_submit" value="{% trans 'Signup'%}" />
+    </form>
+  </div>
 </div>
 
-{% endblock %}
+
+<div class="sign-footer">
+  <div class="footer_sign_link">
+    <a class="sign_link" href="/accounts/signin">登&nbsp;录</a>
+    <a href="/index" target="_blank" class="h_link">首页</a>
+    <a href="/about" target="_blank" class="h_link">关于</a>
+  </div>
+  <div class="design_show">
+    <div class="designer_info">
+      Copyright &copy; 2015-2016 Powered by <a href="/index">路人游</a>
+    </div>
+  </div>
+</div>
+<!--script-->
+<script src="/static/js/jquery-v1.10.2.js"></script>
+
+<script>
+  $(function () {
+    $('input[name="username"]').attr('placeholder','字母、数字等,用户名唯一~');
+    $('input[name="email"]').attr('placeholder','邮箱地址~');
+    $('input[name="password1"]').attr('placeholder','不少于6位~')
+    $('input[name="password2"]').attr('placeholder','再次确认~')
+  })
+</script>
+</body>
+</html>
+

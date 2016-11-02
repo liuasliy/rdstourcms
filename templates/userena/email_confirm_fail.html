@@ -5,6 +5,35 @@
 {% block content_title %}<h2>{% trans "Your email could not be verified..." %}</h2>{% endblock %}
 
 {% block content %}
-<p>{% trans "Your email could not be verified..." %}</p>
-<p>{% trans "You could try changing it again in your account settings." %}</p>
+<div class="main ">
+    <div class="container">
+        <div class="col-md-3">
+            <div class="ac-setting_list">
+                <a href="{% url 'userena_profile_detail' user.username %}" ><i class="fa fa-user"></i>个人中心</a>
+                <a href="{% url 'userena_profile_edit' user.username %}" ><i class="fa fa-user-plus"></i>信息修改</a>
+                <a href="{% url 'userena_password_change' user.username %}"><i class="fa fa-get-pocket"></i>{% trans "Change password" %}</a>
+                <a href="{% url 'userena_email_change' user.username %}" class="on"><i class="fa fa-envelope"></i>{% trans "Change email" %}</a>
+                <a href="{% url 'list' user.username %}"><i class="fa fa-list-ul"></i>游记列表</a>
+                <a href="{% url 'add'  %}"><i class="fa fa-plus"></i>新增游记</a>
+                <a href="{% url 'favourite_list' user.username %}"><i class="fa fa-star-o"></i>游记收藏</a>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="ac-setting_right">
+                <div class="ac-hd">
+                    <strong>邮箱更改</strong>
+                </div>
+                <!--emailchange-->
+                <div class="ac-text ">
+                    {% trans "Your email could not be verified..." %}<br/>
+                    {% trans "You could try changing it again in your account settings." %}
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
 {% endblock %}

@@ -1,50 +1,75 @@
 {% extends 'userena/base_userena.html' %} {% load i18n %} {% load url from future %} {% block title %}{% blocktrans with profile.user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %} {% block content_title %}
 <h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %} {% block content %}
-<link rel="stylesheet" href="/static/css/account-user.css" />
-<div class="rds-container">
-    <div class="account-left">
-        <div class="my-title">
-            <img src="../../static/images/person-img.jpg" alt="" /> 我的收藏
-        </div>
-        {% if favlist %} {%for travels in favlist%}
-        <div class="tra-list">
-            <h4>
-        <a href="/travels/{{ travels.travels.id }}" target="_blank" class="link-grey">
-            <span class="date">
-                <i>{{travels.travels.pub_date|date:"j"}}</i>/&nbsp;{{travels.travels.pub_date|date:"n月/Y"}}
-            </span>
-            {{travels.travels.title}}
-        </a>
-    </h4>
-            <div class="fix-item">
-                <a href="/deletefav/{{ travels.id }}" title="删除"><i class="icon iconfont">&#xe60c;</i></a>
+{% load pagination_tags %}
+<div class="main ">
+    <div class="container">
+        <div class="col-md-3">
+            {% block profile_navigation %}
+            {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
+            <div class="ac-setting_list">
+                {% block profile_navigation_items %}
+                <a href="{% url 'userena_profile_detail' user.username %}" ><i class="fa fa-user"></i>个人中心</a>
+                <a href="{% url 'userena_profile_edit' user.username %}" ><i class="fa fa-user-plus"></i>信息修改</a>
+                <a href="{% url 'userena_password_change' user.username %}"><i class="fa fa-get-pocket"></i>{% trans "Change password" %}</a>
+                <a href="{% url 'userena_email_change' user.username %}"><i class="fa fa-envelope"></i>{% trans "Change email" %}</a>
+                <a href="{% url 'list' user.username %}"><i class="fa fa-list-ul"></i>游记列表</a>
+                <a href="{% url 'add'  %}"><i class="fa fa-plus"></i>新增游记</a>
+                <a href="{% url 'favourite_list' user.username %}" class="on"><i class="fa fa-star-o"></i>游记收藏</a>
+                {% endblock %}
             </div>
-        </div>
-        {%endfor%} {% endif %}
-    </div>
-    <div class="account-right">
-        {% block profile_navigation %} {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
-        <ul id="box-nav">
-            {% block profile_navigation_items %}
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_detail' user.username %}">{% trans "View profile" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_password_change' user.username %}">{% trans "Change password" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'add' %}">新增游记</a></li>
-            <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'list' user.username %}">游记列表</a></li>
-                <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'favourite_list' user.username %}">我的收藏</a></li>
             {% endblock %}
-        </ul>
-        {% endblock %}
+        </div>
+        <div class="col-md-9">
+            <div class="ac-setting_right">
+                <div class="ac-hd">
+                    <strong>我的收藏</strong>
+                </div>
+                <!--favlist-->
+                <div class="ac-favlist ">
+                    <ul>
+                        {% if favlist %}
+                        {% autopaginate favlist 5 %}
+                        {%for travels in favlist%}
+                        <li class="ac-post-item">
+                            <a class="delpost hidden" href="/deletefav/{{ travels.id }}" title="删除">
+                                <i class="fa fa-close"></i>
+                            </a>
+                            <div class="pic"><a href="/travels/{{ travels.travels.id }}" target="_blank">
+                                <img src="/site_media/{{ travels.travels.image }}"></a>
+                            </div>
+                            <dl class="clearfix">
+                                <dd>
+                                    <h2><a href="/travels/{{ travels.travels.id }}" target="_blank">{{travels.travels.title}}</a></h2>
+                                    <div class="count"><i class="fa fa-eye"></i>
+                                        <span>{{ travels.travels.praise_num }}/{{ travels.travels.count_hit }}</span>
+                                    </div>
+                                    <div class="author">
+                                        <p class="author-info">
+                                            {% for users in users %}
+                                            {% if users.user_id == travels.travels.author_id %}
+                                            <a href="" target="_blank"><img src="/site_media/{{ users.mugshot }}"></a>作者：
+                                            <a href="" target="_blank">{{travels.travels.author}}</a>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                        <p class="time">{{travels.travels.pub_date|date:"Y-m-d H:i:s"}}</p>
+                                    </div>
+                                    <div class="post-info">
+                                        <p> {{travels.travels.contextinfo}}</p>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        {%endfor%} {% endif %}
+                    </ul>
+                    {% paginate %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
     </div>
 </div>
-<script>
-$(function() {
-    $('.tra-list').hover(function() {
-        $(this).find('.fix-item').show();
-    }, function() {
-        $(this).find('.fix-item').hide();
-    })
-})
-</script>
+
 {% endblock %}

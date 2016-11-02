@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import loader, Context
 from django.http import HttpResponse, HttpResponseRedirect
 from travels.models import *
+from photo.models import *
 from favourite.models import *
 from accounts.models import *
 from django.shortcuts import render_to_response
@@ -21,6 +22,7 @@ import datetime
 
 def archive(request):
     travels = Travels.objects.all()
+    photos = photoList.objects.all()
     users = MyProfile.objects.all()
     user = request.user
     travels_list = Travels.objects.order_by('-pub_date')
@@ -37,7 +39,7 @@ def archive(request):
     except EmptyPage:
         travels = paginator.page(paginator.num_pages)
 
-    return render_to_response('travels.html', {"travels": travels, "user": user, "users": users}, context_instance=RequestContext(request))
+    return render_to_response('travels.html', {"travels": travels, "photos":photos, "user": user, "users": users}, context_instance=RequestContext(request))
 
 
 def detail(request, travels_id):
@@ -53,12 +55,28 @@ def detail(request, travels_id):
         raise Http404
     return render_to_response('travelsdetails.html', {"travels": travels,  "users": users, "travelsall": travelsall, "favlistall": favlistall, "favis": favis}, context_instance=RequestContext(request))
 
+# 点赞
+def like_tarvels(request,travels_id):
+    p_id = None
+    LIKED = '谢谢鼓励，但你已经赞过该游记啦！'
+
+    liked_post = request.session.get('liked')
+    p_id = travels_id
+    if p_id == liked_post:
+        return HttpResponse(LIKED)
+    travels = get_object_or_404(Travels, id=travels_id)
+    travels.praise_num += 1
+    likes =travels.praise_num
+    travels.save()
+    request.session['liked'] = p_id
+    return HttpResponse('点赞成功！点赞数+%s' %likes)
+
 
 def uploadimage(request):
     if request.method == 'POST':
         callback = request.GET.get('CKEditorFuncNum')
         try:
-            path = "media/upload/" + time.strftime("%Y%m%d%H%M%S", time.localtime())
+            path = "media/upload/pic/" + time.strftime("%Y%m%d%H%M%S", time.localtime())
             f = request.FILES["upload"]
             file_name = path + "_" + f.name
             des_origin_f = open(file_name, "wb+")
@@ -177,6 +195,7 @@ from travels.forms import *
 from django.core.urlresolvers import reverse
 def list(request, author):
     users = MyProfile.objects.all()
+    #favlistall = Favourite.objects.filter(travels=travels)
     try:
         list = Travels.objects.filter(author__iexact=author)
     except Travels.DoesNotExist:

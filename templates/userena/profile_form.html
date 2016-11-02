@@ -8,30 +8,117 @@
 
 {% block content %}
 
-<div class="rds-container">
-<div class="account-left">
-  <form action="" enctype="multipart/form-data" method="post">
-  
-  {% csrf_token %}
-  <fieldset>
-    <legend>{% trans "Edit Profile" %}</legend>
-    {{ form.as_p }}
-  </fieldset>
-  <input type="submit" value="{% trans "Save changes" %}" />
-</form>
-</div>
-<div class="account-right">
-  <ul id="box-nav">
-    <li class="first"><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_detail' user.username %}"><span>{% trans 'View profile' %}</span></a></li>
-    <li class="selected"><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit profile" %}</a></li>
-    <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_password_change' user.username %}">{% trans "Change password" %}</a></li>
-    <li class="last"><i class="icon iconfont">&#xe602;</i><a href="{% url 'userena_email_change' user.username %}">{% trans "Change email" %}</a></li>
-    <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'add'  %}">新增游记</a></li>
-    <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'list' user.username %}">游记列表</a></li>
-      <li><i class="icon iconfont">&#xe602;</i><a href="{% url 'favourite_list' user.username %}">我的收藏</a></li>
-  </ul>
-</div>
+<div class="main ">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="ac-setting_list">
+        <a href="{% url 'userena_profile_detail' user.username %}" ><i class="fa fa-user"></i>个人中心</a>
+        <a href="{% url 'userena_profile_edit' user.username %}" class="on"><i class="fa fa-user-plus"></i>信息修改</a>
+        <a href="{% url 'userena_password_change' user.username %}"><i class="fa fa-get-pocket"></i>{% trans "Change password" %}</a>
+        <a href="{% url 'userena_email_change' user.username %}"><i class="fa fa-envelope"></i>{% trans "Change email" %}</a>
+        <a href="{% url 'list' user.username %}"><i class="fa fa-list-ul"></i>游记列表</a>
+        <a href="{% url 'add'  %}"><i class="fa fa-plus"></i>新增游记</a>
+        <a href="{% url 'favourite_list' user.username %}"><i class="fa fa-star-o"></i>游记收藏</a>
+
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="ac-setting_right">
+        <div class="ac-hd">
+          <strong>我的信息</strong>
+        </div>
+        <!--ac-userinfo-->
+        <div class="ac-userinfo">
+          <form action="" enctype="multipart/form-data" method="post" >
+            {% csrf_token %}
+            {{ form.errors  }}
+            <fieldset>
+            <dl class="clearfix">
+              <dt>头像：</dt>
+              <dd>
+                <div class="avatar">
+                  <div class="avatar-form">
+                    {{ form.mugshot }}
+                  </div>
+                  <img src="" alt=""/>
+                  <div class="ac-btn-sub">
+                    <label for="id_mugshot">选择图片</label>
+                    <span></span>
+                    支持jpg、png、jpeg、bmp，图片大小5M以内
+                  </div>
+                </div>
+
+              </dd>
+            </dl>
+
+            <dl class="clearfix">
+              <dt>昵称：</dt>
+              <dd>
+                {{ form.nickname }}
+              </dd>
+            </dl>
+
+            <dl class="clearfix">
+              <dt>性别：</dt>
+              <dd>
+                  <div class="select-prettify">
+                    {{ form.sex }}
+                  </div>
+              </dd>
+            </dl>
+              <dl class="clearfix">
+                <dt>居住城市：</dt>
+                <dd>
+                  {{ form.live_city }}
+                </dd>
+              </dl>
+              <dl class="clearfix">
+                <dt>隐私设定：</dt>
+                <dd>
+                  <div class="select-prettify">
+                  {{ form.privacy }}
+                    </div>
+                </dd>
+              </dl>
+            <dl class="clearfix">
+              <dt>个人简介：</dt>
+              <dd>
+                {{ form.personal_brief }}
+              </dd>
+            </dl>
+            <dl class="clearfix">
+              <dt></dt>
+              <dd class="ac-tips">
+                <p class="title"><b>**</b>提示信息<b>**</b></p>
+                <p>
+                  请尽量补全信息，以便用户能够更加清晰的认识您~
+                </p>
+              </dd>
+            </dl>
+
+            <div class="ac-btn-sub">
+              <input type="submit" value="{% trans 'Save changes' %}" />
+            </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <div class="clearfix"></div>
+  </div>
 </div>
 
-
+<script>
+  $(function () {
+    var avatarimg = $('.avatar').find('a').text();
+    $('.avatar img').attr('src','/media/'+avatarimg);
+    $('#id_mugshot').change(function () {
+      var imgsrc = $(this).val();
+      var pos=imgsrc.lastIndexOf("\\");
+      var imgname = imgsrc.substring(pos+1);
+      $('.ac-btn-sub span').text(imgname);
+    })
+  })
+</script>
 {% endblock %}

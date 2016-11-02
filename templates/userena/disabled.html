@@ -4,9 +4,19 @@
 {% block title %}{% trans "Disabled account" %}{% endblock %}
 {% block content_title %}<h2>{% trans "Your account has been disabled" %}</h2>{% endblock %}
 {% block content %}
-<div class="rds-container">
-	<p>{% trans "It seems your account has been disabled." %}</p>
-<p>{% trans "If you feel that injustice has been done to you, feel free to contact the administrators to find out why" %}</p>
+
+<div class="abt-main">
+	<div class="abt-content text-center">
+		<p>{% trans "It seems your account has been disabled." %}</p>
+		<p>{% trans "If you feel that injustice has been done to you, feel free to contact the administrators to find out why" %}</p>
+	</div>
 </div>
+<script>
+	$(function () {
+		var ofheight = $(document).height();
+		$('.abt-main').css('height',ofheight-120);
+	})
+</script>
+
 
 {% endblock %} 

@@ -5,7 +5,17 @@
 {% block content_title %}<h2>{% trans "You have been signed out" %}.</h2>{% endblock %}
 
 {% block content %}
-<div class="rds-container">
-<p>{% trans "You have been signed out. Till we meet again." %}</p>
+<div class="abt-main">
+    <div class="abt-content text-center">
+        <p>{% trans "You have been signed out. Till we meet again." %}</p>
+        <a href="/index">返回首页</a>
     </div>
+</div>
+
+<script>
+    $(function () {
+        var ofheight = $(document).height();
+        $('.abt-main').css('height',ofheight-120);
+    })
+</script>
 {% endblock %}

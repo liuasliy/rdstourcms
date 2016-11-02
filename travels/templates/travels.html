@@ -14,11 +14,11 @@
             {% autopaginate travels 6 %}
                 {% for travels in travels %}
                 <li class="col-md-6">
-                    <a href="/travels/{{ travels.id }}">
+                    <a href="/travels/{{ travels.id }}" target="_blank">
                         <img src="/site_media/{{ travels.image }}" class="img-responsive rd_lazyload" alt=""/>
                     </a>
                     <div class="tour-desc">
-                        <a href="">
+                        <a href="/travels/{{ travels.id }}" target="_blank">
                             <h5>{{ travels.title }}</h5>
                             <p>
                                 {{ travels.contextinfo }}...
@@ -59,38 +59,36 @@
             <div class="total-wrap">
 
                 <div class="total-box city-total">
-                    <a href="" class="city-icon"><i class="fa fa-paw"></i></a>
+                    <a  class="city-icon"><i class="fa fa-paw"></i></a>
                     <p>
-                        <span><a href="">{{ travels.city|length }}</a></span>
+                        <span><a ></a></span>
                         <span class="col6">个目的地</span>
                     </p>
                     <p>尽享世界各地美景</p>
                 </div>
                 <div class="total-box tour-total">
-                    <a href="" class="city-icon"><i class="fa fa-list-alt"></i></a>
+                    <a href="/travels" class="city-icon"><i class="fa fa-list-alt"></i></a>
                     <p>
-                        <span><a href="">{{ travels|length }}</a></span>
+                        <span><a href="/travels">{{ travels|length }}</a></span>
                         <span class="col6">篇游记</span>
                     </p>
                     <p>记录精彩旅行故事</p>
                 </div>
 
                 <div class="total-box photo-total">
-                    <a href="" class="city-icon"><i class="fa fa-photo"></i></a>
+                    <a href="/photo" class="city-icon"><i class="fa fa-photo"></i></a>
                     <p>
-                        <span><a href="">3233</a></span>
-                        <span class="col6">个目的地</span>
+                        <span><a href="/photo">{{ photos|length }}</a></span>
+                        <span class="col6">篇摄影</span>
                     </p>
-                    <p>吃住尽在囊中</p>
+                    <p>留下旅途美丽瞬间</p>
                 </div>
             </div>
             <div class="project-city">
                 <h4 class="sider-h4">热门目的地</h4>
                 <ul>
                     {% for travels in travels %}
-                        {% if city in travels.city %}
-                            <li><a href="{% url 'search_city' city=travels.city %}">{{ city|title }}</a></li>
-                        {% endif %}
+                            <li><a href="{% url 'search_city' city=travels.city %}">{{ travels.city|title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
