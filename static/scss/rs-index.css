@@ -1,5 +1,7 @@
 body {
-  font-family: "Microsoft YaHei"; }
+  font-family: "Microsoft YaHei";
+  margin: 0;
+  padding: 0; }
 
 ul, li {
   list-style: none;
@@ -750,6 +752,9 @@ span.likes {
 .side-swap {
   padding: 30px 10px 0px 30px;
   overflow: hidden; }
+  .side-swap .slides {
+    height: 220px;
+    overflow: hidden; }
   .side-swap li {
     position: relative;
     overflow: hidden; }
@@ -1009,21 +1014,21 @@ span.likes {
   -moz-transform: scale3d(0, 0, 0);
   -ms-transform: scale3d(0, 0, 0);
   transform: scale3d(0, 0, 0); }
-  .share-box .bshare-custom a {
+  .share-box .bshare-custom a .jtico {
     background: url("../images/share_icon.png") no-repeat;
     width: 40px;
     height: 40px;
     padding: 0;
     margin: 0;
     float: left; }
-  .share-box .bshare-custom a.bshare-weixin {
-    background-position: 0 -50px !important; }
-  .share-box .bshare-custom a.bshare-sinaminiblog {
-    background-position: 0 0px !important; }
-  .share-box .bshare-custom a.bshare-qqmb {
-    background-position: 0 -200px !important; }
-  .share-box .bshare-custom a.bshare-qzone {
-    background-position: 0 -150px !important; }
+  .share-box .bshare-custom a.bshare-weixin .jtico_weixin {
+    background-position: 0 -55px !important; }
+  .share-box .bshare-custom a.bshare-sinaminiblog .jtico_tsina {
+    background-position: 0 -5px !important; }
+  .share-box .bshare-custom a.bshare-qqmb .jtico_tqq {
+    background-position: 0 -205px !important; }
+  .share-box .bshare-custom a.bshare-qzone .jtico_qzone {
+    background-position: 0 -155px !important; }
 
 .share-box.active {
   opacity: 1;
@@ -1478,7 +1483,7 @@ span.likes {
   right: 0;
   top: 0;
   height: 66px; }
-  .po-funcitem a,
+  .po-funcitem > a,
   .po-funcitem div.topshare {
     display: block;
     float: left;
@@ -1488,7 +1493,7 @@ span.likes {
     color: #999;
     font-size: 16px;
     cursor: pointer; }
-    .po-funcitem a:after,
+    .po-funcitem > a:after,
     .po-funcitem div.topshare:after {
       content: "";
       display: block;
@@ -1497,10 +1502,10 @@ span.likes {
       top: 0px;
       height: 37px;
       border-left: solid 1px #ccc; }
-    .po-funcitem a:hover,
+    .po-funcitem > a:hover,
     .po-funcitem div.topshare:hover {
       color: #ff9d00; }
-      .po-funcitem a:hover i,
+      .po-funcitem > a:hover i,
       .po-funcitem div.topshare:hover i {
         color: #ff9d00; }
   .po-funcitem a.topcomment {

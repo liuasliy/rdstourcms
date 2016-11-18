@@ -1,7 +1,9 @@
-@import "variables";
+
 
 body{
   font-family: "Microsoft YaHei";
+  margin: 0;
+  padding: 0;
 }
 ul,li{
   list-style: none;
@@ -731,6 +733,10 @@ span.likes{
 .side-swap{
   padding: 30px 10px 0px 30px;
   overflow: hidden;
+  .slides{
+    height: 220px;
+    overflow: hidden;
+  }
   li{
     position: relative;
     overflow: hidden;
@@ -1021,7 +1027,7 @@ span.likes{
   -ms-transform: scale3d(0,0,0);
   transform: scale3d(0,0,0);
   .bshare-custom{
-    a{
+    a .jtico{
       background: url("../images/share_icon.png") no-repeat;
       width: 40px;
       height: 40px;
@@ -1029,17 +1035,17 @@ span.likes{
       margin: 0;
       float: left;
     }
-    a.bshare-weixin{
-      background-position: 0 -50px!important;
+    a.bshare-weixin .jtico_weixin{
+      background-position: 0 -55px!important;
     }
-    a.bshare-sinaminiblog{
-      background-position: 0 0px!important;
+    a.bshare-sinaminiblog .jtico_tsina{
+      background-position: 0 -5px!important;
     }
-    a.bshare-qqmb{
-      background-position: 0 -200px!important;
+    a.bshare-qqmb .jtico_tqq{
+      background-position: 0 -205px!important;
     }
-    a.bshare-qzone{
-      background-position: 0 -150px!important;
+    a.bshare-qzone .jtico_qzone{
+      background-position: 0 -155px!important;
     }
   }
 }
@@ -1550,7 +1556,7 @@ span.likes{
   right: 0;
   top: 0;
   height: 66px;
-  a,
+  &>a,
   div.topshare{
     display: block;
     float: left;

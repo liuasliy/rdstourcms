@@ -9,8 +9,6 @@
   <meta name="description" content="记录旅游路上的见闻,美丽摄影,记下每一次出门,每一次路上的旅行。">
   <title>路人游</title>
   <link rel="Shortcut Icon" href="/static/images/logo_net_321.png">
-  <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="/static/css/rs-account.css"/>
   <link rel="stylesheet" href="/static/css/rs-index.css"/>
 </head>
@@ -77,15 +75,18 @@
   </div>
 </div>
 <!--script-->
-<script src="/static/js/jquery-v1.10.2.js"></script>
-
+<script  data-main="/static/js/config" src="/static/js/require.js" ></script>
 <script>
-  $(function () {
-    $('input[name="username"]').attr('placeholder','字母、数字等,用户名唯一~');
-    $('input[name="email"]').attr('placeholder','邮箱地址~');
-    $('input[name="password1"]').attr('placeholder','不少于6位~')
-    $('input[name="password2"]').attr('placeholder','再次确认~')
-  })
+  var __funcList = [];
+  var _run = function (aFunc) {
+    __funcList.push(aFunc);
+  };
+</script>
+<script>
+  _run(function () {
+    require(['sign'],function(){
+    })
+  });
 </script>
 </body>
 </html>

@@ -10,10 +10,18 @@
     <title>{% block title %}路人游{% endblock %}</title>
     <link rel="Shortcut Icon" href="/static/images/logo_net_321.png">
 
+    <link rel="stylesheet" href="/static/css/rs-index.css?v=8073c0aa0b">
+    <link rel="stylesheet" href="/static/css/rs-account.css?v=cb5b199b9c">
 
-    <link rel="stylesheet" href="/static/css/rs-index.css?v=89d4eda240">
-
-    <script src="/static/js/jquery-v1.10.2.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>-->
+    <script  data-main="/static/js/config" src="/static/js/require.js" ></script>
+    <script>
+        var __funcList = [];
+        var _run = function (aFunc) {
+            __funcList.push(aFunc);
+        };
+    </script>
     <script type="text/javascript">
         function queryByKeyword(){
             $('#form').submit();
@@ -104,14 +112,7 @@
     </div>
 </div>
 
-<!--script-->
 
-<script src="/static/js/photoswipe.min.js"></script>
-<script src="/static/js/photoswipe-ui-default.min.js"></script>
-<script src="/static/js/jquery.flexslider-min.js"></script>
-<script src="/static/js/jquery.lazyload.min.js"></script>
-<script src="/static/js/imgReady.js"></script>
-<script src="/static/js/jquery-rdsmain.js"></script>
 </body>
 
 </html>

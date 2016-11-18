@@ -108,17 +108,19 @@
     <div class="clearfix"></div>
   </div>
 </div>
-
 <script>
-  $(function () {
-    var avatarimg = $('.avatar').find('a').text();
-    $('.avatar img').attr('src','/media/'+avatarimg);
-    $('#id_mugshot').change(function () {
-      var imgsrc = $(this).val();
-      var pos=imgsrc.lastIndexOf("\\");
-      var imgname = imgsrc.substring(pos+1);
-      $('.ac-btn-sub span').text(imgname);
+  _run(function () {
+    require(['common','jquery'],function($){
+      var avatarimg = $('.avatar').find('a').text();
+      $('.avatar img').attr('src','/media/'+avatarimg);
+      $('#id_mugshot').change(function () {
+        var imgsrc = $(this).val();
+        var pos=imgsrc.lastIndexOf("\\");
+        var imgname = imgsrc.substring(pos+1);
+        $('.ac-btn-sub span').text(imgname);
+      })
     })
-  })
+  });
 </script>
+
 {% endblock %}

@@ -41,14 +41,13 @@
                     <span class="side-btn-icon"><i class="fa fa-share"></i></span>
                     <span class="side-btn-num side-share-word">分享</span>
                     <div class="share-box">
-                        <div class="bshare-custom">
-                            <a title="分享到微信" class="bshare-weixin"></a>
-                            <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
-                            <a title="分享到腾讯微博" class="bshare-qqmb"></a>
-                            <a title="分享到QQ空间" class="bshare-qzone"></a>
+                        <div class="bshare-custom jiathis_style_32x32">
+                            <a title="分享到微信" class="jiathis_button_weixin bshare-weixin"></a>
+                            <a title="分享到新浪微博" class="jiathis_button_tsina bshare-sinaminiblog"></a>
+                            <a title="分享到腾讯微博" class="jiathis_button_tqq bshare-qqmb"></a>
+                            <a title="分享到QQ空间" class="jiathis_button_qzone bshare-qzone"></a>
                         </div>
-                        <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
-                        <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+                        <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
                     </div>
                 </div>
             </div>
@@ -266,79 +265,14 @@
     </div>
 </div>
 
-
-<!--script-->
-
 <script>
-    $(function() {
-        $(".side-swap").flexslider({
-            animation:'fade',
-            slideshowSpeed:'3000',
-            pauseOnHover:'false',
-            directionNav: false,
-            controlNav: false,
-        });
+    _run(function () {
+       require(['travdetails'],function(travdetails){
+           travdetails.detailDir();
+           travdetails.postFix();
+       })
     });
-    $(function(){
-        var sidelemt = $(".side-postion_fix"); //得到导航对象
-        var win = $(window); //得到窗口对象
-        win.scroll(function () {
-            var ofsethei = sidelemt.offset().top-win.scrollTop();
-            var sidswhei = $('.side-swap').offset().top-win.scrollTop();
-            var foothei = $('.footer').offset().top-win.scrollTop();
-            if(ofsethei <=10){
-                sidelemt.addClass('rds-side_fix');
-            }
-            if(sidswhei >= -250){
-                sidelemt.removeClass('rds-side_fix');
-            }
-            if(foothei <= 150){
-                sidelemt.removeClass('rds-side_fix');
-            }
-        })
-
-        var length = $('.project-related li').length;
-        if(length > 3){
-            for(var i=3;i<length;i++){
-                $('.project-related li').eq(i).remove();
-            }
-        }
-
-        //directory
-        $('.tour-article p strong').each(function (index) {
-            var dirName = $(this).text();
-            console.log(index);
-            if(index<10){
-                var aHtml = '<li><span class="direct-num">'+'0'+(index+01)+'/</span><a href="#'+(index+1)+'">'+dirName+'</a></li>';
-            }
-            else{
-                var aHtml = '<li><span class="direct-num">'+(index+01)+'/</span><a href="#'+(index+1)+'">'+dirName+'</a></li>';
-            }
-            $('.tour-directory ul').append(aHtml);
-        })
-
-        //dianzan
-        $('.click-heart').click(function () {
-          $('.fav-note').show();
-            var url = "/like_tarvels/"+{{ travels.id }};
-           $('.fav-note iframe').attr('src',url);
-           setTimeout(function () {
-               $('.fav-note').hide();
-               $('.fav-note iframe').attr('src','');
-           },2000);
-        })
-
-        //shoucang
-        $('.click-fav').click(function () {
-            $('.fav-note').show() ;
-            var url = "/addfav/"+{{ travels.id }};
-            $('.fav-note iframe').attr('src',url);
-            setTimeout(function () {
-                $('.fav-note').hide();
-                $('.fav-note iframe').attr('src','');
-            },2000);
-        })
-    })
-
 </script>
+
 {% endblock %}
+

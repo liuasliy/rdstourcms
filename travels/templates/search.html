@@ -7,12 +7,14 @@
 		display: none;
 	}
 </style>
-<script type="text/javascript">
-	$(function () {
-		var ofheight = $(document).height();
-		$('.main').css('height',ofheight-145);
-		$('.header-right').find('.search').remove();
-    })
+<script>
+	_run(function () {
+		require(['jquery'],function(){
+			var ofheight = $(document).height();
+			$('.main').css('height',ofheight-145);
+			$('.header-right').find('.search').remove();
+		})
+	});
 </script>
 
 <div class="main">

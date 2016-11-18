@@ -92,21 +92,10 @@
 </div>
 
 <script>
-  $(function () {
-    $('.ac-userpass .dd-fix').each(function () {
-      $(this).click(function () {
-        $(this).hide();
-        $(this).prev().hide();
-        $(this).siblings('.set-pwmail').slideDown();
-      })
+  _run(function () {
+    require(['sign'],function(){
     })
-    $('.ac-userpass .ac-sub-cancel').each(function () {
-      $(this).click(function () {
-        $(this).parents('.set-pwmail').hide();
-        $(this).parents('.set-pwmail').prevAll().show();
-      })
-    })
-  })
+  });
 </script>
 
 {% endblock %}

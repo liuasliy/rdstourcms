@@ -46,28 +46,10 @@
 
 
 
-
-
-<script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
-
 <script>
-    $(function () {
-        $('#id_image').hide();
-        $('#id_image').parents('li').append('<label for="id_image" class="upload">上传图片</label>' +
-                '<div class="filename"></div>');
-        $('#id_image').change(function () {
-            $('.filename').html($('#id_image').val());
+    _run(function () {
+        require(['upload'],function(){
         })
-//
-        $('#id_bigimage').hide();
-        $('#id_bigimage').parents('li').append('<label for="id_bigimage" class="upload">上传图片</label>' +
-                '<div class="filename02"></div>');
-        $('#id_bigimage').change(function () {
-            $('.filename02').html($('#id_bigimage').val());
-        })
-
-    })
+    });
 </script>
-
 {% endblock %}

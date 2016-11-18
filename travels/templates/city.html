@@ -4,15 +4,18 @@
 {% load pagination_tags %}
 
 <script>
-    $(function () {
-        h2 = $('.cityname').val();
-        $('.city-title h2').html(h2);
-    })
+    _run(function () {
+        require(['jquery'],function($){
+            h2 = $('.cityname').val();
+            $('.city-title h2').html(h2);
+            var ofheight = $(document).height();
+            $('.city-main').css('min-height',ofheight-120);
+        })
+    });
 </script>
 <!--container-->
 {% if travels_list %}
 <div class="container city-main">
-
     <div class="city-title">
         <h2></h2>
     </div>
@@ -61,12 +64,6 @@
 
 {% endif %}
 
-<script>
-    $(function () {
-        var ofheight = $(document).height();
-        $('.city-main').css('min-height',ofheight-120);
-    })
-</script>
 {%endblock%}
 
 

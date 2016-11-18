@@ -13,9 +13,11 @@
 </div>
 
 <script>
-    $(function () {
-        var ofheight = $(document).height();
-        $('.abt-main').css('height',ofheight-120);
-    })
+    _run(function () {
+        require(['common','jquery'],function($){
+            var ofheight = $(document).height();
+            $('.abt-main').css('height',ofheight-120);
+        })
+    });
 </script>
 {% endblock %}
